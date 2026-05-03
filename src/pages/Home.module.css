@@ -123,8 +123,7 @@
 
 .terminalBody {
   padding: var(--space-4) var(--space-6);
-  height: auto;
-  min-height: 260px;
+  height: 390px;
   overflow: hidden;
   line-height: 1.9;
 }

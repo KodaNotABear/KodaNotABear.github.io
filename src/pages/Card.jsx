@@ -1,33 +1,34 @@
 import { useState } from 'react'
+import { GitHubIcon, ItchIcon, DiscordIcon, EmailIcon, GlobeIcon } from '../components/Icons'
 import styles from './Card.module.css'
 
 const LINKS = [
   {
-    icon: '✉',
+    icon: <EmailIcon size={20} />,
     label: 'Email',
     value: 'koda@thunderbyte.studio',
     href: 'mailto:koda@thunderbyte.studio',
   },
   {
-    icon: '⌥',
+    icon: <GitHubIcon size={20} />,
     label: 'GitHub',
     value: 'KodaNotABear',
     href: 'https://github.com/KodaNotABear',
   },
   {
-    icon: '🎮',
+    icon: <ItchIcon size={20} />,
     label: 'itch.io',
     value: 'kodanotabear.itch.io',
     href: 'https://kodanotabear.itch.io',
   },
   {
-    icon: '💬',
+    icon: <DiscordIcon size={20} />,
     label: 'Discord',
     value: 'kodanotabear',
     href: 'https://discord.com/users/kodanotabear',
   },
   {
-    icon: '🌐',
+    icon: <GlobeIcon size={20} />,
     label: 'Portfolio',
     value: 'thunderbyte.studio',
     href: 'https://thunderbyte.studio',
