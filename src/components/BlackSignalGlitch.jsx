@@ -14,21 +14,27 @@ export default function BlackSignalGlitch() {
   const [visible, setVisible] = useState(false)
   const seqRef = useRef([])
 
-  // Trigger: type S-I-G-N-A-L
+  // Trigger: type S-I-G-N-A-L  (or custom eggTrigger event for mobile)
   useEffect(() => {
     const SEQ = 'SIGNAL'
+    const trigger = () => {
+      setVisible(true)
+      seqRef.current = []
+      setTimeout(() => setVisible(false), 5000)
+    }
     const onKey = (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return
       seqRef.current.push(e.key.toUpperCase())
       if (seqRef.current.length > SEQ.length) seqRef.current.shift()
-      if (seqRef.current.join('') === SEQ) {
-        setVisible(true)
-        seqRef.current = []
-        setTimeout(() => setVisible(false), 5000)
-      }
+      if (seqRef.current.join('') === SEQ) trigger()
     }
+    const onEgg = (e) => { if (e.detail === SEQ) trigger() }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
+    window.addEventListener('eggTrigger', onEgg)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('eggTrigger', onEgg)
+    }
   }, [])
 
   // Esc early dismiss

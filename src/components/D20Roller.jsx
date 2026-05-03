@@ -31,19 +31,23 @@ export default function D20Roller() {
   const [result, setResult] = useState(null)
   const seqRef = useRef([])
 
-  // Trigger: type R-O-L-L anywhere
+  // Trigger: type R-O-L-L anywhere  (or custom eggTrigger event for mobile)
   useEffect(() => {
     const SEQ = 'ROLL'
+    const trigger = () => { setOpen(true); setResult(null); seqRef.current = [] }
     const onKey = (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return
       seqRef.current.push(e.key.toUpperCase())
       if (seqRef.current.length > SEQ.length) seqRef.current.shift()
-      if (seqRef.current.join('') === SEQ) {
-        setOpen(true); setResult(null); seqRef.current = []
-      }
+      if (seqRef.current.join('') === SEQ) trigger()
     }
+    const onEgg = (e) => { if (e.detail === SEQ) trigger() }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
+    window.addEventListener('eggTrigger', onEgg)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('eggTrigger', onEgg)
+    }
   }, [])
 
   // Escape to close

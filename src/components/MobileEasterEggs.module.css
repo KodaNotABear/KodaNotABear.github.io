@@ -1,0 +1,108 @@
+/* Only visible on mobile */
+.root {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .root {
+    display: block;
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-6);
+    z-index: 200;
+  }
+}
+
+.fab {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-border);
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,212,255,0.08);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fab:active {
+  transform: scale(0.92);
+}
+
+.fabOpen {
+  border-color: var(--accent-cyan-dim);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5), 0 0 12px rgba(0,212,255,0.2);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.menu {
+  position: absolute;
+  bottom: 58px;
+  right: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-2);
+  min-width: 160px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 20px rgba(0,212,255,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  animation: popUp 0.15s ease;
+}
+
+@keyframes popUp {
+  from { opacity: 0; transform: translateY(8px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.menuLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  padding: 0 var(--space-3) var(--space-2);
+  border-bottom: 1px solid var(--bg-border);
+  margin-bottom: var(--space-1);
+}
+
+.eggBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-3);
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: left;
+  transition: background 0.12s ease, color 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.eggBtn:active {
+  background: var(--bg-elevated);
+  color: var(--accent-cyan);
+}
+
+.eggIcon {
+  font-size: 1.15rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}

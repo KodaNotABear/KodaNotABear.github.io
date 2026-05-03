@@ -44,22 +44,25 @@ export default function DestinyGhost() {
   const [lit, setLit] = useState(true)
   const seqRef = useRef([])
 
-  // Trigger: type G-H-O-S-T
+  // Trigger: type G-H-O-S-T  (or custom eggTrigger event for mobile)
   useEffect(() => {
     const SEQ = 'GHOST'
+    const trigger = () => {
+      setVisible(true); setQuipIdx(0); setLit(true); seqRef.current = []
+    }
     const onKey = (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return
       seqRef.current.push(e.key.toUpperCase())
       if (seqRef.current.length > SEQ.length) seqRef.current.shift()
-      if (seqRef.current.join('') === SEQ) {
-        setVisible(true)
-        setQuipIdx(0)
-        setLit(true)
-        seqRef.current = []
-      }
+      if (seqRef.current.join('') === SEQ) trigger()
     }
+    const onEgg = (e) => { if (e.detail === SEQ) trigger() }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
+    window.addEventListener('eggTrigger', onEgg)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('eggTrigger', onEgg)
+    }
   }, [])
 
   // Esc to dismiss
