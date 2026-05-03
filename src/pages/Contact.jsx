@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import styles from './Contact.module.css'
 
 const CONTACT_INFO = [
-  { icon: '✉', label: 'Email', value: 'koda@thunderbyte.studio', href: 'mailto:koda@thunderbyte.studio' },
+  { icon: '✉', label: 'Email', value: 'koda@akuro.studio', href: 'mailto:koda@akuro.studio' },
   { icon: '⌥', label: 'GitHub', value: 'github.com/KodaNotABear', href: 'https://github.com/KodaNotABear' },
   { icon: '🎮', label: 'itch.io', value: 'kodanotabear.itch.io', href: 'https://kodanotabear.itch.io' },
   { icon: '💬', label: 'Discord', value: 'kodanotabear', href: 'https://discord.com/users/kodanotabear' },

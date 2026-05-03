@@ -5,7 +5,7 @@ import ProjectCard from '../components/ProjectCard'
 import { projects } from '../data/projects'
 import styles from './Home.module.css'
 
-const EYEBROW_TEXT = '// thunderbyte.studio'
+const EYEBROW_TEXT = '// akuro.studio'
 
 function Typewriter({ text }) {
   const [displayed, setDisplayed] = useState('')
@@ -28,7 +28,7 @@ function Typewriter({ text }) {
 }
 
 const BOOT_LINES = [
-  { text: 'THUNDERBYTE OS v2.6.0', delay: 200, color: 'cyan' },
+  { text: 'AKURO OS v2.6.0', delay: 200, color: 'cyan' },
   { text: '────────────────────────', delay: 400, color: 'dim' },
   { text: '> loading operator profile...', delay: 700, color: 'normal' },
   { text: '  name:     Ethan Peterson', delay: 1100, color: 'normal' },
@@ -59,7 +59,7 @@ function TerminalWindow() {
         <span className={styles.termDot} style={{ background: '#ff5f57' }} />
         <span className={styles.termDot} style={{ background: '#febc2e' }} />
         <span className={styles.termDot} style={{ background: '#28c840' }} />
-        <span className={styles.termTitle}>thunderbyte — bash</span>
+        <span className={styles.termTitle}>AKURO — bash</span>
       </div>
       <div className={styles.terminalBody}>
         {BOOT_LINES.map((line, i) =>
@@ -129,7 +129,7 @@ export default function Home() {
               </h1>
 
               <p className={styles.heroRole}>
-                Game Programmer &amp; Designer · Thunderbyte Studio
+                Game Programmer &amp; Designer · AKURO STUDIO
               </p>
 
               <p className={styles.heroBio}>

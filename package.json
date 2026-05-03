@@ -1,5 +1,5 @@
 {
-  "name": "thunderbyte-site",
+  "name": "akuro-site",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://thunderbyte.studio",
+  "homepage": "https://akuro.studio",
   "dependencies": {
     "framer-motion": "^12.38.0",
     "react": "^19.2.5",

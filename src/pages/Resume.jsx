@@ -14,7 +14,7 @@ const EXPERIENCE = [
   },
   {
     title: 'Founder & Lead Developer',
-    org: 'Thunderbyte Studio (Solo)',
+    org: 'AKURO STUDIO (Solo)',
     date: '2022 – Present',
     bullets: [
       'Developing Black Signal, a space horror game in Unity (C#), as a solo developer — handling all design, programming, and production',
@@ -48,7 +48,7 @@ const PROJECTS = [
   },
   {
     title: 'Black Signal',
-    org: 'Thunderbyte Studio',
+    org: 'AKURO STUDIO',
     date: '2025 – Present',
     bullets: [
       'Solo-developed space horror game in Unity (C#) inspired by Observation Duty — player monitors a derelict station through its security camera network, tracking anomalies and keeping the crew alive',
@@ -132,8 +132,8 @@ export default function Resume() {
               <div className={styles.docName}>Ethan Peterson</div>
               <div className={styles.docTitle}>Game Programmer &amp; Designer · CS Graduate</div>
               <div className={styles.contactInfo}>
-                <span className={styles.contactItem}>✉ <a href="mailto:koda@thunderbyte.studio">koda@thunderbyte.studio</a></span>
-                <span className={styles.contactItem}>🌐 <a href="https://thunderbyte.studio" target="_blank" rel="noopener noreferrer">thunderbyte.studio</a></span>
+                <span className={styles.contactItem}>✉ <a href="mailto:koda@akuro.studio">koda@akuro.studio</a></span>
+                <span className={styles.contactItem}>🌐 <a href="https://akuro.studio" target="_blank" rel="noopener noreferrer">akuro.studio</a></span>
                 <span className={styles.contactItem}>⌥ <a href="https://github.com/KodaNotABear" target="_blank" rel="noopener noreferrer">github.com/KodaNotABear</a></span>
                 <span className={styles.contactItem}>🎮 <a href="https://kodanotabear.itch.io" target="_blank" rel="noopener noreferrer">kodanotabear.itch.io</a></span>
               </div>

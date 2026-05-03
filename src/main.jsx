@@ -19,7 +19,7 @@ console.log('%c  STUDIO', white)
 console.log('%c  ─────────────────────────────────────────────────────────', dim)
 console.log('%c  Hey, I see you\'re a developer too.', white)
 console.log('%c  Want to work together?', dim)
-console.log('%c  → koda@thunderbyte.studio', cyan)
+console.log('%c  → koda@akuro.studio', cyan)
 console.log('%c  ─────────────────────────────────────────────────────────', dim)
 // ────────────────────────────────────────────────────────────
 
