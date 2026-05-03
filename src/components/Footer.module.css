@@ -25,7 +25,9 @@
 
 .socials {
   display: flex;
-  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
   align-items: center;
 }
 

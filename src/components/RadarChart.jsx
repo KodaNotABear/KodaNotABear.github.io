@@ -59,15 +59,18 @@ export default function RadarChart() {
         })}
 
         {/* Data polygon */}
-        <motion.polygon
-          points={dataPoints}
-          className={styles.data}
+        <motion.g
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           style={{ transformOrigin: `${CENTER}px ${CENTER}px` }}
-        />
+        >
+          <polygon
+            points={dataPoints}
+            className={styles.data}
+          />
+        </motion.g>
 
         {/* Skill labels */}
         {SKILLS.map((skill, i) => {
