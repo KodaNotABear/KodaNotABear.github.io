@@ -1,10 +1,12 @@
 .hero {
   min-height: 100vh;
+  min-height: 100dvh; /* accounts for iOS Safari dynamic toolbar */
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
   padding-top: 64px; /* navbar height */
+  padding-bottom: var(--space-12);
 }
 
 /* Animated background grid */
@@ -30,6 +32,7 @@
   right: -100px;
   pointer-events: none;
   animation: floatOrb 12s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 .orb2 {
@@ -42,6 +45,7 @@
   left: -80px;
   pointer-events: none;
   animation: floatOrb 15s ease-in-out infinite alternate-reverse;
+  will-change: transform;
 }
 
 @keyframes floatOrb {

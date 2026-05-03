@@ -27,6 +27,8 @@
   stroke: var(--accent-cyan);
   stroke-width: 1.5;
   stroke-linejoin: round;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 .label {
