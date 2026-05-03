@@ -1,0 +1,220 @@
+.page { padding-top: 64px; }
+
+.header {
+  padding: var(--space-12) 0 var(--space-8);
+  border-bottom: 1px solid var(--bg-border);
+}
+
+.headerInner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+/* Resume layout */
+.resumeWrap {
+  padding: var(--space-12) 0 var(--space-16);
+}
+
+.resumeDoc {
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  max-width: 860px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-card);
+}
+
+/* Doc header */
+.docHeader {
+  background: var(--bg-elevated);
+  padding: var(--space-8) var(--space-12);
+  border-bottom: 1px solid var(--bg-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.docHeader::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+}
+
+.docName {
+  font-size: 2.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.docTitle {
+  font-size: 1.1rem;
+  color: var(--accent-cyan);
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+}
+
+.contactInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.contactItem a {
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+.contactItem a:hover { color: var(--accent-cyan); }
+
+/* Doc body */
+.docBody {
+  padding: var(--space-8) var(--space-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+@media (max-width: 640px) {
+  .docHeader, .docBody { padding-left: var(--space-6); padding-right: var(--space-6); }
+}
+
+/* Section */
+.resumeSection {}
+
+.resumeSection h2 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-cyan);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--bg-border);
+  margin-bottom: var(--space-4);
+}
+
+/* Entry */
+.entry {
+  margin-bottom: var(--space-5);
+}
+
+.entryHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.entryTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.entryOrg {
+  font-size: 0.85rem;
+  color: var(--accent-violet);
+  font-family: var(--font-mono);
+  margin-top: 2px;
+}
+
+.entryDate {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding-top: 3px;
+}
+
+.entryBullets {
+  list-style: none;
+  margin-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.entryBullets li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.entryBullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-cyan);
+  font-size: 0.75rem;
+  top: 3px;
+}
+
+/* Skills grid */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+.skillGroup h3 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.skillList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skillList span {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* PDF note */
+.pdfNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--bg-border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}

@@ -1,64 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="https://use.typekit.net/lyl7ijv.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThunderByte Studio</title>
-    <style>
-        /* Basic styling, you can customize this according to your preferences */
-        body {
-            font-family: "new-science-mono", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            margin: 0;
-            padding: 0;
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethan Peterson · Thunderbyte Studio</title>
+    <meta name="description" content="Game programmer and designer. CS graduate, May 2026. Building games with Unity under Thunderbyte Studio." />
+    <meta property="og:title" content="Ethan Peterson · Thunderbyte Studio" />
+    <meta property="og:description" content="Game programmer and designer. CS graduate, May 2026." />
+    <meta property="og:url" content="https://thunderbyte.studio" />
+    <meta name="theme-color" content="#0a0b0f" />
+    <script>
+      // Restore path from GitHub Pages 404 redirect
+      (function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #555;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>ThunderByte Studio</h1>
-    <p>Currently learning webdev (as you can see)</p>
-</header>
-
-<nav>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <!-- Add more links as needed -->
-</nav>
-
-<div class="container">
-    <h2>We are in the process of learning jekyll</h2>
-    <p>Placeholder for right now. Check back later!</p>
-    <!-- Add more content here as needed -->
-</div>
-
-</body>
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
