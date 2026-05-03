@@ -204,6 +204,15 @@ img, video { max-width: 100%; display: block; }
   to   { background-position: 0 100px; }
 }
 
+@keyframes crt-flicker {
+  0%,  100% { opacity: 1; }
+  92%        { opacity: 1; }
+  93%        { opacity: 0.97; }
+  94%        { opacity: 1; }
+  96%        { opacity: 0.98; }
+  97%        { opacity: 1; }
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -212,10 +221,25 @@ body::before {
     repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,212,255,0.015) 2px, rgba(0,212,255,0.015) 3px);
   pointer-events: none;
   z-index: 0;
-  animation: scanlines-scroll 8s linear infinite;
+  animation: scanlines-scroll 8s linear infinite, crt-flicker 6s step-end infinite;
+}
+
+/* ── CRT vignette ───────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 #root {
   position: relative;
   z-index: 1;
+}
+
+/* ── Phosphor glow on headings ──────────────────────────── */
+h1, h2 {
+  text-shadow: 0 0 18px rgba(0, 212, 255, 0.18), 0 0 40px rgba(0, 212, 255, 0.07);
 }
