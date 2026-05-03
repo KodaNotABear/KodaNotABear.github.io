@@ -266,19 +266,23 @@ export default function TextAdventure() {
   const seqRef  = useRef([])
   const inputRef = useRef(null)
 
-  // Trigger: type D-U-N-G-E-O-N
+  // Trigger: type D-U-N-G-E-O-N  (or custom eggTrigger event for mobile)
   useEffect(() => {
     const SEQ = 'DUNGEON'
+    const trigger = () => { setOpen(true); seqRef.current = [] }
     const onKey = (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return
       seqRef.current.push(e.key.toUpperCase())
       if (seqRef.current.length > SEQ.length) seqRef.current.shift()
-      if (seqRef.current.join('') === SEQ) {
-        setOpen(true); seqRef.current = []
-      }
+      if (seqRef.current.join('') === SEQ) trigger()
     }
+    const onEgg = (e) => { if (e.detail === SEQ) trigger() }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
+    window.addEventListener('eggTrigger', onEgg)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('eggTrigger', onEgg)
+    }
   }, [])
 
   // Close on Esc (only when input is not focused)
