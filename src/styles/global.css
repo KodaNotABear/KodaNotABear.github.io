@@ -224,8 +224,14 @@ body::before {
   animation: scanlines-scroll 8s linear infinite, crt-flicker 6s step-end infinite;
 }
 
-/* Disable expensive continuous animations on mobile to prevent repaint thrashing */
+/* Mobile keeps a lighter scanline animation to avoid heavy repaint cost */
 @media (max-width: 768px) {
+  body::before {
+    animation: scanlines-scroll 14s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
   body::before {
     animation: none;
   }
