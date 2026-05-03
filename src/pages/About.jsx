@@ -1,19 +1,37 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import RadarChart from '../components/RadarChart'
+import GitHubHeatmap from '../components/GitHubHeatmap'
 import styles from './About.module.css'
 
-const EXPERIENCE = [
+const TIMELINE = [
+  {
+    date: 'May 2026',
+    title: 'CS Degree Awarded',
+    org: 'Arizona State University',
+    desc: 'Graduated with a B.S. in Computer Science, Software Engineering focus.',
+    color: 'var(--accent-cyan)',
+  },
   {
     date: 'Aug 2025 – May 2026',
     title: 'Software Engineering Intern',
     org: 'Pixel Pirate Studio',
-    desc: 'Worked on Off-Road Champion, a mobile Unity game. Designed and implemented a player onboarding system to guide new players through core mechanics, improving early-game retention. Gained hands-on professional game development pipeline experience.',
+    desc: 'Shipped player onboarding for Off-Road Champion on mobile. Gained real production pipeline experience inside a professional Unity team.',
+    color: 'var(--accent-violet)',
   },
   {
-    date: '2022 – 2026',
-    title: 'B.S. Computer Science — Software Engineering Focus',
+    date: '2025 – Present',
+    title: 'Founder & Solo Developer',
+    org: 'Thunderbyte Studio',
+    desc: 'Developing Black Signal, a space-horror game inspired by Observation Duty. Currently in active development.',
+    color: 'var(--accent-cyan)',
+  },
+  {
+    date: '2022',
+    title: 'Started CS Degree',
     org: 'Arizona State University',
-    desc: 'Relevant coursework: Data Structures, Algorithms, Software Engineering, Computer Graphics, Game Development, Operating Systems, Database Systems.',
+    desc: 'Enrolled with a focus on Software Engineering. Relevant coursework: Game Development, Computer Graphics, Algorithms, OS, Databases.',
+    color: '#6b7280',
   },
 ]
 
@@ -79,16 +97,23 @@ export default function About() {
             <div>
               {/* Experience timeline */}
               <div className={styles.sectionBlock}>
-                <h2>Experience &amp; Education</h2>
+                <h2>Timeline</h2>
                 <div className={styles.timeline}>
-                  {EXPERIENCE.map(({ date, title, org, desc }) => (
-                    <div key={title} className={styles.timelineItem}>
-                      <span className={styles.timelineDot} />
+                  {TIMELINE.map(({ date, title, org, desc, color }, i) => (
+                    <motion.div
+                      key={title}
+                      className={styles.timelineItem}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.12, duration: 0.4 }}
+                    >
+                      <span className={styles.timelineDot} style={{ background: color, boxShadow: `0 0 8px ${color}` }} />
                       <p className={styles.timelineDate}>{date}</p>
                       <p className={styles.timelineTitle}>{title}</p>
                       <p className={styles.timelineOrg}>{org}</p>
                       <p className={styles.timelineDesc}>{desc}</p>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -104,6 +129,18 @@ export default function About() {
 
             {/* Right column */}
             <div>
+              {/* Radar chart */}
+              <div className={styles.sectionBlock}>
+                <h2>Skills Overview</h2>
+                <RadarChart />
+              </div>
+
+              {/* GitHub heatmap */}
+              <div className={styles.sectionBlock}>
+                <h2>GitHub Activity</h2>
+                <GitHubHeatmap />
+              </div>
+
               {/* Fun facts */}
               <div className={styles.sectionBlock}>
                 <h2>Quick Facts</h2>

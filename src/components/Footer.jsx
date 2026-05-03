@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styles from './Footer.module.css'
 
 const SOCIALS = [
@@ -7,7 +8,14 @@ const SOCIALS = [
   { label: 'Email',    href: 'mailto:koda@thunderbyte.studio',          icon: '✉' },
 ]
 
+const STACK = [
+  'React 19', 'Vite 8', 'React Router v7',
+  'Framer Motion', 'CSS Modules', 'GitHub Pages', 'Cloudflare',
+]
+
 export default function Footer() {
+  const [tipVisible, setTipVisible] = useState(false)
+
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
@@ -32,8 +40,19 @@ export default function Footer() {
           ))}
         </nav>
 
-        <p className={styles.copy}>
-          © {new Date().getFullYear()} Ethan Peterson · Thunderbyte Studio · Built with React + Vite
+        <p
+          className={styles.copy}
+          style={{ position: 'relative', display: 'inline-block', cursor: 'default' }}
+          onMouseEnter={() => setTipVisible(true)}
+          onMouseLeave={() => setTipVisible(false)}
+        >
+          © {new Date().getFullYear()} Ethan Peterson · Thunderbyte Studio ·{' '}
+          <span className={styles.builtWith}>Built with React + Vite ↑</span>
+          {tipVisible && (
+            <span className={styles.tooltip}>
+              {STACK.map(t => <span key={t} className={styles.tooltipTag}>{t}</span>)}
+            </span>
+          )}
         </p>
       </div>
     </footer>

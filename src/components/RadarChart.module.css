@@ -1,0 +1,37 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-4) 0;
+}
+
+.svg {
+  width: 100%;
+  max-width: 260px;
+  overflow: visible;
+}
+
+.ring {
+  fill: none;
+  stroke: rgba(0, 212, 255, 0.12);
+  stroke-width: 1;
+}
+
+.axis {
+  stroke: rgba(0, 212, 255, 0.1);
+  stroke-width: 1;
+}
+
+.data {
+  fill: rgba(0, 212, 255, 0.12);
+  stroke: var(--accent-cyan);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  fill: var(--text-muted);
+  letter-spacing: 0.04em;
+}

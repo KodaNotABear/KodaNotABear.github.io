@@ -1,0 +1,107 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 64px;
+}
+
+.scanline {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(0,212,255,0.015) 3px, rgba(0,212,255,0.015) 5px
+  );
+  pointer-events: none;
+}
+
+.content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-8);
+}
+
+.gameOver {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 12vw, 7rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff4444, #ff0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.08em;
+  animation: glitch 3s ease-in-out infinite;
+}
+
+@keyframes glitch {
+  0%, 90%, 100% { transform: translate(0); filter: none; }
+  91% { transform: translate(-2px, 1px); filter: hue-rotate(60deg); }
+  92% { transform: translate(2px, -1px); filter: hue-rotate(-60deg); }
+  93% { transform: translate(0); filter: none; }
+  94% { transform: translate(1px, 2px); }
+  95% { transform: translate(-1px, -2px); filter: hue-rotate(30deg); }
+  96% { transform: translate(0); filter: none; }
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.message {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.continue {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.continueText {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  letter-spacing: 0.1em;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.countdown {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.coins {
+  display: flex;
+  gap: var(--space-2);
+  min-height: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.btn {
+  margin-top: var(--space-4);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+}
