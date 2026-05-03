@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import { GitHubIcon, ItchIcon, DiscordIcon, EmailIcon } from './Icons'
 import styles from './Footer.module.css'
 
 const SOCIALS = [
-  { label: 'GitHub',   href: 'https://github.com/KodaNotABear', icon: '⌥' },
-  { label: 'itch.io',  href: 'https://kodanotabear.itch.io',     icon: '🎮' },
-  { label: 'Discord',  href: 'https://discord.com/users/kodanotabear', icon: '💬' },
-  { label: 'Email',    href: 'mailto:koda@thunderbyte.studio',          icon: '✉' },
+  { label: 'GitHub',  href: 'https://github.com/KodaNotABear',           icon: <GitHubIcon /> },
+  { label: 'itch.io', href: 'https://kodanotabear.itch.io',              icon: <ItchIcon /> },
+  { label: 'Discord', href: 'https://discord.com/users/kodanotabear',    icon: <DiscordIcon /> },
+  { label: 'Email',   href: 'mailto:koda@thunderbyte.studio',            icon: <EmailIcon /> },
 ]
 
 const STACK = [
@@ -35,7 +36,7 @@ export default function Footer() {
               target={href.startsWith('http') ? '_blank' : undefined}
               rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
             >
-              <span>{icon}</span> {label}
+              <span style={{ display: 'flex', alignItems: 'center' }}>{icon}</span> {label}
             </a>
           ))}
         </nav>
