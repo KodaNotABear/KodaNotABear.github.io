@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useAchievement, AchievementToast } from './AchievementToast'
+import AmbientSound from './AmbientSound'
 import styles from './Navbar.module.css'
 
 const NAV_ITEMS = [
@@ -65,6 +66,8 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
+
+        <AmbientSound />
 
         <button
           className={styles.menuBtn}

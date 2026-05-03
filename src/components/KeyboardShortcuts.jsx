@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './KeyboardShortcuts.module.css'
 
@@ -13,6 +13,11 @@ const SHORTCUTS = [
 
 const INFO_SHORTCUTS = [
   { keys: ['↑↑↓↓←→←→BA'], label: '???' },
+  { keys: ['S N A K E'],   label: '🐍' },
+  { keys: ['R O L L'],     label: '🎲' },
+  { keys: ['G H O S T'],   label: '👻' },
+  { keys: ['S I G N A L'], label: '📡' },
+  { keys: ['D U N G E O N'], label: '⚔️' },
   { keys: ['?'],            label: 'Toggle this menu' },
   { keys: ['Esc'],          label: 'Close menu' },
 ]
@@ -20,49 +25,42 @@ const INFO_SHORTCUTS = [
 export default function KeyboardShortcuts() {
   const [open, setOpen] = useState(false)
   const navigate = useNavigate()
-  const pendingG = useCallback(() => {}, [])
-  const gTimerRef = { current: null }
+  // Use a ref for open so the stable event listener always sees current value
+  const openRef = React.useRef(open)
+  useEffect(() => { openRef.current = open }, [open])
 
   useEffect(() => {
     let waitingForSecond = false
     let timer = null
 
     function onKey(e) {
-      // Ignore inside inputs/textareas
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return
 
-      const key = e.key.toUpperCase()
-
-      if (key === 'ESCAPE') {
+      if (e.key === 'Escape') {
         setOpen(false)
         return
       }
 
-      if (open && key === '?') {
-        setOpen(false)
-        return
-      }
-
-      if (!open && (key === '?' || e.key === '?')) {
+      if (e.key === '?') {
         e.preventDefault()
-        setOpen(true)
+        setOpen(prev => !prev)
         return
       }
 
-      if (key === 'G') {
-        waitingForSecond = true
-        clearTimeout(timer)
-        timer = setTimeout(() => { waitingForSecond = false }, 1000)
-        return
-      }
-
-      if (waitingForSecond) {
-        waitingForSecond = false
-        clearTimeout(timer)
-        const match = SHORTCUTS.find(s => s.keys[1] === key)
-        if (match) {
-          navigate(match.path)
-          setOpen(false)
+      // G+letter navigation — only when modal is closed
+      if (!openRef.current) {
+        const upper = e.key.toUpperCase()
+        if (upper === 'G') {
+          waitingForSecond = true
+          clearTimeout(timer)
+          timer = setTimeout(() => { waitingForSecond = false }, 1000)
+          return
+        }
+        if (waitingForSecond) {
+          waitingForSecond = false
+          clearTimeout(timer)
+          const match = SHORTCUTS.find(s => s.keys[1] === upper)
+          if (match) { navigate(match.path) }
         }
       }
     }
@@ -72,7 +70,7 @@ export default function KeyboardShortcuts() {
       window.removeEventListener('keydown', onKey)
       clearTimeout(timer)
     }
-  }, [open, navigate])
+  }, [navigate])  // stable — no re-register on open changes
 
   if (!open) return null
 

@@ -73,11 +73,21 @@
   flex-wrap: wrap;
   gap: var(--space-2);
   width: max-content;
-  max-width: 280px;
+  max-width: min(280px, calc(100vw - 2rem));
   box-shadow: 0 0 20px rgba(0,212,255,0.15);
   z-index: 100;
   pointer-events: none;
   animation: fadeUp 0.15s ease;
+}
+
+@media (max-width: 480px) {
+  .tooltip {
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100vw - 2rem);
+  }
 }
 
 .tooltip::after {

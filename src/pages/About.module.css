@@ -27,6 +27,15 @@
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+  }
+  .avatarWrap {
+    display: none;
+  }
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -84,16 +93,6 @@
 
 .avatarWrap:hover { border-color: var(--accent-cyan-dim); }
 
-@media (max-width: 640px) {
-  .heroInner {
-    grid-template-columns: 1fr;
-  }
-  .avatarWrap {
-    width: 140px;
-    height: 140px;
-    font-size: 3.5rem;
-  }
-}
 
 /* Content sections */
 .content {

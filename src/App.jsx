@@ -5,6 +5,11 @@ import Footer from './components/Footer'
 import KonamiCode from './components/KonamiCode'
 import ScrollProgress from './components/ScrollProgress'
 import KeyboardShortcuts from './components/KeyboardShortcuts'
+import MiniGame from './components/MiniGame'
+import D20Roller from './components/D20Roller'
+import DestinyGhost from './components/DestinyGhost'
+import BlackSignalGlitch from './components/BlackSignalGlitch'
+import TextAdventure from './components/TextAdventure'
 import Home from './pages/Home'
 import About from './pages/About'
 import Portfolio from './pages/Portfolio'
@@ -41,6 +46,11 @@ export default function App() {
       <ScrollProgress />
       <KonamiCode />
       <KeyboardShortcuts />
+      <MiniGame />
+      <D20Roller />
+      <DestinyGhost />
+      <BlackSignalGlitch />
+      <TextAdventure />
       <Navbar />
       <AnimatedRoutes />
       <Footer />

@@ -10,7 +10,10 @@
 
 .bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet), var(--accent-cyan));
   box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
-  transition: width 0.1s linear;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.1s linear;
 }

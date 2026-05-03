@@ -16,7 +16,7 @@ export default function ScrollProgress() {
 
   return (
     <div className={styles.track} aria-hidden>
-      <div className={styles.bar} style={{ width: `${pct}%` }} />
+      <div className={styles.bar} style={{ transform: `scaleX(${pct / 100})` }} />
     </div>
   )
 }

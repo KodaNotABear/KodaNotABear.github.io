@@ -22,9 +22,15 @@ export default function GitHubHeatmap() {
     fetch(`https://github-contributions-api.jogruber.de/v4/${GITHUB_USER}?y=last`)
       .then(r => r.json())
       .then(data => {
-        // API returns weeks array with contributionDays
-        const allWeeks = data.weeks || []
-        setWeeks(allWeeks.slice(-WEEKS))
+        // API returns flat array: [{date, count, level}, ...]
+        const days = data.contributions || []
+        if (days.length === 0) { setError(true); setLoading(false); return }
+        // Group into weeks of 7
+        const grouped = []
+        for (let i = 0; i < days.length; i += 7) {
+          grouped.push(days.slice(i, i + 7))
+        }
+        setWeeks(grouped.slice(-WEEKS))
         setLoading(false)
       })
       .catch(() => {
@@ -41,16 +47,16 @@ export default function GitHubHeatmap() {
       <div className={styles.grid}>
         {weeks.map((week, wi) => (
           <div key={wi} className={styles.week}>
-            {week.contributionDays.map((day, di) => (
+            {week.map((day, di) => (
               <motion.div
                 key={di}
                 className={styles.cell}
-                style={{ background: getDayColor(day.contributionCount) }}
+                style={{ background: getDayColor(day.count) }}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: wi * 0.01, duration: 0.2 }}
-                title={`${day.date}: ${day.contributionCount} contributions`}
+                title={`${day.date}: ${day.count} contributions`}
               />
             ))}
           </div>
