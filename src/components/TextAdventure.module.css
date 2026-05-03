@@ -146,7 +146,7 @@
   border: none;
   outline: none;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 16px; /* must be ≥16px to prevent iOS Safari auto-zoom on focus */
   color: var(--accent-cyan);
   caret-color: var(--accent-cyan);
 }
