@@ -97,12 +97,18 @@
 /* Content sections */
 .content {
   padding: var(--space-24) 0 var(--space-24);
+  overflow-x: hidden;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
+}
+
+/* Prevent grid children from expanding beyond their column track */
+.grid > * {
+  min-width: 0;
 }
 
 @media (max-width: 768px) {
