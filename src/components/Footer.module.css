@@ -1,0 +1,54 @@
+.footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--bg-border);
+  padding: var(--space-8) 0 var(--space-6);
+  margin-top: auto;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.brand span { color: var(--accent-cyan); }
+
+.socials {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.socialLink:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan-dim);
+  background: rgba(0,212,255,0.05);
+}
+
+.copy {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
