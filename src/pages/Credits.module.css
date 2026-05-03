@@ -1,0 +1,135 @@
+.page {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 200;
+}
+
+.viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.scanline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,212,255,0.015) 3px,
+    rgba(0,212,255,0.015) 5px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.scroll {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 0 2rem 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  animation: creditRoll 38s linear forwards;
+  will-change: transform;
+}
+
+@keyframes creditRoll {
+  from { transform: translateY(100vh); }
+  to   { transform: translateY(calc(-100% - 2rem)); }
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+  margin-bottom: 2rem;
+}
+
+.section {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.role {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  min-width: 160px;
+  text-align: right;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  min-width: 200px;
+  text-align: left;
+}
+
+.spacer {
+  height: 1rem;
+}
+
+.fin {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+}
+
+.exit {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.exit:hover {
+  color: var(--accent-cyan);
+  border-color: rgba(0,212,255,0.35);
+}

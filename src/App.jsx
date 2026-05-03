@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import KonamiCode from './components/KonamiCode'
+import ScrollProgress from './components/ScrollProgress'
+import KeyboardShortcuts from './components/KeyboardShortcuts'
 import Home from './pages/Home'
 import About from './pages/About'
 import Portfolio from './pages/Portfolio'
@@ -9,6 +12,8 @@ import Resume from './pages/Resume'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
+import Credits from './pages/Credits'
+import NotFound from './pages/NotFound'
 
 // AnimatedRoutes must live inside BrowserRouter so useLocation works
 function AnimatedRoutes() {
@@ -23,7 +28,8 @@ function AnimatedRoutes() {
         <Route path="/devlog" element={<Blog />} />
         <Route path="/devlog/:id" element={<BlogPost />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<Home />} />
+        <Route path="/credits" element={<Credits />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   )
@@ -32,6 +38,9 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollProgress />
+      <KonamiCode />
+      <KeyboardShortcuts />
       <Navbar />
       <AnimatedRoutes />
       <Footer />
