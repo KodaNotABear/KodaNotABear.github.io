@@ -22,7 +22,7 @@ const TIMELINE = [
   {
     date: '2025 – Present',
     title: 'Founder & Solo Developer',
-    org: 'Thunderbyte Studio',
+    org: 'AKURO STUDIO',
     desc: 'Developing Black Signal, a space-horror game inspired by Observation Duty. Currently in active development.',
     color: 'var(--accent-cyan)',
   },
@@ -46,7 +46,7 @@ const INTERESTS = [
 const funFacts = [
   { icon: '🎮', fact: 'Game dev since high school with Unity' },
   { icon: '🏴‍☠️', fact: 'Interned at Pixel Pirate Studio (Off-Road Champion)' },
-  { icon: '⚡', fact: 'Founded Thunderbyte Studio as a solo dev label' },
+  { icon: '⚡', fact: 'Founded AKURO STUDIO as a solo dev label' },
   { icon: '🎓', fact: 'CS grad, Arizona State University, May 2026' },
   { icon: '🌵', fact: 'Based in Arizona' },
 ]
@@ -70,7 +70,7 @@ export default function About() {
               <p className={styles.bio}>
                 I'm a game developer from Arizona with a passion for
                 building games that are easy to pick up and hard to put down. I
-                founded Thunderbyte Studio as my personal dev label for indie projects
+                founded AKURO STUDIO as my personal dev label for indie projects
                 and game jam entries. When I'm not writing C# in Unity, I'm
                 usually reading game design theory, dissecting what makes a game
                 feel <em>good</em>, or speedrunning something terrible.
@@ -153,9 +153,9 @@ export default function About() {
 
               {/* The studio */}
               <div className={styles.sectionBlock}>
-                <h2>Thunderbyte Studio</h2>
+                <h2>AKURO STUDIO</h2>
                 <p>
-                  Thunderbyte Studio is my solo dev label — the name under which I
+                  AKURO STUDIO is my solo dev label — the name under which I
                   release personal games and experiments. The name reflects my
                   philosophy: fast, impactful, electric. Every game I ship under
                   this banner is a chance to try something new.

@@ -17,7 +17,7 @@ export const projects = [
   {
     id: 'black-signal',
     title: 'Black Signal',
-    studio: 'Thunderbyte Studio',
+    studio: 'AKURO STUDIO',
     description:
       'A space horror game inspired by Observation Duty. You monitor a derelict space station through its security camera network, tracking anomalies and keeping the crew alive — if anything on board still is. Solo developed in Unity.',
     tags: ['Unity', 'C#', 'Horror', 'Solo', 'In Development'],

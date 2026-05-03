@@ -3,7 +3,7 @@ import styles from './Credits.module.css'
 
 const CREDITS = [
   { role: 'DESIGN & DEVELOPMENT', name: 'Ethan Peterson' },
-  { role: 'STUDIO', name: 'Thunderbyte Studio' },
+  { role: 'STUDIO', name: 'AKURO STUDIO' },
   { role: '', name: '' },
   { role: 'BUILT WITH', name: '' },
   { role: 'Framework', name: 'React 19 + Vite' },
@@ -19,7 +19,7 @@ const CREDITS = [
   { role: '', name: '' },
   { role: 'YOU FOUND THIS PAGE', name: '— nice detective work' },
   { role: '', name: '' },
-  { role: '© 2026', name: 'Thunderbyte Studio. All rights reserved.' },
+  { role: '© 2026', name: 'AKURO STUDIO. All rights reserved.' },
 ]
 
 export default function Credits() {
@@ -29,7 +29,7 @@ export default function Credits() {
 
       <div className={styles.viewport}>
         <div className={styles.scroll}>
-          <div className={styles.title}>THUNDERBYTE STUDIO</div>
+          <div className={styles.title}>AKURO STUDIO</div>
           <div className={styles.subtitle}>— Credits —</div>
 
           {CREDITS.map((c, i) =>

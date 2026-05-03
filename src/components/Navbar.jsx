@@ -47,7 +47,7 @@ export default function Navbar() {
               <path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z" />
             </svg>
           </span>
-          THUNDERBYTE
+          AKURO
         </NavLink>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>

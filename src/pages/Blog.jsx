@@ -61,7 +61,7 @@ export default function Blog() {
           <h2>More posts coming soon</h2>
           <p>
             I'll be writing regularly about Unity, game design, and the
-            Thunderbyte Studio development process.
+            AKURO STUDIO development process.
           </p>
         </div>
       </div>

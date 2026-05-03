@@ -6,8 +6,8 @@ const LINKS = [
   {
     icon: <EmailIcon size={20} />,
     label: 'Email',
-    value: 'koda@thunderbyte.studio',
-    href: 'mailto:koda@thunderbyte.studio',
+    value: 'koda@akuro.studio',
+    href: 'mailto:koda@akuro.studio',
   },
   {
     icon: <GitHubIcon size={20} />,
@@ -30,8 +30,8 @@ const LINKS = [
   {
     icon: <GlobeIcon size={20} />,
     label: 'Portfolio',
-    value: 'thunderbyte.studio',
-    href: 'https://thunderbyte.studio',
+    value: 'akuro.studio',
+    href: 'https://akuro.studio',
   },
 ]
 
@@ -39,7 +39,7 @@ export default function Card() {
   const [copied, setCopied] = useState(false)
 
   function copyEmail() {
-    navigator.clipboard.writeText('koda@thunderbyte.studio').then(() => {
+    navigator.clipboard.writeText('koda@akuro.studio').then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     })
@@ -55,7 +55,7 @@ export default function Card() {
               <path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z" />
             </svg>
           </div>
-          <p className={styles.studio}>THUNDERBYTE STUDIO</p>
+          <p className={styles.studio}>AKURO STUDIO</p>
         </div>
 
         {/* Identity */}
@@ -97,7 +97,7 @@ export default function Card() {
           {copied ? '✓ Copied!' : '⎘ Copy email address'}
         </button>
 
-        <p className={styles.footer}>thunderbyte.studio/card</p>
+        <p className={styles.footer}>akuro.studio/card</p>
       </div>
     </div>
   )

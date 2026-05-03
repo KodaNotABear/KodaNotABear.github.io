@@ -6,7 +6,7 @@ const SOCIALS = [
   { label: 'GitHub',  href: 'https://github.com/KodaNotABear',           icon: <GitHubIcon /> },
   { label: 'itch.io', href: 'https://kodanotabear.itch.io',              icon: <ItchIcon /> },
   { label: 'Discord', href: 'https://discord.com/users/kodanotabear',    icon: <DiscordIcon /> },
-  { label: 'Email',   href: 'mailto:koda@thunderbyte.studio',            icon: <EmailIcon /> },
+  { label: 'Email',   href: 'mailto:koda@akuro.studio',            icon: <EmailIcon /> },
 ]
 
 const STACK = [
@@ -24,7 +24,7 @@ export default function Footer() {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{display:'inline',verticalAlign:'middle',marginRight:'6px'}}>
             <path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z" />
           </svg>
-          THUNDERBYTE STUDIO
+          AKURO STUDIO
         </p>
 
         <nav className={styles.socials} aria-label="Social links">
@@ -47,7 +47,7 @@ export default function Footer() {
           onMouseEnter={() => setTipVisible(true)}
           onMouseLeave={() => setTipVisible(false)}
         >
-          © {new Date().getFullYear()} Ethan Peterson · Thunderbyte Studio ·{' '}
+          © {new Date().getFullYear()} Ethan Peterson · AKURO STUDIO ·{' '}
           <span className={styles.builtWith}>Built with React + Vite ↑</span>
           {tipVisible && (
             <span className={styles.tooltip}>
