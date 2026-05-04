@@ -82,9 +82,8 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              title="Replace with a photo by swapping this emoji for an <img> element"
             >
-              👾
+              <img src="/images/pfp.jpg" alt="Ethan Peterson" className={styles.avatarImg} />
             </motion.div>
           </motion.div>
         </div>
