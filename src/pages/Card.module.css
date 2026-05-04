@@ -183,149 +183,151 @@
   flex-shrink: 0;
 }
 
-/* Copy button */
-.copyBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: var(--space-4);
-  background: rgba(0, 212, 255, 0.06);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  border-radius: var(--radius-md);
-  color: var(--accent-cyan);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
-  -webkit-tap-highlight-color: transparent;
-  min-height: 52px;
-}
-
-.copyBtn:active {
-  background: rgba(0, 212, 255, 0.12);
-}
-
-/* Share row */
-.shareRow {
-  display: flex;
-  gap: var(--space-2);
-}
-
+/* Share button */
 .shareBtn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-3) var(--space-4);
+  gap: var(--space-2);
+  width: 100%;
+  margin-top: var(--space-4);
+  padding: var(--space-4);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  background: rgba(0, 212, 255, 0.07);
   color: var(--accent-cyan);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  letter-spacing: 0.07em;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
-  -webkit-tap-highlight-color: transparent;
-  min-height: 48px;
-  gap: var(--space-2);
-  position: relative;
   overflow: hidden;
+  min-height: 52px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .shareBtn:active {
-  background: rgba(0, 212, 255, 0.12);
+  background: rgba(0, 212, 255, 0.14);
 }
 
 @media (hover: hover) {
   .shareBtn:hover {
-    background: rgba(0, 212, 255, 0.1);
-    border-color: rgba(0, 212, 255, 0.4);
+    border-color: rgba(0, 212, 255, 0.6);
+    background: rgba(0, 212, 255, 0.12);
+  }
+  .shareBtn:hover .shareBtnGlow {
+    opacity: 1;
   }
 }
 
-/* NFC button — takes remaining width */
-.nfcBtn {
-  flex: 1;
-}
-
-.nfcBtn:disabled {
-  cursor: default;
-  border-color: rgba(138, 43, 226, 0.4);
-  background: rgba(138, 43, 226, 0.08);
-  color: var(--accent-violet, #8a2be2);
-}
-
-.nfcBtn.done {
-  border-color: rgba(34, 211, 160, 0.4);
-  background: rgba(34, 211, 160, 0.08);
-  color: var(--success);
-}
-
-.nfcBtn.error,
-.nfcBtn.unsupported {
-  border-color: rgba(255, 80, 80, 0.3);
-  background: rgba(255, 80, 80, 0.06);
-  color: #ff8080;
-}
-
-/* Ripple ring shown while waiting for NFC tap */
-.nfcRing {
+.shareBtnGlow {
   position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  border: 2px solid var(--accent-violet, #8a2be2);
-  animation: nfcPulse 1.2s ease-out infinite;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 120%, rgba(0, 212, 255, 0.18) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
-@keyframes nfcPulse {
-  0%   { opacity: 0.8; transform: scale(1); }
-  100% { opacity: 0;   transform: scale(1.04); }
+/* Fullscreen QR overlay */
+.qrOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: overlayIn 0.25s ease;
 }
 
-/* QR / Share icon buttons */
-.qrToggle,
-.sysShare {
-  width: 48px;
-  flex-shrink: 0;
-  font-size: 1rem;
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-.qrToggle.qrActive {
-  border-color: rgba(0, 212, 255, 0.5);
-  background: rgba(0, 212, 255, 0.1);
-}
-
-/* QR code panel */
-.qrPanel {
+.qrModal {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-6);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(0, 212, 255, 0.15);
-  background: var(--bg-elevated);
-  color: var(--text-primary);
-  animation: fadeIn 0.2s ease;
+  gap: var(--space-5);
+  padding: var(--space-10) var(--space-8);
+  animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.88) translateY(16px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.qrGlow {
+  position: absolute;
+  inset: -60px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(0, 212, 255, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.06); }
+}
+
+.qrTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.qrFrame {
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 0 40px rgba(0, 212, 255, 0.1),
+    0 0 0 1px rgba(0, 212, 255, 0.08) inset;
+  color: #e0f8ff;
 }
 
 .qrCode {
   display: block;
 }
 
-.qrHint {
+.qrUrl {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  color: var(--accent-cyan);
   letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+
+.qrClose {
+  margin-top: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.qrClose:active,
+.qrClose:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--text-primary);
 }
 
 /* Footer */
