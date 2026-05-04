@@ -45,10 +45,8 @@ export default function Card() {
     if (navigator.share) {
       try {
         await navigator.share({ title: 'Ethan Peterson · AKURO STUDIO', url: CARD_URL })
-        return
-      } catch { /* user cancelled or unsupported */ }
+      } catch { /* user cancelled */ }
     }
-    setQrOpen(true)
   }
 
   return (
@@ -98,15 +96,25 @@ export default function Card() {
 
         <div className={styles.divider} />
 
-        {/* Share button */}
-        <button className={styles.shareBtn} onClick={shareCard}>
-          <span className={styles.shareBtnGlow} aria-hidden />
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-          </svg>
-          Share my card
-        </button>
+        {/* Action row */}
+        <div className={styles.actionRow}>
+          <button className={`${styles.actionBtn} ${styles.qrBtn}`} onClick={() => setQrOpen(true)}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+              <rect x="14" y="14" width="3" height="3"/><rect x="18" y="14" width="3" height="3"/>
+              <rect x="14" y="18" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/>
+            </svg>
+            QR Code
+          </button>
+          {navigator?.share && (
+            <button className={`${styles.actionBtn} ${styles.sysShareBtn}`} onClick={shareCard} aria-label="Share">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </button>
+          )}
+        </div>
 
         <p className={styles.footer}>akuro.studio/card</p>
       </div>
