@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styles from './Contact.module.css'
 
+const CONTACT_EMAIL = 'koda@akuro.studio'
+
 const CONTACT_INFO = [
-  { icon: '✉', label: 'Email', value: 'koda@akuro.studio', href: 'mailto:koda@akuro.studio' },
+  { icon: '✉', label: 'Email', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
   { icon: '⌥', label: 'GitHub', value: 'github.com/KodaNotABear', href: 'https://github.com/KodaNotABear' },
   { icon: '🎮', label: 'itch.io', value: 'kodanotabear.itch.io', href: 'https://kodanotabear.itch.io' },
   { icon: '💬', label: 'Discord', value: 'kodanotabear', href: 'https://discord.com/users/kodanotabear' },
@@ -12,7 +14,7 @@ const CONTACT_INFO = [
 // This form uses Formspree (free, no server needed on GitHub Pages).
 // 1. Sign up at formspree.io
 // 2. Create a form and replace YOUR_FORM_ID below with your form's id.
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mqeneykj'
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/mqeneykj'
 
 export default function Contact() {
   const [status, setStatus] = useState('idle') // idle | sending | success | error
@@ -32,7 +34,11 @@ export default function Contact() {
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          _replyto: formData.email,
+          _subject: `[Portfolio] ${formData.subject}`,
+        }),
       })
       if (res.ok) {
         setStatus('success')
@@ -169,7 +175,12 @@ export default function Contact() {
 
                     <div className={styles.submitRow}>
                       <span className={styles.submitNote}>
-                        {status === 'error' ? '⚠ Something went wrong — try emailing directly.' : ''}
+                        {status === 'error' ? (
+                          <>
+                            ⚠ Something went wrong — email directly at{' '}
+                            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+                          </>
+                        ) : ''}
                       </span>
                       <button
                         type="submit"
