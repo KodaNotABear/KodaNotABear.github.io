@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styles from './Contact.module.css'
+import { EmailIcon, GitHubIcon, ItchIcon, DiscordIcon } from '../components/Icons'
 
 const CONTACT_EMAIL = 'koda@akuro.studio'
 
 const CONTACT_INFO = [
-  { icon: '✉', label: 'Email', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
-  { icon: '⌥', label: 'GitHub', value: 'github.com/KodaNotABear', href: 'https://github.com/KodaNotABear' },
-  { icon: '🎮', label: 'itch.io', value: 'kodanotabear.itch.io', href: 'https://kodanotabear.itch.io' },
-  { icon: '💬', label: 'Discord', value: 'kodanotabear', href: 'https://discord.com/users/kodanotabear' },
+  { icon: <EmailIcon />, label: 'Email', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+  { icon: <GitHubIcon />, label: 'GitHub', value: 'github.com/KodaNotABear', href: 'https://github.com/KodaNotABear' },
+  { icon: <ItchIcon />, label: 'itch.io', value: 'kodanotabear.itch.io', href: 'https://kodanotabear.itch.io' },
+  { icon: <DiscordIcon />, label: 'Discord', value: 'kodanotabear', href: 'https://discord.com/users/kodanotabear' },
 ]
 
 // This form uses Formspree (free, no server needed on GitHub Pages).
