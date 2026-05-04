@@ -183,51 +183,49 @@
   flex-shrink: 0;
 }
 
-/* Share button */
-.shareBtn {
-  position: relative;
+/* Action row */
+.actionRow {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.actionBtn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  width: 100%;
-  margin-top: var(--space-4);
-  padding: var(--space-4);
+  padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
   border: 1px solid rgba(0, 212, 255, 0.35);
   background: rgba(0, 212, 255, 0.07);
   color: var(--accent-cyan);
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  letter-spacing: 0.07em;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
   cursor: pointer;
-  overflow: hidden;
-  min-height: 52px;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  min-height: 48px;
+  transition: border-color 0.15s ease, background 0.15s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.shareBtn:active {
+.actionBtn:active {
   background: rgba(0, 212, 255, 0.14);
 }
 
 @media (hover: hover) {
-  .shareBtn:hover {
+  .actionBtn:hover {
     border-color: rgba(0, 212, 255, 0.6);
     background: rgba(0, 212, 255, 0.12);
   }
-  .shareBtn:hover .shareBtnGlow {
-    opacity: 1;
-  }
 }
 
-.shareBtnGlow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 120%, rgba(0, 212, 255, 0.18) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+.qrBtn {
+  flex: 1;
+}
+
+.sysShareBtn {
+  width: 48px;
+  flex-shrink: 0;
 }
 
 /* Fullscreen QR overlay */
@@ -340,61 +338,90 @@
   letter-spacing: 0.08em;
 }
 
-/* ── Mobile: compress spacing so card fits on one screen ── */
-@media (max-height: 820px) and (max-width: 480px) {
+/* ── Mobile: compress so card fits without scrolling ── */
+@media (max-width: 480px) {
   .page {
     padding: 0.5rem;
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
     align-items: flex-start;
-    padding-top: max(0.75rem, env(safe-area-inset-top));
   }
 
   .card {
-    padding: 1.25rem;
+    padding: 1rem;
   }
 
   .header {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
   }
 
   .logoMark {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .logoMark svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .studio {
+    font-size: 0.72rem;
   }
 
   .identity {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
   }
 
   .name {
-    font-size: 1.6rem;
-    margin-bottom: 0.2rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.15rem;
   }
 
   .role {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .badge {
+    font-size: 0.67rem;
+    padding: 0.15rem 0.6rem;
   }
 
   .divider {
-    margin: 0.75rem 0;
+    margin: 0.6rem 0;
   }
 
   .links {
-    gap: 0.25rem;
+    gap: 0.2rem;
   }
 
   .link {
-    min-height: 48px;
-    padding: 0.6rem 0.75rem;
+    min-height: 44px;
+    padding: 0.5rem 0.75rem;
+    gap: 0.75rem;
   }
 
-  .shareBtn {
+  .linkLabel {
+    font-size: 0.62rem;
+  }
+
+  .linkValue {
+    font-size: 0.88rem;
+  }
+
+  .actionBtn {
     min-height: 44px;
-    margin-top: 0;
-    padding: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .sysShareBtn {
+    width: 44px;
   }
 
   .footer {
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
+    font-size: 0.65rem;
   }
 }
