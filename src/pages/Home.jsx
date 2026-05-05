@@ -3,6 +3,10 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import { projects } from '../data/projects'
+import {
+  UnityIcon, CSharpIcon, GitHubIcon, ReactIcon,
+  BlenderIcon, RiderIcon, FmodIcon,
+} from '../components/Icons'
 import styles from './Home.module.css'
 
 const EYEBROW_TEXT = '// akuro.studio'
@@ -87,14 +91,13 @@ const STATS = [
 ]
 
 const TECH = [
-  { icon: '🎮', label: 'Unity' },
-  { icon: '⌨', label: 'C#' },
-  { icon: '🔧', label: 'Git / GitHub' },
-  { icon: '🎨', label: 'Game Design' },
-  { icon: '📐', label: 'Systems Architecture' },
-  { icon: '🐛', label: 'Debugging & Profiling' },
-  { icon: '🌐', label: 'React / Web' },
-  { icon: '🤝', label: 'Agile / Scrum' },
+  { Icon: UnityIcon,   label: 'Unity' },
+  { Icon: CSharpIcon,  label: 'C#' },
+  { Icon: BlenderIcon, label: 'Blender' },
+  { Icon: FmodIcon,    label: 'FMOD' },
+  { Icon: RiderIcon,   label: 'JetBrains Rider' },
+  { Icon: GitHubIcon,  label: 'Git / GitHub' },
+  { Icon: ReactIcon,   label: 'React' },
 ]
 
 const featured = projects.filter(p => p.featured).slice(0, 2)
@@ -240,8 +243,8 @@ export default function Home() {
             The stack I reach for when building games and interactive experiences.
           </p>
           <div className={styles.techGrid}>
-            {TECH.map(({ icon, label }) => (
-              <span key={label} className={styles.techBadge}>{icon} {label}</span>
+            {TECH.map(({ Icon, label }) => (
+              <span key={label} className={styles.techBadge}><Icon size={16} /> {label}</span>
             ))}
           </div>
         </div>

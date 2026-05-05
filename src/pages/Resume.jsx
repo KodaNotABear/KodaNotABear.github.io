@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { EmailIcon, GlobeIcon, GitHubIcon, ItchIcon } from '../components/Icons'
 import styles from './Resume.module.css'
 
 // ── Data ── replace all placeholders with real content ────
@@ -132,10 +133,10 @@ export default function Resume() {
               <div className={styles.docName}>Ethan Peterson</div>
               <div className={styles.docTitle}>Game Programmer &amp; Designer · CS Graduate</div>
               <div className={styles.contactInfo}>
-                <span className={styles.contactItem}>✉ <a href="mailto:koda@akuro.studio">koda@akuro.studio</a></span>
-                <span className={styles.contactItem}>🌐 <a href="https://akuro.studio" target="_blank" rel="noopener noreferrer">akuro.studio</a></span>
-                <span className={styles.contactItem}>⌥ <a href="https://github.com/KodaNotABear" target="_blank" rel="noopener noreferrer">github.com/KodaNotABear</a></span>
-                <span className={styles.contactItem}>🎮 <a href="https://kodanotabear.itch.io" target="_blank" rel="noopener noreferrer">kodanotabear.itch.io</a></span>
+                <span className={styles.contactItem}><EmailIcon size={14} /> <a href="mailto:koda@akuro.studio">koda@akuro.studio</a></span>
+                <span className={styles.contactItem}><GlobeIcon size={14} /> <a href="https://akuro.studio" target="_blank" rel="noopener noreferrer">akuro.studio</a></span>
+                <span className={styles.contactItem}><GitHubIcon size={14} /> <a href="https://github.com/KodaNotABear" target="_blank" rel="noopener noreferrer">github.com/KodaNotABear</a></span>
+                <span className={styles.contactItem}><ItchIcon size={14} /> <a href="https://kodanotabear.itch.io" target="_blank" rel="noopener noreferrer">kodanotabear.itch.io</a></span>
               </div>
             </header>
 

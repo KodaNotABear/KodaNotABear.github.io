@@ -229,6 +229,9 @@
 }
 
 .submitNote {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
   font-size: 0.8rem;
   color: var(--text-muted);
   font-family: var(--font-mono);
@@ -240,7 +243,9 @@
 }
 
 .successIcon {
-  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  color: var(--success);
   margin-bottom: var(--space-4);
 }
 

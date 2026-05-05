@@ -13,11 +13,11 @@ const SHORTCUTS = [
 
 const INFO_SHORTCUTS = [
   { keys: ['↑↑↓↓←→←→BA'], label: '???' },
-  { keys: ['S N A K E'],   label: '🐍' },
-  { keys: ['R O L L'],     label: '🎲' },
-  { keys: ['G H O S T'],   label: '👻' },
-  { keys: ['S I G N A L'], label: '📡' },
-  { keys: ['D U N G E O N'], label: '⚔️' },
+  { keys: ['S N A K E'],   label: 'Snake' },
+  { keys: ['R O L L'],     label: 'D20 Roll' },
+  { keys: ['G H O S T'],   label: 'Destiny Ghost' },
+  { keys: ['S I G N A L'], label: 'Black Signal' },
+  { keys: ['D U N G E O N'], label: 'Dungeon' },
   { keys: ['?'],            label: 'Toggle this menu' },
   { keys: ['Esc'],          label: 'Close menu' },
 ]

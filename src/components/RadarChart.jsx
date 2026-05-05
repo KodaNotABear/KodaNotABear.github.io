@@ -2,12 +2,12 @@ import { useRef, useEffect, useState } from 'react'
 import styles from './RadarChart.module.css'
 
 const SKILLS = [
-  { label: 'Unity',     score: 9 },
-  { label: 'C#',        score: 8 },
-  { label: 'Systems',   score: 8 },
-  { label: 'Design',    score: 7 },
-  { label: 'Web',       score: 6 },
-  { label: 'Debugging', score: 9 },
+  { label: 'Unity',       score: 9 },
+  { label: 'C#',          score: 8 },
+  { label: 'Gameplay',    score: 8 },
+  { label: 'Level Design',score: 7 },
+  { label: 'Web / React', score: 6 },
+  { label: 'Profiling',   score: 9 },
 ]
 
 const SIZE = 200
