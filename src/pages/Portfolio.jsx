@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ProjectCard from '../components/ProjectCard'
 import { projects } from '../data/projects'
+import { FlagIcon, WarningIcon } from '../components/Icons'
 import styles from './Portfolio.module.css'
 
 const ALL_TAGS = ['All', ...Array.from(new Set(projects.flatMap(p => p.tags)))]
@@ -47,12 +48,12 @@ export default function Portfolio() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <p className={styles.spotlightEyebrow}>🏁 Professional Experience · Aug 2025 – May 2026</p>
+              <p className={styles.spotlightEyebrow}><FlagIcon size={14} /> Professional Experience · Aug 2025 – May 2026</p>
               <h2 className={styles.spotlightTitle}>{internship.title}</h2>
               <p className={styles.spotlightOrg}>{internship.studio}</p>
               <p className={styles.spotlightDesc}>{internship.description}</p>
               <div className={styles.spotlightNda}>
-                ⚠ Some details are restricted pending NDA expiry
+                <WarningIcon size={14} /> Some details are restricted pending NDA expiry
               </div>
               <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap', marginTop: 'var(--space-4)' }}>
                 {internship.tags.map(t => <span key={t} className="tag">{t}</span>)}

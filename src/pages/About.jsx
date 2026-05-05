@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import RadarChart from '../components/RadarChart'
 import GitHubHeatmap from '../components/GitHubHeatmap'
+import { GamepadIcon, AnchorIcon, BoltIcon, GradCapIcon, MapPinIcon } from '../components/Icons'
 import styles from './About.module.css'
 
 const TIMELINE = [
@@ -44,11 +45,11 @@ const INTERESTS = [
 ]
 
 const funFacts = [
-  { icon: '🎮', fact: 'Game dev since high school with Unity' },
-  { icon: '🏴‍☠️', fact: 'Interned at Pixel Pirate Studio (Off-Road Champion)' },
-  { icon: '⚡', fact: 'Founded AKURO STUDIO as a solo dev label' },
-  { icon: '🎓', fact: 'CS grad, Arizona State University, May 2026' },
-  { icon: '🌵', fact: 'Based in Arizona' },
+  { Icon: GamepadIcon, fact: 'Game dev since high school with Unity' },
+  { Icon: AnchorIcon,  fact: 'Interned at Pixel Pirate Studio (Off-Road Champion)' },
+  { Icon: BoltIcon,    fact: 'Founded AKURO STUDIO as a solo dev label' },
+  { Icon: GradCapIcon, fact: 'CS grad, Arizona State University, May 2026' },
+  { Icon: MapPinIcon,  fact: 'Based in Arizona' },
 ]
 
 export default function About() {
@@ -144,8 +145,11 @@ export default function About() {
               <div className={styles.sectionBlock}>
                 <h2>Quick Facts</h2>
                 <ul>
-                  {funFacts.map(({ icon, fact }) => (
-                    <li key={fact}>{icon} {fact}</li>
+                  {funFacts.map(({ Icon, fact }) => (
+                    <li key={fact} className={styles.factItem}>
+                      <Icon size={15} />
+                      {fact}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -154,10 +158,11 @@ export default function About() {
               <div className={styles.sectionBlock}>
                 <h2>AKURO STUDIO</h2>
                 <p>
-                  AKURO STUDIO is my solo dev label — the name under which I
-                  release personal games and experiments. The name reflects my
-                  philosophy: fast, impactful, electric. Every game I ship under
-                  this banner is a chance to try something new.
+                  AKURO STUDIO is my independent label — the callsign under
+                  which I develop and ship games. No publisher, no committee.
+                  The name was chosen to feel like it belongs on the side of a
+                  corporate megabuilding in a city that never sleeps. One
+                  developer, one pipeline, direct-to-player transmission.
                 </p>
               </div>
 

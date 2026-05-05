@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { CoinIcon } from '../components/Icons'
 import styles from './NotFound.module.css'
 
 export default function NotFound() {
@@ -27,7 +28,7 @@ export default function NotFound() {
 
         <div className={styles.coins}>
           {Array.from({ length: count }).map((_, i) => (
-            <span key={i} className={styles.coin}>🪙</span>
+            <span key={i} className={styles.coin}><CoinIcon size={22} /></span>
           ))}
         </div>
 

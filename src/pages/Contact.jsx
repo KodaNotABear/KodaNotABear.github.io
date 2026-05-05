@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styles from './Contact.module.css'
-import { EmailIcon, GitHubIcon, ItchIcon, DiscordIcon } from '../components/Icons'
+import { EmailIcon, GitHubIcon, ItchIcon, DiscordIcon, CheckCircleIcon, WarningIcon } from '../components/Icons'
 
 const CONTACT_EMAIL = 'koda@akuro.studio'
 
@@ -110,7 +110,7 @@ export default function Contact() {
             >
               {status === 'success' ? (
                 <div className={styles.success}>
-                  <div className={styles.successIcon}>✅</div>
+                  <div className={styles.successIcon}><CheckCircleIcon size={48} /></div>
                   <h3>Message Sent!</h3>
                   <p>Thanks for reaching out. I'll get back to you soon.</p>
                 </div>
@@ -178,7 +178,7 @@ export default function Contact() {
                       <span className={styles.submitNote}>
                         {status === 'error' ? (
                           <>
-                            ⚠ Something went wrong — email directly at{' '}
+                            <WarningIcon size={14} /> Something went wrong — email directly at{' '}
                             <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
                           </>
                         ) : ''}

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { posts } from '../data/posts'
+import { PenIcon } from '../components/Icons'
 import styles from './Blog.module.css'
 
 function formatDate(dateStr) {
@@ -57,7 +58,7 @@ export default function Blog() {
         </div>
 
         <div className={styles.comingSoon}>
-          <div className={styles.comingSoonIcon}>✍️</div>
+          <div className={styles.comingSoonIcon}><PenIcon size={36} /></div>
           <h2>More posts coming soon</h2>
           <p>
             I'll be writing regularly about Unity, game design, and the

@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
+import { UnityIcon, ItchIcon, GitHubIcon } from './Icons'
 import styles from './ProjectCard.module.css'
 
 function useTilt() {
@@ -25,7 +26,6 @@ export default function ProjectCard({ project, index = 0 }) {
     description,
     tags = [],
     image,
-    emoji = '🎮',
     links = {},
     featured = false,
   } = project
@@ -50,7 +50,7 @@ export default function ProjectCard({ project, index = 0 }) {
         {image ? (
           <img src={image} alt={title} loading="lazy" />
         ) : (
-          <div className={styles.thumbPlaceholder}>{emoji}</div>
+          <div className={styles.thumbPlaceholder}><UnityIcon size={64} /></div>
         )}
       </div>
 
@@ -76,7 +76,7 @@ export default function ProjectCard({ project, index = 0 }) {
           {links.itch && (
             <a href={links.itch} target="_blank" rel="noopener noreferrer"
                className={`${styles.actionBtn} ${styles.actionPrimary}`}>
-              🎮 Play / Download
+              <ItchIcon size={14} /> Play / Download
             </a>
           )}
           {links.demo && (
@@ -88,7 +88,7 @@ export default function ProjectCard({ project, index = 0 }) {
           {links.github && (
             <a href={links.github} target="_blank" rel="noopener noreferrer"
                className={`${styles.actionBtn} ${styles.actionSecondary}`}>
-              ⌥ Source
+              <GitHubIcon size={14} /> Source
             </a>
           )}
         </div>

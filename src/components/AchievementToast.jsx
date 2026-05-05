@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { TrophyIcon } from './Icons'
 import styles from './AchievementToast.module.css'
 
 export function useAchievement() {
@@ -25,7 +26,7 @@ export function AchievementToast({ toast }) {
           exit={{ x: 120, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 280, damping: 26 }}
         >
-          <div className={styles.icon}>🏆</div>
+          <div className={styles.icon}><TrophyIcon size={24} /></div>
           <div className={styles.text}>
             <div className={styles.label}>ACHIEVEMENT UNLOCKED</div>
             <div className={styles.title}>{toast.title}</div>
