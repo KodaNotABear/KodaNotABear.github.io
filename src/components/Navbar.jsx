@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useAchievement, AchievementToast } from './AchievementToast'
+import { AchievementToast } from './AchievementToast'
+import { useAchievement } from './useAchievement'
 import AmbientSound from './AmbientSound'
 import styles from './Navbar.module.css'
 

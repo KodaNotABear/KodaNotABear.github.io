@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import RadarChart from '../components/RadarChart'
 import GitHubHeatmap from '../components/GitHubHeatmap'
-import { GamepadIcon, AnchorIcon, BoltIcon, GradCapIcon, MapPinIcon } from '../components/Icons'
+import { GamepadIcon, AnchorIcon, BoltIcon, GradCapIcon, MapPinIcon, TrophyIcon } from '../components/Icons'
 import styles from './About.module.css'
 
 const TIMELINE = [
@@ -15,9 +15,9 @@ const TIMELINE = [
   },
   {
     date: 'Aug 2025 – May 2026',
-    title: 'Software Engineering Intern',
+    title: 'Game Development Intern',
     org: 'Pixel Pirate Studio',
-    desc: 'Shipped player onboarding for Off-Road Champion on mobile. Gained real production pipeline experience inside a professional Unity team.',
+    desc: 'Shipped player onboarding, a tournament update, and a WebGL port for Off-Road Champion on mobile. Real production pipeline experience inside a professional Unity team.',
     color: 'var(--accent-violet)',
   },
   {
@@ -26,6 +26,13 @@ const TIMELINE = [
     org: 'AKURO STUDIO',
     desc: 'Developing Black Signal, a space-horror game inspired by Observation Duty. Currently in active development.',
     color: 'var(--accent-cyan)',
+  },
+  {
+    date: 'Jun 2022 – 2025',
+    title: 'Data Acquisition — Formula SAE',
+    org: 'Sun Devil Motorsports',
+    desc: 'Designed and tested on-vehicle data acquisition and embedded telemetry tools for ASU\'s FSAE racing team, including an infrared lap timing system.',
+    color: 'var(--accent-violet)',
   },
   {
     date: '2022',
@@ -48,6 +55,7 @@ const funFacts = [
   { Icon: GamepadIcon, fact: 'Game dev since high school with Unity' },
   { Icon: AnchorIcon,  fact: 'Interned at Pixel Pirate Studio (Off-Road Champion)' },
   { Icon: BoltIcon,    fact: 'Founded AKURO STUDIO as a solo dev label' },
+  { Icon: TrophyIcon,  fact: '3 seasons of FSAE racing telemetry at Sun Devil Motorsports' },
   { Icon: GradCapIcon, fact: 'CS grad, Arizona State University, May 2026' },
   { Icon: MapPinIcon,  fact: 'Based in Arizona' },
 ]
@@ -71,8 +79,8 @@ export default function About() {
               <p className={styles.bio}>
                 I'm a game developer from Arizona with a passion for
                 building games that are easy to pick up and hard to put down. I
-                founded AKURO STUDIO as my personal dev label for indie projects
-                and game jam entries. When I'm not writing C# in Unity, I'm
+                founded AKURO STUDIO as my personal dev label for independent
+                projects. When I'm not writing C# in Unity, I'm
                 usually reading game design theory, dissecting what makes a game
                 feel <em>good</em>, or speedrunning something terrible.
               </p>
@@ -84,7 +92,8 @@ export default function About() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <img src="/images/pfp.jpg" alt="Ethan Peterson" className={styles.avatarImg} />
+              {/* Swap avatar.png for a real headshot when ready — same path, same size */}
+              <img src="/images/avatar.png" alt="Ethan Peterson" className={styles.avatarImg} />
             </motion.div>
           </motion.div>
         </div>

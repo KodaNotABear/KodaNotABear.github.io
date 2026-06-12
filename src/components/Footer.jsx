@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { GitHubIcon, ItchIcon, DiscordIcon, EmailIcon } from './Icons'
+import { copyText } from '../utils/copyText'
 import styles from './Footer.module.css'
 
+// Discord entry copies the handle — username URLs don't resolve on discord.com
 const SOCIALS = [
-  { label: 'GitHub',  href: 'https://github.com/KodaNotABear',           icon: <GitHubIcon /> },
-  { label: 'itch.io', href: 'https://kodanotabear.itch.io',              icon: <ItchIcon /> },
-  { label: 'Discord', href: 'https://discord.com/users/kodanotabear',    icon: <DiscordIcon /> },
-  { label: 'Email',   href: 'mailto:koda@akuro.studio',            icon: <EmailIcon /> },
+  { label: 'GitHub',  href: 'https://github.com/KodaNotABear', icon: <GitHubIcon /> },
+  { label: 'itch.io', href: 'https://kodanotabear.itch.io',    icon: <ItchIcon /> },
+  { label: 'Discord', copyValue: 'kodanotabear',               icon: <DiscordIcon /> },
+  { label: 'Email',   href: 'mailto:koda@akuro.studio',        icon: <EmailIcon /> },
 ]
 
 const STACK = [
@@ -16,6 +18,14 @@ const STACK = [
 
 export default function Footer() {
   const [tipVisible, setTipVisible] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  const copyDiscord = async (value) => {
+    if (await copyText(value)) {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1600)
+    }
+  }
 
   return (
     <footer className={styles.footer}>
@@ -28,17 +38,30 @@ export default function Footer() {
         </p>
 
         <nav className={styles.socials} aria-label="Social links">
-          {SOCIALS.map(({ label, href, icon }) => (
-            <a
-              key={label}
-              href={href}
-              className={styles.socialLink}
-              target={href.startsWith('http') ? '_blank' : undefined}
-              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-            >
-              <span style={{ display: 'flex', alignItems: 'center' }}>{icon}</span> {label}
-            </a>
-          ))}
+          {SOCIALS.map(({ label, href, copyValue, icon }) =>
+            copyValue ? (
+              <button
+                key={label}
+                type="button"
+                className={styles.socialLink}
+                onClick={() => copyDiscord(copyValue)}
+                title={`Copy ${copyValue}`}
+              >
+                <span style={{ display: 'flex', alignItems: 'center' }}>{icon}</span>
+                {copied ? 'Copied ✓' : label}
+              </button>
+            ) : (
+              <a
+                key={label}
+                href={href}
+                className={styles.socialLink}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                <span style={{ display: 'flex', alignItems: 'center' }}>{icon}</span> {label}
+              </a>
+            )
+          )}
         </nav>
 
         <p

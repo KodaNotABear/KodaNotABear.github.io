@@ -20,7 +20,6 @@ import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
 import Credits from './pages/Credits'
 import Card from './pages/Card'
-import AnimeHome from './pages/AnimeHome'
 import NotFound from './pages/NotFound'
 
 // AnimatedRoutes must live inside BrowserRouter so useLocation works
@@ -38,7 +37,6 @@ function AnimatedRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/credits" element={<Credits />} />
         <Route path="/card" element={<Card />} />
-        <Route path="/design-preview" element={<AnimeHome />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

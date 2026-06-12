@@ -24,7 +24,6 @@ function newState() {
 export default function MiniGame() {
   const [open, setOpen]               = useState(false)
   const [displayScore, setDisplayScore] = useState(0)
-  const [displayOver, setDisplayOver]   = useState(false)
   const [hiScore, setHiScore]           = useState(() => Number(localStorage.getItem('snakeHi')) || 0)
   const canvasRef = useRef(null)
   const seqRef    = useRef([])
@@ -123,7 +122,6 @@ export default function MiniGame() {
         g.snake.some(s => s.x === head.x && s.y === head.y)
       ) {
         g.over = true
-        setDisplayOver(true)
         if (g.score > (Number(localStorage.getItem('snakeHi')) || 0)) {
           localStorage.setItem('snakeHi', String(g.score))
           setHiScore(g.score)
@@ -154,7 +152,6 @@ export default function MiniGame() {
         clearInterval(timerId)
         g = newState()
         setDisplayScore(0)
-        setDisplayOver(false)
         startLoop()
         draw()
         return

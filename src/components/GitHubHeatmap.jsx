@@ -40,7 +40,15 @@ export default function GitHubHeatmap() {
   }, [])
 
   if (loading) return <div className={styles.loading}>Loading activity...</div>
-  if (error || weeks.length === 0) return null
+  if (error || weeks.length === 0) {
+    return (
+      <div className={styles.loading}>
+        <a href={`https://github.com/${GITHUB_USER}`} target="_blank" rel="noopener noreferrer">
+          @{GITHUB_USER} on GitHub →
+        </a>
+      </div>
+    )
+  }
 
   return (
     <div className={styles.wrap}>

@@ -12,20 +12,19 @@ import styles from './Home.module.css'
 const EYEBROW_TEXT = '// akuro.studio'
 
 function Typewriter({ text }) {
-  const [displayed, setDisplayed] = useState('')
+  const [count, setCount] = useState(0)
   useEffect(() => {
-    setDisplayed('')
-    let i = 0
     const interval = setInterval(() => {
-      setDisplayed(text.slice(0, i + 1))
-      i++
-      if (i >= text.length) clearInterval(interval)
+      setCount(c => {
+        if (c >= text.length) { clearInterval(interval); return c }
+        return c + 1
+      })
     }, 55)
     return () => clearInterval(interval)
   }, [text])
   return (
     <span>
-      {displayed}
+      {text.slice(0, count)}
       <span className={styles.cursor}>▋</span>
     </span>
   )
@@ -84,9 +83,9 @@ function TerminalWindow() {
 }
 
 const STATS = [
-  { value: '1',    label: 'Game Shipped' },
-  { value: '1',    label: 'Studio Internship' },
-  { value: 'C#',   label: 'Primary Language' },
+  { value: '1',     label: 'Mobile Game Shipped' },
+  { value: '9 mo',  label: 'Studio Internship' },
+  { value: '3 yrs', label: 'FSAE Race Telemetry' },
   { value: 'Unity', label: 'Engine of Choice' },
 ]
 

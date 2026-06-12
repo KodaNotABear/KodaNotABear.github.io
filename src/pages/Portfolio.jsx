@@ -29,8 +29,9 @@ export default function Portfolio() {
             <p className={styles.eyebrow}>// my work</p>
             <h1 className="section-title">Portfolio</h1>
             <p className={styles.subtitle}>
-              Games, prototypes, and experiments built with Unity. From 48-hour
-              game jams to professional internship work.
+              Shipped mobile game work, an original horror title in development,
+              and the engineering projects that taught me how systems behave
+              under pressure.
             </p>
           </motion.div>
         </div>
@@ -61,18 +62,20 @@ export default function Portfolio() {
             </motion.div>
           )}
 
-          {/* Filter bar */}
-          <div className={styles.filterBar} role="group" aria-label="Filter by tag">
-            {ALL_TAGS.filter(t => t !== 'Professional').map(tag => (
-              <button
-                key={tag}
-                className={`${styles.filterBtn} ${activeTag === tag ? styles.filterBtnActive : ''}`}
-                onClick={() => setActiveTag(tag)}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
+          {/* Filter bar — only worth showing once there are enough projects to filter */}
+          {otherProjects.length > 3 && (
+            <div className={styles.filterBar} role="group" aria-label="Filter by tag">
+              {ALL_TAGS.filter(t => t !== 'Professional').map(tag => (
+                <button
+                  key={tag}
+                  className={`${styles.filterBtn} ${activeTag === tag ? styles.filterBtnActive : ''}`}
+                  onClick={() => setActiveTag(tag)}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Project grid */}
           <div className={styles.grid}>

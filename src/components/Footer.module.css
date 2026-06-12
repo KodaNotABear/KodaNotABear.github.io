@@ -49,6 +49,14 @@
   background: rgba(0,212,255,0.05);
 }
 
+/* Button variant (Discord copy) — match anchor styling */
+button.socialLink {
+  background: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
 .copy {
   font-size: 0.8rem;
   color: var(--text-muted);
