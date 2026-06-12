@@ -29,7 +29,7 @@ const LINKS = [
     icon: <DiscordIcon size={20} />,
     label: 'Discord',
     value: 'kodanotabear',
-    copy: true, // no public profile URL for Discord usernames — copy the handle
+    copy: true, // no public profile URL for Discord usernames, so copy the handle
   },
   {
     icon: <GlobeIcon size={20} />,

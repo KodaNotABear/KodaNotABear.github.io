@@ -62,7 +62,7 @@ export default function Portfolio() {
             </motion.div>
           )}
 
-          {/* Filter bar — only worth showing once there are enough projects to filter */}
+          {/* Filter bar: only worth showing once there are enough projects to filter */}
           {otherProjects.length > 3 && (
             <div className={styles.filterBar} role="group" aria-label="Filter by tag">
               {ALL_TAGS.filter(t => t !== 'Professional').map(tag => (

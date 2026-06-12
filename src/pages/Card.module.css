@@ -136,7 +136,7 @@
   background: rgba(0, 212, 255, 0.05);
 }
 
-/* Button variant (Discord copy) — match anchor styling */
+/* Button variant (Discord copy): match anchor styling */
 button.link {
   width: 100%;
   font: inherit;

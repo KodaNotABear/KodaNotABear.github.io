@@ -19,12 +19,12 @@ const EXPERIENCE = [
     org: 'AKURO STUDIO',
     date: '2025 – Present',
     bullets: [
-      'Developing Black Signal, a space horror game in Unity (C#), as a solo developer — handling all design, programming, and production',
+      'Developing Black Signal, a space horror game in Unity (C#), as a solo developer handling all design, programming, and production',
       'Owning the full development pipeline for an original title: concept, prototyping, implementation, and playtesting',
     ],
   },
   {
-    title: 'Data Acquisition — Software',
+    title: 'Data Acquisition Developer',
     org: 'Sun Devil Motorsports (Formula SAE)',
     date: 'Jun 2022 – 2025',
     bullets: [
@@ -37,7 +37,7 @@ const EXPERIENCE = [
 
 const EDUCATION = [
   {
-    title: 'B.S. Computer Science — Software Engineering Focus',
+    title: 'B.S. Computer Science, Software Engineering Focus',
     org: 'Arizona State University',
     date: 'May 2026',
     bullets: [
@@ -50,7 +50,7 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
-    title: 'Off-Road Champion — Tournament Update & Web Portal',
+    title: 'Off-Road Champion: Tournament Update & Web Portal',
     org: 'Pixel Pirate Studio',
     date: 'Aug 2025 – May 2026',
     bullets: [
@@ -63,7 +63,7 @@ const PROJECTS = [
     org: 'AKURO STUDIO',
     date: '2025 – Present',
     bullets: [
-      'Solo-developed space horror game in Unity (C#) inspired by Observation Duty — player monitors a derelict station through its security camera network, tracking anomalies and keeping the crew alive',
+      'Solo space horror game in Unity (C#) inspired by Observation Duty. The player monitors a derelict station through its security camera network, tracking anomalies and keeping the crew alive',
       'Designing all gameplay systems, UI, audio direction, and level layout independently',
     ],
   },

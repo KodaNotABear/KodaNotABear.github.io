@@ -120,9 +120,9 @@ function blackSignalTeaser() {
   <text x="646" y="332" text-anchor="middle" font-family="Rajdhani" font-weight="700" font-size="96" letter-spacing="10" fill="${CYAN}" opacity="0.45">SIGNAL LOST</text>
   <text x="634" y="336" text-anchor="middle" font-family="Rajdhani" font-weight="700" font-size="96" letter-spacing="10" fill="#ef4444" opacity="0.35">SIGNAL LOST</text>
   <text x="640" y="334" text-anchor="middle" font-family="Rajdhani" font-weight="700" font-size="96" letter-spacing="10" fill="${TEXT}">SIGNAL LOST</text>
-  <text x="640" y="386" text-anchor="middle" font-family="JetBrains Mono" font-size="20" letter-spacing="6" fill="${TEXT2}">ANOMALY DETECTION OFFLINE — RECONNECTING…</text>
+  <text x="640" y="386" text-anchor="middle" font-family="JetBrains Mono" font-size="20" letter-spacing="6" fill="${TEXT2}">ANOMALY DETECTION OFFLINE :: RECONNECTING…</text>
 
-  <text x="64" y="78" font-family="JetBrains Mono" font-size="22" fill="#d7dee8">CAM_04 — DECK C // EXTERNAL</text>
+  <text x="64" y="78" font-family="JetBrains Mono" font-size="22" fill="#d7dee8">CAM_04 // DECK C // EXTERNAL</text>
   <circle cx="1132" cy="70" r="7" fill="#ef4444"/>
   <text x="1152" y="78" font-family="JetBrains Mono" font-size="22" fill="#d7dee8">REC</text>
   <text x="64" y="668" font-family="JetBrains Mono" font-size="18" fill="${TEXT2}">T+ 03:47:12 · FEED 4/9</text>
@@ -156,10 +156,10 @@ function lapTiming() {
   <rect width="${W}" height="${H}" fill="url(#gmin)"/>
   <rect width="${W}" height="${H}" fill="url(#gmaj)"/>
 
-  <text x="64" y="78" font-family="JetBrains Mono" font-size="20" fill="${VIOLET}">// SUN DEVIL MOTORSPORTS — DATA ACQUISITION</text>
+  <text x="64" y="78" font-family="JetBrains Mono" font-size="20" fill="${VIOLET}">// SUN DEVIL MOTORSPORTS :: DATA ACQUISITION</text>
 
   <text x="640" y="200" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="76" letter-spacing="6" fill="${CYAN}">01:23.456</text>
-  <text x="640" y="244" text-anchor="middle" font-family="JetBrains Mono" font-size="22" letter-spacing="8" fill="${TEXT2}">LAP 12 — BEST</text>
+  <text x="640" y="244" text-anchor="middle" font-family="JetBrains Mono" font-size="22" letter-spacing="8" fill="${TEXT2}">LAP 12 · BEST</text>
 
   <!-- IR gate schematic -->
   <g>
@@ -189,7 +189,7 @@ function lapTiming() {
 
   <!-- gate pulse -->
   <path d="${pulse}" fill="none" stroke="${GREEN}" stroke-width="2.5"/>
-  <text x="80" y="640" font-family="JetBrains Mono" font-size="15" letter-spacing="2" fill="${TEXT2}">GATE PULSE — 1/LAP</text>
+  <text x="80" y="640" font-family="JetBrains Mono" font-size="15" letter-spacing="2" fill="${TEXT2}">GATE PULSE :: 1/LAP</text>
 
   <!-- title block -->
   <g>

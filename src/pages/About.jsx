@@ -29,7 +29,7 @@ const TIMELINE = [
   },
   {
     date: 'Jun 2022 – 2025',
-    title: 'Data Acquisition — Formula SAE',
+    title: 'Data Acquisition Developer, Formula SAE',
     org: 'Sun Devil Motorsports',
     desc: 'Designed and tested on-vehicle data acquisition and embedded telemetry tools for ASU\'s FSAE racing team, including an infrared lap timing system.',
     color: 'var(--accent-violet)',
@@ -44,10 +44,10 @@ const TIMELINE = [
 ]
 
 const INTERESTS = [
-  'Roguelikes — the perfect intersection of systems design and replayability',
+  'Roguelikes, the perfect intersection of systems design and replayability',
   'MMOs and the social architecture behind persistent worlds',
   'MOBAs and the deep balance challenges of competitive design',
-  'Boomer shooters — movement, feel, and the art of the arena',
+  'Boomer shooters: movement, feel, and the art of the arena',
   'Game jam culture and rapid prototyping',
 ]
 
@@ -92,7 +92,7 @@ export default function About() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              {/* Swap avatar.png for a real headshot when ready — same path, same size */}
+              {/* Swap avatar.png for a real headshot when ready (same path, same size) */}
               <img src="/images/avatar.png" alt="Ethan Peterson" className={styles.avatarImg} />
             </motion.div>
           </motion.div>
@@ -167,11 +167,11 @@ export default function About() {
               <div className={styles.sectionBlock}>
                 <h2>AKURO STUDIO</h2>
                 <p>
-                  AKURO STUDIO is my independent label — the callsign under
-                  which I develop and ship games. No publisher, no committee.
-                  The name was chosen to feel like it belongs on the side of a
-                  corporate megabuilding in a city that never sleeps. One
-                  developer, one pipeline, direct-to-player transmission.
+                  AKURO STUDIO is my independent label, the callsign I build
+                  games under. No publisher, no committee. The name was chosen
+                  to feel like it belongs on the side of a corporate
+                  megabuilding in a city that never sleeps. One developer, one
+                  pipeline, direct-to-player transmission.
                 </p>
               </div>
 

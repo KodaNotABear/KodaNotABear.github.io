@@ -18,7 +18,7 @@ export default function NotFound() {
       <div className={styles.scanline} aria-hidden />
       <div className={styles.content}>
         <div className={styles.gameOver}>GAME OVER</div>
-        <p className={styles.code}>404 — PAGE NOT FOUND</p>
+        <p className={styles.code}>ERROR 404: PAGE NOT FOUND</p>
         <p className={styles.message}>The level you're looking for doesn't exist.</p>
 
         <div className={styles.continue}>

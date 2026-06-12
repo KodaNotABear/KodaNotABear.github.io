@@ -47,7 +47,7 @@ export default function KeyboardShortcuts() {
         return
       }
 
-      // G+letter navigation — only when modal is closed
+      // G+letter navigation, only when modal is closed
       if (!openRef.current) {
         const upper = e.key.toUpperCase()
         if (upper === 'G') {
@@ -70,7 +70,7 @@ export default function KeyboardShortcuts() {
       window.removeEventListener('keydown', onKey)
       clearTimeout(timer)
     }
-  }, [navigate])  // stable — no re-register on open changes
+  }, [navigate])  // stable: no re-register on open changes
 
   if (!open) return null
 

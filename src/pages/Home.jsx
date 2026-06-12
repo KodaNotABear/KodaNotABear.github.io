@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import { projects } from '../data/projects'
 import {
@@ -46,25 +46,109 @@ const BOOT_LINES = [
   { text: '> ready_', delay: 3900, color: 'green' },
 ]
 
+const PAGES = {
+  home: '/', portfolio: '/portfolio', projects: '/portfolio', about: '/about',
+  resume: '/resume', devlog: '/devlog', blog: '/devlog', contact: '/contact',
+}
+
+const EGGS = {
+  snake:   { id: 'SNAKE',   flavor: 'launching snake.exe (arrow keys to steer, Esc to quit)' },
+  roll:    { id: 'ROLL',    flavor: 'rolling...' },
+  dungeon: { id: 'DUNGEON', flavor: 'loading dungeon.exe' },
+  ghost:   { id: 'GHOST',   flavor: 'scanning for paracausal entities...' },
+  signal:  { id: 'SIGNAL',  flavor: 'you were warned.' },
+}
+
+const HELP_LINES = [
+  '  help        this menu',
+  '  whoami      operator profile',
+  '  snake       play snake (arrow keys)',
+  '  roll        roll a d20',
+  '  dungeon     text adventure',
+  '  ghost       a little light',
+  '  signal      do not',
+  '  go [page]   portfolio · about · resume · devlog · contact',
+  '  clear       wipe terminal',
+]
+
 function TerminalWindow() {
+  const navigate = useNavigate()
   const [visibleLines, setVisibleLines] = useState([])
+  const [booted, setBooted] = useState(false)
+  const [history, setHistory] = useState([])
+  const [input, setInput] = useState('')
+  const bodyRef = useRef(null)
+  const inputRef = useRef(null)
 
   useEffect(() => {
     const timers = BOOT_LINES.map((line, i) =>
       setTimeout(() => setVisibleLines(prev => [...prev, i]), line.delay)
     )
-    return () => timers.forEach(clearTimeout)
+    const bootTimer = setTimeout(() => setBooted(true), BOOT_LINES[BOOT_LINES.length - 1].delay + 400)
+    return () => { timers.forEach(clearTimeout); clearTimeout(bootTimer) }
   }, [])
 
+  // keep the newest line in view
+  useEffect(() => {
+    const el = bodyRef.current
+    if (el) el.scrollTop = el.scrollHeight
+  }, [visibleLines, booted, history])
+
+  function print(lines) {
+    setHistory(h => [...h, ...lines].slice(-80))
+  }
+
+  function run(raw) {
+    const cmd = raw.trim().toLowerCase()
+    if (!cmd) return
+    const echo = { text: `> ${raw.trim()}`, color: 'normal' }
+
+    if (cmd === 'clear') { setHistory([]); return }
+    if (cmd === 'help' || cmd === '?') {
+      print([echo, ...HELP_LINES.map(text => ({ text, color: 'dim' }))])
+      return
+    }
+    if (cmd === 'whoami') {
+      print([echo,
+        { text: '  Ethan Peterson', color: 'normal' },
+        { text: '  game programmer · Unity / C#', color: 'normal' },
+        { text: '  status: open to work', color: 'green' },
+      ])
+      return
+    }
+    if (EGGS[cmd]) {
+      print([echo, { text: `  ${EGGS[cmd].flavor}`, color: cmd === 'signal' ? 'cyan' : 'dim' }])
+      window.dispatchEvent(new CustomEvent('eggTrigger', { detail: EGGS[cmd].id }))
+      return
+    }
+    const dest = cmd.startsWith('go ') ? cmd.slice(3).trim() : cmd
+    if (PAGES[dest]) {
+      print([echo, { text: `  loading ${PAGES[dest]} ...`, color: 'dim' }])
+      setTimeout(() => navigate(PAGES[dest]), 450)
+      return
+    }
+    print([echo, { text: `  command not found: ${cmd} (try 'help')`, color: 'cyan' }])
+  }
+
+  function onSubmit(e) {
+    e.preventDefault()
+    run(input)
+    setInput('')
+  }
+
   return (
-    <div className={styles.terminal} aria-hidden>
+    <div
+      className={styles.terminal}
+      aria-label="Interactive terminal. Type help for commands."
+      onClick={() => booted && inputRef.current?.focus()}
+    >
       <div className={styles.terminalBar}>
         <span className={styles.termDot} style={{ background: '#ff5f57' }} />
         <span className={styles.termDot} style={{ background: '#febc2e' }} />
         <span className={styles.termDot} style={{ background: '#28c840' }} />
-        <span className={styles.termTitle}>AKURO — bash</span>
+        <span className={styles.termTitle}>akuro@studio:~</span>
       </div>
-      <div className={styles.terminalBody}>
+      <div className={styles.terminalBody} ref={bodyRef}>
         {BOOT_LINES.map((line, i) =>
           visibleLines.includes(i) ? (
             <div key={i} className={`${styles.termLine} ${styles[`term_${line.color}`]}`}>
@@ -72,10 +156,28 @@ function TerminalWindow() {
             </div>
           ) : null
         )}
-        {visibleLines.length >= BOOT_LINES.length && (
-          <div className={`${styles.termLine} ${styles.term_normal}`}>
-            <span className={styles.cursor}>▋</span>
+        {history.map((line, i) => (
+          <div key={i} className={`${styles.termLine} ${styles[`term_${line.color}`]}`}>
+            {line.text}
           </div>
+        ))}
+        {booted && (
+          <form className={styles.termPrompt} onSubmit={onSubmit}>
+            <span className={styles.term_green}>&gt;</span>
+            <input
+              ref={inputRef}
+              className={styles.termInput}
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              placeholder="type 'help'"
+              aria-label="Terminal command input"
+              autoComplete="off"
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck="false"
+              enterKeyHint="go"
+            />
+          </form>
         )}
       </div>
     </div>
@@ -135,10 +237,10 @@ export default function Home() {
               </p>
 
               <p className={styles.heroBio}>
-                CS grad with a Software Engineering focus, passionate about
-                crafting immersive gameplay experiences. From systems design to
-                pixel-perfect UI, I build games with Unity and ship them.
-                Currently exploring new opportunities in the game industry.
+                CS grad with a Software Engineering focus. I build games in
+                Unity, from gameplay systems down to UI polish, and I care a
+                lot about how things feel to play. Looking for my first
+                full-time role in games. The terminal works, by the way.
               </p>
 
               <div className={styles.heroActions}>
@@ -204,7 +306,7 @@ export default function Home() {
             </div>
             <h2 className={styles.buildingTitle}>Black Signal</h2>
             <p className={styles.buildingDesc}>
-              A space-horror experience inspired by <em>Observation Duty</em>. Monitor deep-space feeds and decide what's real — and what isn't.
+              A space-horror experience inspired by <em>Observation Duty</em>. Monitor deep-space feeds and decide what's real. The crew pays for what you miss.
             </p>
             <div className={styles.buildingFooter}>
               <div className={styles.buildingTags}>

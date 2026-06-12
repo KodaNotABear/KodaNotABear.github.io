@@ -1,4 +1,4 @@
-# Generates public/resume.pdf — one-page, game-dev-first resume.
+# Generates public/resume.pdf, a one-page game-dev-first resume.
 # Run with: python scripts/generate-resume.py
 # Layout is single-column and text-native to stay ATS-friendly.
 from pathlib import Path
@@ -91,8 +91,8 @@ story = [
     HRFlowable(width="100%", thickness=2.2, color=ACCENT, spaceAfter=7),
     Paragraph(
         "Game programmer with a B.S. in Computer Science (Arizona State University, May 2026) and nine months "
-        "of professional Unity experience shipping features for a live mobile racing game — onboarding, LiveOps, "
-        "and a WebGL port. Three years building embedded race telemetry for a collegiate FSAE team. Currently "
+        "of professional Unity experience shipping onboarding, LiveOps, and WebGL features for a live mobile "
+        "racing game. Three years building embedded race telemetry for a collegiate FSAE team. Currently "
         "solo-developing <b>Black Signal</b>, an original space-horror title. Seeking a junior game programmer role.",
         styles["body"],
     ),
@@ -100,7 +100,7 @@ story = [
 
 story += section("EXPERIENCE")
 story += entry(
-    "Game Development Intern", "Pixel Pirate Studio — Off-Road Champion (mobile racing, Unity)",
+    "Game Development Intern", "Pixel Pirate Studio · Off-Road Champion (mobile racing, Unity)",
     "Aug 2025 – May 2026",
     [
         "Designed and implemented the new-player onboarding system, guiding players through core "
@@ -108,19 +108,19 @@ story += entry(
         "Shipped a tournament update where players compete for virtual currency, connected to a web "
         "portal for live standings and rewards",
         "Ported Off-Road Champion to WebGL for browser play",
-        "Collaborated with designers and producers in an Agile team — daily standups, sprint planning, code review",
+        "Collaborated with designers and producers in an Agile team across daily standups, sprint planning, and code review",
     ],
 )
 story += entry(
     "Founder &amp; Solo Developer", "AKURO STUDIO", "2025 – Present",
     [
-        "Developing <b>Black Signal</b>, a space-horror game in Unity (C#) — all gameplay systems, UI, "
-        "audio direction, and level design",
+        "Developing <b>Black Signal</b>, a space-horror game in Unity (C#), and building all of its "
+        "gameplay systems, UI, audio direction, and level design",
         "Owning the full pipeline for an original title: concept, prototyping, implementation, playtesting",
     ],
 )
 story += entry(
-    "Data Acquisition — Software", "Sun Devil Motorsports (Formula SAE), Arizona State University",
+    "Data Acquisition Developer", "Sun Devil Motorsports (Formula SAE), Arizona State University",
     "Jun 2022 – 2025",
     [
         "Designed and tested on-vehicle data acquisition tools across three race seasons",
@@ -141,7 +141,7 @@ for group, items in [
 
 story += section("EDUCATION")
 story += entry(
-    "B.S. Computer Science — Software Engineering Focus", "Arizona State University", "May 2026",
+    "B.S. Computer Science, Software Engineering Focus", "Arizona State University", "May 2026",
     [
         "Coursework: Game Development, Computer Graphics, Data Structures &amp; Algorithms, Operating "
         "Systems, Software Engineering",
@@ -153,7 +153,7 @@ doc = SimpleDocTemplate(
     str(OUT), pagesize=letter,
     leftMargin=0.62 * inch, rightMargin=0.62 * inch,
     topMargin=0.5 * inch, bottomMargin=0.45 * inch,
-    title="Ethan Peterson — Game Programmer & Designer",
+    title="Ethan Peterson, Game Programmer & Designer",
     author="Ethan Peterson",
     subject="Resume",
 )
@@ -162,4 +162,4 @@ doc.build(story)
 from pypdf import PdfReader  # noqa: E402
 pages = len(PdfReader(str(OUT)).pages)
 print(f"OK {OUT} ({pages} page{'s' if pages != 1 else ''})")
-assert pages == 1, "Resume must fit on one page — tighten spacing or trim bullets"
+assert pages == 1, "Resume must fit on one page. Tighten spacing or trim bullets"

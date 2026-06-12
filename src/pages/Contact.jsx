@@ -199,7 +199,7 @@ export default function Contact() {
                       <span className={styles.submitNote}>
                         {status === 'error' ? (
                           <>
-                            <WarningIcon size={14} /> Something went wrong — email directly at{' '}
+                            <WarningIcon size={14} /> Something went wrong. Email me directly at{' '}
                             <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
                           </>
                         ) : ''}

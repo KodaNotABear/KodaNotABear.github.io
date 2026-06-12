@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import styles from './AmbientSound.module.css'
 
-// Procedural ambient drone via Web Audio API — no audio files needed
+// Procedural ambient drone via Web Audio API, no audio files needed
 function buildAmbience(ctx) {
   const master = ctx.createGain()
   master.gain.setValueAtTime(0, ctx.currentTime)
   master.gain.linearRampToValueAtTime(0.09, ctx.currentTime + 3)
   master.connect(ctx.destination)
 
-  // Low drone — two detuned oscillators for thickness
+  // Low drone: two detuned oscillators for thickness
   function drone(freq, detune, gain) {
     const osc = ctx.createOscillator()
     osc.type = 'sine'
@@ -25,7 +25,7 @@ function buildAmbience(ctx) {
   drone(55,   0,   0.5)  // A1
   drone(55,  +8,   0.35) // A1 detuned slightly for beating
   drone(110,  0,   0.25) // A2
-  drone(82.4, 0,   0.15) // E2 — unsettling tritone-ish against A
+  drone(82.4, 0,   0.15) // E2, unsettling tritone-ish against A
 
   // Filtered noise for atmospheric texture
   const bufLen = ctx.sampleRate * 4

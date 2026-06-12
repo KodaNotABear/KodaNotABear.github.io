@@ -4,7 +4,7 @@ import styles from './DestinyGhost.module.css'
 const QUIPS = [
   'Scanning... anomalous talent detected.',
   "That's classified, Guardian.",
-  "I've seen worse codebases. Actually — no, I haven't.",
+  "I've seen worse codebases. Actually, no. I haven't.",
   'You should probably hire this Guardian.',
   'My Light grows dim... but my admiration does not.',
   'Error 503: compliment overflow. Rebooting.',

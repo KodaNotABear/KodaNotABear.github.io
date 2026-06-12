@@ -1,4 +1,4 @@
-// Brand and UI icons as inline SVGs — fill="currentColor" so they inherit text color
+// Brand and UI icons as inline SVGs. fill="currentColor" so they inherit text color
 
 export function GitHubIcon({ size = 18 }) {
   return (
