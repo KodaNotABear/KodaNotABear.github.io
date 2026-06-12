@@ -89,10 +89,10 @@ export default function KeyboardShortcuts() {
               <span className={styles.label}>{label}</span>
               <div className={styles.keys}>
                 {keys.map((k, i) => (
-                  <>
-                    <kbd key={k} className={styles.kbd}>{k}</kbd>
-                    {i < keys.length - 1 && <span key={`sep-${i}`} className={styles.then}>then</span>}
-                  </>
+                  <React.Fragment key={k}>
+                    <kbd className={styles.kbd}>{k}</kbd>
+                    {i < keys.length - 1 && <span className={styles.then}>then</span>}
+                  </React.Fragment>
                 ))}
               </div>
             </div>

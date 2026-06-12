@@ -2,25 +2,35 @@ import { motion } from 'framer-motion'
 import { EmailIcon, GlobeIcon, GitHubIcon, ItchIcon } from '../components/Icons'
 import styles from './Resume.module.css'
 
-// ── Data ── replace all placeholders with real content ────
 const EXPERIENCE = [
   {
-    title: 'Software Engineering Intern',
+    title: 'Game Development Intern',
     org: 'Pixel Pirate Studio',
     date: 'Aug 2025 – May 2026',
     bullets: [
-      'Designed and implemented a player onboarding system for Off-Road Champion, a mobile Unity game, guiding new players through core mechanics to improve early-game retention',
+      'Designed and implemented the player onboarding system for Off-Road Champion, a mobile Unity racing game, guiding new players through core mechanics in their first session',
+      'Shipped a tournament update where players compete for virtual currency, connected to a web portal for live standings and rewards',
+      'Ported Off-Road Champion to WebGL for browser play',
       'Collaborated with designers and producers in an Agile environment across daily standups and sprint planning',
     ],
   },
   {
-    title: 'Founder & Lead Developer',
-    org: 'AKURO STUDIO (Solo)',
-    date: '2022 – Present',
+    title: 'Founder & Solo Developer',
+    org: 'AKURO STUDIO',
+    date: '2025 – Present',
     bullets: [
       'Developing Black Signal, a space horror game in Unity (C#), as a solo developer — handling all design, programming, and production',
-      'Managed full game development lifecycle: concept, design, implementation, QA, and release',
-      'Maintaining an itch.io presence and community engagement for published and upcoming projects',
+      'Owning the full development pipeline for an original title: concept, prototyping, implementation, and playtesting',
+    ],
+  },
+  {
+    title: 'Data Acquisition — Software',
+    org: 'Sun Devil Motorsports (Formula SAE)',
+    date: 'Jun 2022 – 2025',
+    bullets: [
+      'Designed and tested on-vehicle data acquisition tools for ASU\'s Formula SAE racing team across three seasons',
+      'Built embedded systems for live telemetry capture, including an infrared lap timing system used for performance analysis',
+      'Collaborated with mechanical and electrical sub-teams to integrate data systems across the car',
     ],
   },
 ]
@@ -33,18 +43,19 @@ const EDUCATION = [
     bullets: [
       'Focus: Software Engineering with an emphasis on game development and interactive systems',
       'Relevant coursework: Data Structures, Algorithms, Software Engineering, Computer Graphics, Game Development, Operating Systems',
+      'Activities: Formula SAE (Sun Devil Motorsports, 2022–2025) · Software Developers Association (SoDA)',
     ],
   },
 ]
 
 const PROJECTS = [
   {
-    title: 'Off-Road Champion — Player Onboarding System',
+    title: 'Off-Road Champion — Tournament Update & Web Portal',
     org: 'Pixel Pirate Studio',
     date: 'Aug 2025 – May 2026',
     bullets: [
-      'Designed and built a full onboarding flow in Unity (C#) for a mobile racing game targeting new players',
-      'System guided players through vehicle controls, race mechanics, and progression goals in their first session',
+      'Built a tournament system for a live mobile game, letting players compete for virtual currency',
+      'Connected the game to a web portal where players track tournament standings and rewards',
     ],
   },
   {
@@ -56,13 +67,21 @@ const PROJECTS = [
       'Designing all gameplay systems, UI, audio direction, and level layout independently',
     ],
   },
+  {
+    title: 'Infrared Lap Timing System',
+    org: 'Sun Devil Motorsports',
+    date: '2022 – 2025',
+    bullets: [
+      'Designed and built an infrared lap timing system for ASU\'s Formula SAE car, feeding lap data into the team\'s performance analysis workflow',
+    ],
+  },
 ]
 
 const SKILLS = [
-  { group: 'Languages', items: ['C# (Unity)', 'Python', 'JavaScript / TypeScript', 'HTML & CSS'] },
-  { group: 'Engines & Tools', items: ['Unity (3+ years)', 'Git / GitHub', 'VS Code', 'Rider / Visual Studio'] },
-  { group: 'Game Dev', items: ['Gameplay Systems', 'UI Implementation', 'Level Design', 'Game Jam Development'] },
-  { group: 'Soft Skills', items: ['Agile / Scrum', 'Technical Writing', 'Code Review', 'Problem Solving'] },
+  { group: 'Languages', items: ['C# (Unity)', 'C++', 'Python', 'JavaScript / React', 'HTML & CSS'] },
+  { group: 'Engines & Tools', items: ['Unity (3+ years)', 'Git / GitHub', 'Blender', 'FMOD', 'Rider / Visual Studio'] },
+  { group: 'Game Dev', items: ['Gameplay Systems', 'UI Implementation', 'Level Design', 'WebGL Builds'] },
+  { group: 'Engineering', items: ['Embedded Systems', 'Data Acquisition', 'Agile / Scrum', 'Code Review'] },
 ]
 
 function Section({ title, children }) {
@@ -108,12 +127,7 @@ export default function Resume() {
               <p className={styles.eyebrow}>// résumé</p>
               <h1 className="section-title">Resume</h1>
             </div>
-            <a
-              href="/resume.pdf"
-              className="btn btn-primary"
-              download
-              title="Add resume.pdf to the /public folder to enable this download"
-            >
+            <a href="/resume.pdf" className="btn btn-primary" download>
               ⬇ Download PDF
             </a>
           </motion.div>

@@ -1,16 +1,38 @@
-# React + Vite
+# akuro.studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio of **Ethan Peterson** — game programmer & designer building under the AKURO STUDIO label.
 
-Currently, two official plugins are available:
+**Live site → [akuro.studio](https://akuro.studio)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- [React 19](https://react.dev) + [Vite 8](https://vite.dev)
+- [React Router v7](https://reactrouter.com) — client-side routing with a GitHub Pages 404 redirect shim
+- [Framer Motion](https://www.framer.com/motion/) — page transitions and scroll reveals
+- CSS Modules with a custom design-token system (`src/styles/global.css`)
+- Hosted on GitHub Pages behind Cloudflare
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Development
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev      # local dev server
+npm run lint     # eslint
+npm run build    # production build to dist/
+npm run deploy   # build + publish to gh-pages
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Things to find
+
+The site has a few secrets. Try the Konami code, or press `?` to see what else is listening.
+
+## Structure
+
+```
+src/
+  components/   # shared UI + easter eggs (snake, d20, text adventure...)
+  data/         # projects and devlog posts — edit these to add content
+  pages/        # one component per route
+  styles/       # global design tokens and base styles
+scripts/        # build-time asset generation (og image, card art)
+```

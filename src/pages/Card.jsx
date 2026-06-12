@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
 import { GitHubIcon, ItchIcon, DiscordIcon, EmailIcon, GlobeIcon } from '../components/Icons'
+import { copyText } from '../utils/copyText'
 import styles from './Card.module.css'
 
 const CARD_URL = 'https://akuro.studio/card'
@@ -28,7 +29,7 @@ const LINKS = [
     icon: <DiscordIcon size={20} />,
     label: 'Discord',
     value: 'kodanotabear',
-    href: 'https://discord.com/users/kodanotabear',
+    copy: true, // no public profile URL for Discord usernames — copy the handle
   },
   {
     icon: <GlobeIcon size={20} />,
@@ -40,6 +41,14 @@ const LINKS = [
 
 export default function Card() {
   const [qrOpen, setQrOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  async function copyHandle(value) {
+    if (await copyText(value)) {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1600)
+    }
+  }
 
   async function shareCard() {
     if (navigator.share) {
@@ -76,22 +85,39 @@ export default function Card() {
 
         {/* Links */}
         <nav className={styles.links}>
-          {LINKS.map(({ icon, label, value, href }) => (
-            <a
-              key={label}
-              href={href}
-              className={styles.link}
-              target={href.startsWith('http') ? '_blank' : undefined}
-              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-            >
-              <span className={styles.linkIcon}>{icon}</span>
-              <span className={styles.linkContent}>
-                <span className={styles.linkLabel}>{label}</span>
-                <span className={styles.linkValue}>{value}</span>
-              </span>
-              <span className={styles.linkArrow}>→</span>
-            </a>
-          ))}
+          {LINKS.map(({ icon, label, value, href, copy }) =>
+            copy ? (
+              <button
+                key={label}
+                type="button"
+                className={styles.link}
+                onClick={() => copyHandle(value)}
+                title={`Copy ${value}`}
+              >
+                <span className={styles.linkIcon}>{icon}</span>
+                <span className={styles.linkContent}>
+                  <span className={styles.linkLabel}>{label}</span>
+                  <span className={styles.linkValue}>{copied ? 'Copied ✓' : value}</span>
+                </span>
+                <span className={styles.linkArrow}>⧉</span>
+              </button>
+            ) : (
+              <a
+                key={label}
+                href={href}
+                className={styles.link}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                <span className={styles.linkIcon}>{icon}</span>
+                <span className={styles.linkContent}>
+                  <span className={styles.linkLabel}>{label}</span>
+                  <span className={styles.linkValue}>{value}</span>
+                </span>
+                <span className={styles.linkArrow}>→</span>
+              </a>
+            )
+          )}
         </nav>
 
         <div className={styles.divider} />

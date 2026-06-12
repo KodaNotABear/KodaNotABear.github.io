@@ -2,14 +2,16 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styles from './Contact.module.css'
 import { EmailIcon, GitHubIcon, ItchIcon, DiscordIcon, CheckCircleIcon, WarningIcon } from '../components/Icons'
+import { copyText } from '../utils/copyText'
 
 const CONTACT_EMAIL = 'koda@akuro.studio'
 
+// Discord has no public profile URL for usernames, so it copies the handle instead
 const CONTACT_INFO = [
   { icon: <EmailIcon />, label: 'Email', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
   { icon: <GitHubIcon />, label: 'GitHub', value: 'github.com/KodaNotABear', href: 'https://github.com/KodaNotABear' },
   { icon: <ItchIcon />, label: 'itch.io', value: 'kodanotabear.itch.io', href: 'https://kodanotabear.itch.io' },
-  { icon: <DiscordIcon />, label: 'Discord', value: 'kodanotabear', href: 'https://discord.com/users/kodanotabear' },
+  { icon: <DiscordIcon />, label: 'Discord', value: 'kodanotabear', copy: true },
 ]
 
 // This form uses Formspree (free, no server needed on GitHub Pages).
@@ -19,9 +21,17 @@ const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://f
 
 export default function Contact() {
   const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [copied, setCopied] = useState(null)
   const [formData, setFormData] = useState({
     name: '', email: '', subject: '', category: 'general', message: '',
   })
+
+  const copyValue = async (label, value) => {
+    if (await copyText(value)) {
+      setCopied(label)
+      setTimeout(() => setCopied(null), 1600)
+    }
+  }
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -85,16 +95,27 @@ export default function Contact() {
                 Available for opportunities
               </div>
 
-              {CONTACT_INFO.map(({ icon, label, value, href }) => (
+              {CONTACT_INFO.map(({ icon, label, value, href, copy }) => (
                 <div key={label} className={styles.infoCard}>
                   <span className={styles.infoIcon}>{icon}</span>
                   <div>
                     <div className={styles.infoLabel}>{label}</div>
                     <div className={styles.infoValue}>
-                      <a href={href} target={href.startsWith('http') ? '_blank' : undefined}
-                         rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>
-                        {value}
-                      </a>
+                      {copy ? (
+                        <button
+                          type="button"
+                          className={styles.copyBtn}
+                          onClick={() => copyValue(label, value)}
+                          title="Copy to clipboard"
+                        >
+                          {copied === label ? 'Copied ✓' : value}
+                        </button>
+                      ) : (
+                        <a href={href} target={href.startsWith('http') ? '_blank' : undefined}
+                           rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                          {value}
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

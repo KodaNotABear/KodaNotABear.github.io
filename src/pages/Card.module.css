@@ -136,6 +136,14 @@
   background: rgba(0, 212, 255, 0.05);
 }
 
+/* Button variant (Discord copy) — match anchor styling */
+button.link {
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 @media (hover: hover) {
   .link:hover {
     border-color: var(--accent-cyan-dim);

@@ -112,7 +112,6 @@ function process(raw, state) {
     if (['run', 'flee', 'escape', 'r'].includes(verb)) {
       if (Math.random() < 0.5) {
         out('You slip away into the dark.', 'good')
-        combat = null
         return { ...state, combat: null, newLog: log }
       } else {
         const eDmg = roll(1, 3)

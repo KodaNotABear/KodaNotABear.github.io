@@ -199,9 +199,12 @@ img, video { max-width: 100%; display: block; }
 ::-webkit-scrollbar-thumb { background: var(--accent-cyan-dim); border-radius: 3px; }
 
 /* ── Grid scan lines overlay (subtle texture) ───────────── */
+/* Animate transform (composited) instead of background-position (repaints
+   the full screen every frame). 98px = 14 × the 7px gradient period, so the
+   loop wraps seamlessly. */
 @keyframes scanlines-scroll {
-  from { background-position: 0 0; }
-  to   { background-position: 0 100px; }
+  from { transform: translateY(0); }
+  to   { transform: translateY(98px); }
 }
 
 @keyframes crt-flicker {
@@ -216,11 +219,12 @@ img, video { max-width: 100%; display: block; }
 body::before {
   content: '';
   position: fixed;
-  inset: 0;
+  inset: -98px 0 0 0;
   background-image:
     repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(0,212,255,0.022) 4px, rgba(0,212,255,0.022) 7px);
   pointer-events: none;
   z-index: 0;
+  will-change: transform;
   animation: scanlines-scroll 8s linear infinite, crt-flicker 6s step-end infinite;
 }
 
