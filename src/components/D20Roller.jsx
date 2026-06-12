@@ -22,7 +22,7 @@ const RESULTS = [
   { label: '17', msg: 'Impressive. The dungeon master nods.',           color: '#22d3a0' },
   { label: '18', msg: 'Exceptional. Few roll this high.',               color: '#22d3a0' },
   { label: '19', msg: 'Near perfect. One pip shy of legend.',           color: '#22d3a0' },
-  { label: 'NATURAL 20',        msg: 'CRITICAL HIT — hire me. Immediately. The dice have spoken.', color: '#fbbf24' }, // 20
+  { label: 'NATURAL 20',        msg: 'CRITICAL HIT. Hire me immediately. The dice have spoken.', color: '#fbbf24' }, // 20
 ]
 
 export default function D20Roller() {

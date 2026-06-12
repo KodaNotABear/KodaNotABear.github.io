@@ -17,7 +17,7 @@ const CREDITS = [
   { role: 'Inspiration', name: 'Every game that made me want to make games' },
   { role: 'Coffee', name: 'Too many cups to count' },
   { role: '', name: '' },
-  { role: 'YOU FOUND THIS PAGE', name: '— nice detective work' },
+  { role: 'YOU FOUND THIS PAGE', name: 'nice detective work' },
   { role: '', name: '' },
   { role: '© 2026', name: 'AKURO STUDIO. All rights reserved.' },
 ]

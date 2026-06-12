@@ -28,7 +28,7 @@ export default function MiniGame() {
   const canvasRef = useRef(null)
   const seqRef    = useRef([])
 
-  // Trigger: type S-N-A-K-E anywhere (outside inputs)
+  // Trigger: type S-N-A-K-E anywhere (outside inputs), or the eggTrigger event
   useEffect(() => {
     const SEQ = 'SNAKE'
     const handler = (e) => {
@@ -40,11 +40,21 @@ export default function MiniGame() {
         seqRef.current = []
       }
     }
+    const onEgg = (e) => {
+      if (e.detail === SEQ) {
+        setOpen(true)
+        seqRef.current = []
+      }
+    }
+    window.addEventListener('eggTrigger', onEgg)
     window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
+    return () => {
+      window.removeEventListener('keydown', handler)
+      window.removeEventListener('eggTrigger', onEgg)
+    }
   }, [])
 
-  // Game loop — lives entirely inside this effect to avoid stale closure issues
+  // Game loop lives entirely inside this effect to avoid stale closure issues
   useEffect(() => {
     if (!open) return
     const canvas = canvasRef.current

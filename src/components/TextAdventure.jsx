@@ -4,7 +4,7 @@ import styles from './TextAdventure.module.css'
 // ─── World data ──────────────────────────────────────────────────────────────
 const ROOMS = {
   bridge: {
-    name: 'BRIDGE — AXIOM-7',
+    name: 'BRIDGE // AXIOM-7',
     desc: 'Emergency lights paint everything red. The nav console is dead. Scratch marks lead east.',
     exits: { e: 'corridor' },
   },
@@ -103,7 +103,7 @@ function process(raw, state) {
       const newHp = hp - eDmg
       if (newHp <= 0) {
         out('Everything goes dark.', 'bad')
-        out('> YOU DIED — Type RESTART', 'warn')
+        out('> YOU DIED. TYPE RESTART', 'warn')
         return { ...state, combat: { hp: newEHp }, hp: 0, dead: true, newLog: log }
       }
       out(`HP: ${newHp}/${maxHp}  |  Enemy: ${newEHp} HP`, 'dim')
@@ -119,7 +119,7 @@ function process(raw, state) {
         out('It catches you as you flee!', 'bad')
         out(`You take ${eDmg} damage.`, 'bad')
         if (newHp <= 0) {
-          out('> YOU DIED — Type RESTART', 'warn')
+          out('> YOU DIED. TYPE RESTART', 'warn')
           return { ...state, hp: 0, dead: true, newLog: log }
         }
         out(`HP: ${newHp}/${maxHp}`, 'dim')
@@ -144,7 +144,7 @@ function process(raw, state) {
       out('You dive into the escape pod and seal the hatch.', 'good')
       out('The station shrinks behind you. You made it.', 'good')
       sep()
-      out('> TRANSMISSION RECEIVED — "black_signal.exe"', 'sys')
+      out('> TRANSMISSION RECEIVED: "black_signal.exe"', 'sys')
       out('> ESCAPE SUCCESSFUL', 'good')
       out('Type RESTART to play again.', 'dim')
       return { ...state, won: true, room: 'escape', newLog: log }
@@ -181,7 +181,7 @@ function process(raw, state) {
   if (['inv', 'i', 'inventory', 'items'].includes(verb)) {
     if (!inventory.length) { out('You have nothing.', 'dim'); return { ...state, newLog: log } }
     out('Inventory:', 'sys')
-    inventory.forEach(id => out(`  ${ITEMS[id].name} — ${ITEMS[id].shortDesc}`, 'norm'))
+    inventory.forEach(id => out(`  ${ITEMS[id].name}: ${ITEMS[id].shortDesc}`, 'norm'))
     out(`HP: ${hp}/${maxHp}`, 'dim')
     return { ...state, newLog: log }
   }
@@ -222,15 +222,15 @@ function process(raw, state) {
   if (['help', '?', 'h'].includes(verb)) {
     sep()
     out('COMMANDS:', 'sys')
-    out('  N / S / E / W   — move',      'dim')
-    out('  LOOK            — examine room', 'dim')
-    out('  INV             — inventory',  'dim')
-    out('  TAKE [item]     — pick up',    'dim')
-    out('  USE medkit      — heal',       'dim')
-    out('  HP              — check health', 'dim')
-    out('  ATTACK / RUN    — in combat',  'dim')
-    out('  RESTART         — new game',   'dim')
-    out('  ESC             — close',      'dim')
+    out('  N / S / E / W   move',         'dim')
+    out('  LOOK            examine room',  'dim')
+    out('  INV             inventory',     'dim')
+    out('  TAKE [item]     pick up',       'dim')
+    out('  USE medkit      heal',          'dim')
+    out('  HP              check health',  'dim')
+    out('  ATTACK / RUN    in combat',     'dim')
+    out('  RESTART         new game',      'dim')
+    out('  ESC             close',         'dim')
     sep()
     return { ...state, newLog: log }
   }
@@ -340,7 +340,7 @@ export default function TextAdventure() {
             <p key={i} className={`${styles.line} ${styles[line.c] || ''}`}>{line.t}</p>
           ))}
           {game.combat && (
-            <p className={styles.combatBadge}>⚠ COMBAT — Enemy HP: {game.combat.hp}</p>
+            <p className={styles.combatBadge}>⚠ COMBAT // Enemy HP: {game.combat.hp}</p>
           )}
         </div>
 

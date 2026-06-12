@@ -5,7 +5,7 @@ const CORRUPT_LINES = [
   '> SYS://AXIOM-7/COMMS/RELAY_04',
   '> SIGNAL ORIGIN: [REDACTED]',
   '> TIMESTAMP: ████████████',
-  '> CONTENT: [CORRUPTED — 94.7%]',
+  '> CONTENT: [CORRUPTED 94.7%]',
   '> ...do not... look for us...',
   '> MESSAGE ENDS',
 ]
@@ -51,7 +51,7 @@ export default function BlackSignalGlitch() {
     <div className={styles.overlay} onClick={() => setVisible(false)}>
       <div className={styles.content}>
         <p className={styles.pre}>INCOMING TRANSMISSION</p>
-        <p className={styles.source}>SRC: UNKNOWN — DIST: 4.3 AU</p>
+        <p className={styles.source}>SRC: UNKNOWN · DIST: 4.3 AU</p>
         <div className={styles.divider} />
         {CORRUPT_LINES.map((line, i) => (
           <p key={i} className={styles.line} style={{ animationDelay: `${i * 0.12 + 0.3}s` }}>
@@ -59,7 +59,7 @@ export default function BlackSignalGlitch() {
           </p>
         ))}
         <div className={styles.divider} />
-        <p className={styles.footer}>BLACK SIGNAL — coming soon</p>
+        <p className={styles.footer}>BLACK SIGNAL // coming soon</p>
       </div>
       <div className={styles.scanlines} />
       <div className={styles.vignette} />
