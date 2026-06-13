@@ -77,12 +77,11 @@ export default function About() {
               <h1 className={styles.name}>Ethan Peterson</h1>
               <p className={styles.role}>Game Programmer &amp; Designer · CS Graduate</p>
               <p className={styles.bio}>
-                I'm a game developer from Arizona, working mostly in Unity, and
-                I build my own games under AKURO STUDIO. When I'm not building
-                something, I'm probably reading about game design or watching a
-                video essay about it. Defunctland, breakdowns of weird game
-                systems, people running an NES emulator inside Portal, that sort
-                of thing.
+                I'm a game developer from Arizona, working mostly in Unity. I've
+                been making games since high school, and these days I build my
+                own projects under AKURO STUDIO. When I'm not working on
+                something, I'm usually trying to understand how the games I like
+                are put together.
               </p>
             </div>
 
@@ -167,11 +166,10 @@ export default function About() {
               <div className={styles.sectionBlock}>
                 <h2>AKURO STUDIO</h2>
                 <p>
-                  AKURO STUDIO is my independent label, the callsign I build
-                  games under. No publisher, no committee. The name was chosen
-                  to feel like it belongs on the side of a corporate
-                  megabuilding in a city that never sleeps. One developer, one
-                  pipeline, direct-to-player transmission.
+                  AKURO STUDIO is really just me. It's the name I put on my own
+                  games so everything I make has one place to live instead of
+                  being scattered across random project pages. No team, no
+                  publisher, just my own work.
                 </p>
               </div>
 
