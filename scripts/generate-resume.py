@@ -116,7 +116,7 @@ story += entry(
     [
         "Developing <b>Black Signal</b>, a first-person horror game in Unity (C#) set on a derelict space "
         "station, where the player explores on foot and flags anomalies while sensors and onboard tasks "
-        "compete for attention (inspired by Observation Duty and The Exit 8)",
+        "compete for attention",
         "Building all of its gameplay, anomaly, and sensor systems, UI, and level design as the sole developer",
     ],
 )

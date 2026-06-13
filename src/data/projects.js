@@ -19,7 +19,7 @@ export const projects = [
     title: 'Black Signal',
     studio: 'AKURO STUDIO',
     description:
-      'A first-person horror game I\'m building solo in Unity, set on a derelict space station. You move through it on foot, watching for anomalies the way you would in Observation Duty but mobile, closer to The Exit 8, while onboard sensors and tasks pull at your attention. Actively in development, with the core systems coming together.',
+      'A first-person horror game I\'m building solo in Unity, set on a derelict space station. You move through it on foot, watching for anomalies while the station\'s sensors and upkeep tasks keep pulling your attention away. Actively in development, with the core systems coming together.',
     tags: ['Unity', 'C#', 'Horror', 'First-Person', 'In Development'],
     image: '/images/black-signal-teaser.png',
     featured: false,
