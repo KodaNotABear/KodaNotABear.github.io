@@ -168,8 +168,8 @@ export default function About() {
                 <p>
                   AKURO STUDIO is really just me. It's the name I put on my own
                   games so everything I make has one place to live instead of
-                  being scattered across random project pages. No team, no
-                  publisher, just my own work.
+                  being scattered across random project pages. Everything under
+                  it is something I built and shipped myself.
                 </p>
               </div>
 
