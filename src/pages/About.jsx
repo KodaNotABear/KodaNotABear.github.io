@@ -24,7 +24,7 @@ const TIMELINE = [
     date: '2025 – Present',
     title: 'Founder & Solo Developer',
     org: 'AKURO STUDIO',
-    desc: 'Building Black Signal, a first-person horror game set on a derelict space station (Unity). Inspired by Observation Duty and The Exit 8. Actively in development.',
+    desc: 'Building Black Signal, a first-person horror game set on a derelict space station (Unity). You explore on foot, tracking anomalies while keeping the station\'s systems running. Actively in development.',
     color: 'var(--accent-cyan)',
   },
   {

@@ -63,7 +63,7 @@ const PROJECTS = [
     org: 'AKURO STUDIO',
     date: '2025 – Present',
     bullets: [
-      'Solo first-person horror game in Unity (C#) set on a space station, where the player explores on foot and flags anomalies while onboard sensors and tasks compete for their attention. Inspired by Observation Duty and The Exit 8',
+      'Solo first-person horror game in Unity (C#) set on a space station, where the player explores on foot and flags anomalies while onboard sensors and tasks compete for their attention',
       'Designing all gameplay systems, UI, audio direction, and level layout independently',
     ],
   },

@@ -302,7 +302,7 @@ export default function Home() {
             </div>
             <h2 className={styles.buildingTitle}>Black Signal</h2>
             <p className={styles.buildingDesc}>
-              A first-person horror game set on a derelict space station, built in Unity. You move through it yourself, watching for anomalies while onboard sensors and tasks pull your attention away. Somewhere between <em>Observation Duty</em> and <em>The Exit 8</em>.
+              A first-person horror game set on a derelict space station, built in Unity. You move through it yourself, watching for anomalies while the station's sensors and tasks pull your attention away. Notice what's wrong before it notices you.
             </p>
             <div className={styles.buildingFooter}>
               <div className={styles.buildingTags}>

@@ -15,7 +15,7 @@ export const posts = [
       { type: 'h2', text: 'Graduating' },
       { type: 'p', text: 'I graduated from Arizona State University in May 2026 with a B.S. in Computer Science, Software Engineering focus. It\'s been four years of late nights and a lot of Unity projects. Glad to have it behind me, and even more glad to have come out the other side actually knowing what I want to do with it.' },
       { type: 'h2', text: 'What\'s Next' },
-      { type: 'p', text: 'I\'m working on Black Signal, a first-person horror game set on a derelict space station. You explore it on foot, watching for anomalies while keeping up with sensors and onboard tasks that pull your focus. Somewhere between Observation Duty and The Exit 8. Solo project in Unity. It\'s early, but the skeleton is coming together.' },
+      { type: 'p', text: 'I\'m working on Black Signal, a first-person horror game set on a derelict space station. You explore it on foot, watching for anomalies while keeping up with the sensors and tasks that pull your focus. Solo project in Unity. It\'s early, but the skeleton is coming together.' },
       { type: 'p', text: 'I\'ll be posting updates here as it develops. If you want to follow along or get in touch, the links are in the footer.' },
     ],
   },
