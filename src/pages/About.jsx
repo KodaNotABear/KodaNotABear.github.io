@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import RadarChart from '../components/RadarChart'
+import Toolbox from '../components/Toolbox'
 import GitHubHeatmap from '../components/GitHubHeatmap'
 import { GamepadIcon, AnchorIcon, BoltIcon, GradCapIcon, MapPinIcon, TrophyIcon } from '../components/Icons'
 import styles from './About.module.css'
@@ -137,10 +137,10 @@ export default function About() {
 
             {/* Right column */}
             <div>
-              {/* Radar chart */}
+              {/* Toolbox */}
               <div className={styles.sectionBlock}>
-                <h2>Skills Overview</h2>
-                <RadarChart />
+                <h2>What I Work With</h2>
+                <Toolbox />
               </div>
 
               {/* GitHub heatmap */}
