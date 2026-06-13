@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { UnityIcon, ItchIcon, GitHubIcon } from './Icons'
 import styles from './ProjectCard.module.css'
@@ -80,10 +81,16 @@ export default function ProjectCard({ project, index = 0 }) {
             </a>
           )}
           {links.demo && (
-            <a href={links.demo} target="_blank" rel="noopener noreferrer"
-               className={`${styles.actionBtn} ${styles.actionPrimary}`}>
-              ▶ Live Demo
-            </a>
+            links.demo.startsWith('/') ? (
+              <Link to={links.demo} className={`${styles.actionBtn} ${styles.actionPrimary}`}>
+                ▶ Play demo
+              </Link>
+            ) : (
+              <a href={links.demo} target="_blank" rel="noopener noreferrer"
+                 className={`${styles.actionBtn} ${styles.actionPrimary}`}>
+                ▶ Live Demo
+              </a>
+            )
           )}
           {links.github && (
             <a href={links.github} target="_blank" rel="noopener noreferrer"

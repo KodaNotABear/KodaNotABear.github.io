@@ -49,23 +49,21 @@ const BOOT_LINES = [
 const PAGES = {
   home: '/', portfolio: '/portfolio', projects: '/portfolio', about: '/about',
   resume: '/resume', devlog: '/devlog', blog: '/devlog', contact: '/contact',
+  play: '/black-signal', demo: '/black-signal', 'black-signal': '/black-signal',
 }
 
 const EGGS = {
   snake:   { id: 'SNAKE',   flavor: 'launching snake.exe (arrow keys to steer, Esc to quit)' },
-  roll:    { id: 'ROLL',    flavor: 'rolling...' },
   dungeon: { id: 'DUNGEON', flavor: 'loading dungeon.exe' },
-  ghost:   { id: 'GHOST',   flavor: 'scanning for paracausal entities...' },
   signal:  { id: 'SIGNAL',  flavor: 'you were warned.' },
 }
 
 const HELP_LINES = [
   '  help        this menu',
   '  whoami      operator profile',
+  '  play        the Black Signal demo',
   '  snake       play snake (arrow keys)',
-  '  roll        roll a d20',
   '  dungeon     text adventure',
-  '  ghost       a little light',
   '  signal      do not',
   '  go [page]   portfolio · about · resume · devlog · contact',
   '  clear       wipe terminal',
@@ -300,19 +298,19 @@ export default function Home() {
             <div className={styles.buildingMeta}>
               <span className={styles.buildingBadge}>
                 <span className={styles.dot} />
-                IN DEVELOPMENT
+                EARLY PROTOTYPE
               </span>
-              <span className={styles.buildingLabel}>// current_project.exe</span>
+              <span className={styles.buildingLabel}>// current_project</span>
             </div>
             <h2 className={styles.buildingTitle}>Black Signal</h2>
             <p className={styles.buildingDesc}>
-              A space-horror experience inspired by <em>Observation Duty</em>. Monitor deep-space feeds and decide what's real. The crew pays for what you miss.
+              A space-horror prototype inspired by <em>Observation Duty</em>. Watch the station's camera feeds and flag anomalies before they reach the crew. It's early, but you can play a slice of the core loop right here.
             </p>
             <div className={styles.buildingFooter}>
               <div className={styles.buildingTags}>
-                <span>Unity</span><span>C#</span><span>Space Horror</span>
+                <span>Unity</span><span>C#</span><span>Solo</span>
               </div>
-              <Link to="/devlog" className="btn btn-ghost">Follow Progress →</Link>
+              <Link to="/black-signal" className="btn btn-primary">Play the prototype →</Link>
             </div>
           </motion.div>
         </div>
