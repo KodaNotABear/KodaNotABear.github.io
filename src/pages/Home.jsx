@@ -185,10 +185,10 @@ function TerminalWindow() {
 }
 
 const STATS = [
-  { value: '1',     label: 'Mobile Game Shipped' },
-  { value: '9 mo',  label: 'Studio Internship' },
-  { value: '3 yrs', label: 'FSAE Race Telemetry' },
-  { value: 'Unity', label: 'Engine of Choice' },
+  { value: '1',      label: 'Game Shipped' },
+  { value: '9 mo',   label: 'Studio Internship' },
+  { value: '3+ yrs', label: 'Building in Unity' },
+  { value: 'C#',     label: 'Primary Language' },
 ]
 
 const TECH = [
@@ -237,10 +237,10 @@ export default function Home() {
               </p>
 
               <p className={styles.heroBio}>
-                CS grad with a Software Engineering focus. I build games in
-                Unity, from gameplay systems down to UI polish, and I care a
-                lot about how things feel to play. Looking for my first
-                full-time role in games. The terminal works, by the way.
+                CS grad, Software Engineering focus. I build games in Unity
+                and care a lot about how they feel to play. Right now I'm
+                looking for my first full-time role in games. The terminal
+                works, by the way.
               </p>
 
               <div className={styles.heroActions}>
