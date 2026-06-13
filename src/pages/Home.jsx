@@ -49,7 +49,6 @@ const BOOT_LINES = [
 const PAGES = {
   home: '/', portfolio: '/portfolio', projects: '/portfolio', about: '/about',
   resume: '/resume', devlog: '/devlog', blog: '/devlog', contact: '/contact',
-  play: '/black-signal', demo: '/black-signal', 'black-signal': '/black-signal',
 }
 
 const EGGS = {
@@ -61,7 +60,6 @@ const EGGS = {
 const HELP_LINES = [
   '  help        this menu',
   '  whoami      operator profile',
-  '  play        the Black Signal demo',
   '  snake       play snake (arrow keys)',
   '  dungeon     text adventure',
   '  signal      do not',
@@ -298,19 +296,19 @@ export default function Home() {
             <div className={styles.buildingMeta}>
               <span className={styles.buildingBadge}>
                 <span className={styles.dot} />
-                EARLY PROTOTYPE
+                IN DEVELOPMENT
               </span>
               <span className={styles.buildingLabel}>// current_project</span>
             </div>
             <h2 className={styles.buildingTitle}>Black Signal</h2>
             <p className={styles.buildingDesc}>
-              A space-horror prototype inspired by <em>Observation Duty</em>. Watch the station's camera feeds and flag anomalies before they reach the crew. It's early, but you can play a slice of the core loop right here.
+              A first-person horror game set on a derelict space station, built in Unity. You move through it yourself, watching for anomalies while onboard sensors and tasks pull your attention away. Somewhere between <em>Observation Duty</em> and <em>The Exit 8</em>.
             </p>
             <div className={styles.buildingFooter}>
               <div className={styles.buildingTags}>
                 <span>Unity</span><span>C#</span><span>Solo</span>
               </div>
-              <Link to="/black-signal" className="btn btn-primary">Play the prototype →</Link>
+              <Link to="/devlog" className="btn btn-ghost">Follow development →</Link>
             </div>
           </motion.div>
         </div>

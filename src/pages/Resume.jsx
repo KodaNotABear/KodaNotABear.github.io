@@ -19,7 +19,7 @@ const EXPERIENCE = [
     org: 'AKURO STUDIO',
     date: '2025 – Present',
     bullets: [
-      'Developing Black Signal, a space horror game in Unity (C#), as a solo developer handling all design, programming, and production',
+      'Developing Black Signal, a first-person horror game in Unity (C#) set on a derelict space station, as a solo developer handling all design, programming, and production',
       'Owning the full development pipeline for an original title: concept, prototyping, implementation, and playtesting',
     ],
   },
@@ -63,7 +63,7 @@ const PROJECTS = [
     org: 'AKURO STUDIO',
     date: '2025 – Present',
     bullets: [
-      'Solo space horror game in Unity (C#) inspired by Observation Duty. The player monitors a derelict station through its security camera network, tracking anomalies and keeping the crew alive',
+      'Solo first-person horror game in Unity (C#) set on a space station, where the player explores on foot and flags anomalies while onboard sensors and tasks compete for their attention. Inspired by Observation Duty and The Exit 8',
       'Designing all gameplay systems, UI, audio direction, and level layout independently',
     ],
   },
