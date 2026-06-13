@@ -19,8 +19,14 @@ npm install
 npm run dev      # local dev server
 npm run lint     # eslint
 npm run build    # production build to dist/
-npm run deploy   # build + publish to gh-pages
+npm run art      # regenerate og image + project art (scripts/generate-art.mjs)
+npm run resume   # regenerate public/resume.pdf (needs Python + reportlab)
 ```
+
+## Deploy
+
+Pushing to `main` triggers the GitHub Actions workflow in `.github/workflows/`,
+which builds the site and publishes it to GitHub Pages. No manual deploy step.
 
 ## Things to find
 
