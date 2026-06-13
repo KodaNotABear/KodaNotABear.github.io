@@ -2,9 +2,9 @@ import styles from './Toolbox.module.css'
 
 // Grouped by how much I actually reach for each thing, not by a made-up score.
 const TIERS = [
-  { label: 'Daily drivers',    cls: 'core', items: ['Unity', 'C#', 'Git'] },
-  { label: 'Comfortable with', cls: 'mid',  items: ['Blender', 'FMOD', 'React', 'Rider'] },
-  { label: 'Have worked with', cls: 'low',  items: ['C++', 'Python', 'Embedded / DAQ'] },
+  { label: 'Daily drivers',    cls: 'core', items: ['C#', 'C++', 'Unity', 'Git'] },
+  { label: 'Comfortable with', cls: 'mid',  items: ['Java', 'Blender', 'Python', 'Visual Studio', 'Rider', 'Minecraft modding'] },
+  { label: 'Have worked with', cls: 'low',  items: ['FMOD', 'React', 'Gradle', 'Server admin', 'Embedded / DAQ'] },
 ]
 
 export default function Toolbox() {
