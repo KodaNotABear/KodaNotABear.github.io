@@ -44,11 +44,11 @@ const TIMELINE = [
 ]
 
 const INTERESTS = [
-  'Roguelikes, the perfect intersection of systems design and replayability',
-  'MMOs and the social architecture behind persistent worlds',
-  'MOBAs and the deep balance challenges of competitive design',
-  'Boomer shooters: movement, feel, and the art of the arena',
-  'Game jam culture and rapid prototyping',
+  'Roguelikes and how good run-to-run variety keeps them fresh',
+  'MMOs and the systems that hold persistent worlds together',
+  'MOBAs and the constant balancing act behind competitive design',
+  'Boomer shooters and movement that feels good on its own',
+  'Game jams and fast, messy prototyping',
 ]
 
 const funFacts = [
@@ -77,12 +77,13 @@ export default function About() {
               <h1 className={styles.name}>Ethan Peterson</h1>
               <p className={styles.role}>Game Programmer &amp; Designer · CS Graduate</p>
               <p className={styles.bio}>
-                I'm a game developer from Arizona with a passion for
-                building games that are easy to pick up and hard to put down. I
-                founded AKURO STUDIO as my personal dev label for independent
-                projects. When I'm not writing C# in Unity, I'm
-                usually reading game design theory, dissecting what makes a game
-                feel <em>good</em>, or speedrunning something terrible.
+                I'm a game developer from Arizona. I started AKURO STUDIO as my
+                own label, somewhere to build the projects I actually want to
+                make. I spend a lot of time on the <em>why</em> behind games:
+                design philosophy, video essays like Defunctland, the strange
+                systems players dig up, and the occasional absurd feat like
+                running an NES emulator inside Portal. Taking games apart to see
+                how they tick is what got me into building them.
               </p>
             </div>
 
