@@ -1,7 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { AchievementToast } from './AchievementToast'
-import { useAchievement } from './useAchievement'
 import AmbientSound from './AmbientSound'
 import styles from './Navbar.module.css'
 
@@ -17,8 +15,6 @@ const NAV_ITEMS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const logoClicks = useRef(0)
-  const { toast, unlock } = useAchievement()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -28,21 +24,10 @@ export default function Navbar() {
 
   const closeMenu = () => setOpen(false)
 
-  const handleLogoClick = () => {
-    closeMenu()
-    logoClicks.current += 1
-    if (logoClicks.current === 5) {
-      unlock('"Curious"', 'You clicked the logo 5 times.')
-    } else if (logoClicks.current === 10) {
-      unlock('"Persistent"', 'Okay, you really like this logo.')
-      logoClicks.current = 0
-    }
-  }
-
   return (
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-        <NavLink to="/" className={styles.logo} onClick={handleLogoClick}>
+        <NavLink to="/" className={styles.logo} onClick={closeMenu}>
           <span className={styles.logoIcon}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z" />
@@ -80,7 +65,6 @@ export default function Navbar() {
           <span className={styles.bar} style={open ? { transform: 'rotate(-45deg) translate(5px,-5px)' } : {}} />
         </button>
       </nav>
-      <AchievementToast toast={toast} />
     </>
   )
 }

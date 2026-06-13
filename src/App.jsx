@@ -2,12 +2,9 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import KonamiCode from './components/KonamiCode'
 import ScrollProgress from './components/ScrollProgress'
 import KeyboardShortcuts from './components/KeyboardShortcuts'
 import MiniGame from './components/MiniGame'
-import D20Roller from './components/D20Roller'
-import DestinyGhost from './components/DestinyGhost'
 import BlackSignalGlitch from './components/BlackSignalGlitch'
 import TextAdventure from './components/TextAdventure'
 import MobileEasterEggs from './components/MobileEasterEggs'
@@ -18,8 +15,8 @@ import Resume from './pages/Resume'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
-import Credits from './pages/Credits'
 import Card from './pages/Card'
+import BlackSignalDemo from './pages/BlackSignalDemo'
 import NotFound from './pages/NotFound'
 
 // AnimatedRoutes must live inside BrowserRouter so useLocation works
@@ -35,8 +32,8 @@ function AnimatedRoutes() {
         <Route path="/devlog" element={<Blog />} />
         <Route path="/devlog/:id" element={<BlogPost />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/credits" element={<Credits />} />
         <Route path="/card" element={<Card />} />
+        <Route path="/black-signal" element={<BlackSignalDemo />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
@@ -60,11 +57,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollProgress />
-      <KonamiCode />
       <KeyboardShortcuts />
       <MiniGame />
-      <D20Roller />
-      <DestinyGhost />
       <BlackSignalGlitch />
       <TextAdventure />
       <MobileEasterEggs />

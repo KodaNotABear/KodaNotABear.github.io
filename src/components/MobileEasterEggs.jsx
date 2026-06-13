@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import { DiceIcon, GhostIcon, AntennaIcon, SwordIcon, GamepadIcon } from './Icons'
+import { AntennaIcon, SwordIcon, GamepadIcon } from './Icons'
 import styles from './MobileEasterEggs.module.css'
 
 const EGGS = [
-  { id: 'ROLL',    Icon: DiceIcon,    label: 'Roll D20' },
-  { id: 'GHOST',   Icon: GhostIcon,   label: 'Ghost' },
   { id: 'SIGNAL',  Icon: AntennaIcon, label: 'Signal' },
   { id: 'DUNGEON', Icon: SwordIcon,   label: 'Dungeon' },
 ]

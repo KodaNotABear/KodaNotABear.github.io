@@ -59,7 +59,7 @@ export default function BlackSignalGlitch() {
           </p>
         ))}
         <div className={styles.divider} />
-        <p className={styles.footer}>BLACK SIGNAL // coming soon</p>
+        <p className={styles.footer}>BLACK SIGNAL // early prototype</p>
       </div>
       <div className={styles.scanlines} />
       <div className={styles.vignette} />
