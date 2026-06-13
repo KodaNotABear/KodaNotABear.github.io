@@ -19,11 +19,11 @@ export const projects = [
     title: 'Black Signal',
     studio: 'AKURO STUDIO',
     description:
-      'An early prototype I\'m building solo in Unity, inspired by Observation Duty. You watch a derelict station through its security camera network and flag anomalies before they reach the crew. There\'s a small playable version of the core loop right here on the site.',
-    tags: ['Unity', 'C#', 'Horror', 'Solo', 'Prototype'],
+      'A first-person horror game I\'m building solo in Unity, set on a derelict space station. You move through it on foot, watching for anomalies the way you would in Observation Duty but mobile, closer to The Exit 8, while onboard sensors and tasks pull at your attention. Actively in development, with the core systems coming together.',
+    tags: ['Unity', 'C#', 'Horror', 'First-Person', 'In Development'],
     image: '/images/black-signal-teaser.png',
     featured: false,
-    links: { demo: '/black-signal' },
+    links: {},
   },
   {
     id: 'fsae-lap-timing',

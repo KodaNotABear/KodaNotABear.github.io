@@ -93,7 +93,7 @@ story = [
         "Game programmer with a B.S. in Computer Science (Arizona State University, May 2026) and nine months "
         "of professional Unity experience shipping onboarding, LiveOps, and WebGL features for a live mobile "
         "racing game. Three years building embedded race telemetry for a collegiate FSAE team. Currently "
-        "solo-developing <b>Black Signal</b>, an original space-horror title. Seeking a junior game programmer role.",
+        "building <b>Black Signal</b>, an original first-person horror game in Unity. Seeking a junior game programmer role.",
         styles["body"],
     ),
 ]
@@ -114,9 +114,10 @@ story += entry(
 story += entry(
     "Founder &amp; Solo Developer", "AKURO STUDIO", "2025 – Present",
     [
-        "Developing <b>Black Signal</b>, a space-horror game in Unity (C#), and building all of its "
-        "gameplay systems, UI, audio direction, and level design",
-        "Owning the full pipeline for an original title: concept, prototyping, implementation, playtesting",
+        "Developing <b>Black Signal</b>, a first-person horror game in Unity (C#) set on a derelict space "
+        "station, where the player explores on foot and flags anomalies while sensors and onboard tasks "
+        "compete for attention (inspired by Observation Duty and The Exit 8)",
+        "Building all of its gameplay, anomaly, and sensor systems, UI, and level design as the sole developer",
     ],
 )
 story += entry(
@@ -132,10 +133,10 @@ story += entry(
 
 story += section("SKILLS")
 for group, items in [
-    ("Languages", "C# (Unity) · C++ · Python · JavaScript / React · HTML &amp; CSS"),
+    ("Languages", "C# (Unity) · C++ · Java · Python · JavaScript / React · HTML &amp; CSS"),
     ("Engines &amp; Tools", "Unity (3+ years) · Git / GitHub · Blender · FMOD · JetBrains Rider · Visual Studio"),
     ("Game Development", "Gameplay systems · UI implementation · Level design · WebGL builds · Onboarding / LiveOps"),
-    ("Engineering", "Embedded systems · Data acquisition · Agile / Scrum · Code review"),
+    ("Engineering", "Embedded systems · Data acquisition · Game servers (Docker / VPS) · Agile / Scrum"),
 ]:
     story.append(Paragraph(f"<b>{group}:</b> {items}", styles["skill"]))
 

@@ -16,7 +16,7 @@ import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
 import Card from './pages/Card'
-import BlackSignalDemo from './pages/BlackSignalDemo'
+import Credits from './pages/Credits'
 import NotFound from './pages/NotFound'
 
 // AnimatedRoutes must live inside BrowserRouter so useLocation works
@@ -33,7 +33,7 @@ function AnimatedRoutes() {
         <Route path="/devlog/:id" element={<BlogPost />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/card" element={<Card />} />
-        <Route path="/black-signal" element={<BlackSignalDemo />} />
+        <Route path="/credits" element={<Credits />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

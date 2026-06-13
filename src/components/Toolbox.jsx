@@ -4,7 +4,7 @@ import styles from './Toolbox.module.css'
 const TIERS = [
   { label: 'Daily drivers',    cls: 'core', items: ['C#', 'C++', 'Unity', 'Git'] },
   { label: 'Comfortable with', cls: 'mid',  items: ['Java', 'Blender', 'Python', 'Visual Studio', 'Rider', 'Modding'] },
-  { label: 'Have worked with', cls: 'low',  items: ['FMOD', 'React', 'Gradle', 'Server admin', 'Embedded / DAQ'] },
+  { label: 'Have worked with', cls: 'low',  items: ['FMOD', 'React', 'Gradle', 'Game servers', 'Docker / VPS', 'Embedded / DAQ'] },
 ]
 
 export default function Toolbox() {
