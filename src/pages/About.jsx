@@ -77,13 +77,12 @@ export default function About() {
               <h1 className={styles.name}>Ethan Peterson</h1>
               <p className={styles.role}>Game Programmer &amp; Designer · CS Graduate</p>
               <p className={styles.bio}>
-                I'm a game developer from Arizona. I started AKURO STUDIO as my
-                own label, somewhere to build the projects I actually want to
-                make. I spend a lot of time on the <em>why</em> behind games:
-                design philosophy, video essays like Defunctland, the strange
-                systems players dig up, and the occasional absurd feat like
-                running an NES emulator inside Portal. Taking games apart to see
-                how they tick is what got me into building them.
+                I'm a game developer from Arizona, working mostly in Unity, and
+                I build my own games under AKURO STUDIO. When I'm not building
+                something, I'm probably reading about game design or watching a
+                video essay about it. Defunctland, breakdowns of weird game
+                systems, people running an NES emulator inside Portal, that sort
+                of thing.
               </p>
             </div>
 
