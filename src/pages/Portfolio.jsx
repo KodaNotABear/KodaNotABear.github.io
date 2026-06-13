@@ -29,9 +29,8 @@ export default function Portfolio() {
             <p className={styles.eyebrow}>// my work</p>
             <h1 className="section-title">Portfolio</h1>
             <p className={styles.subtitle}>
-              Shipped mobile game work, an original horror title in development,
-              and the engineering projects that taught me how systems behave
-              under pressure.
+              Game projects, and some of the engineering work I've done along
+              the way.
             </p>
           </motion.div>
         </div>
