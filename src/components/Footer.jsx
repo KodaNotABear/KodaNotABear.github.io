@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { GitHubIcon, ItchIcon, DiscordIcon, EmailIcon } from './Icons'
+import { GitHubIcon, DiscordIcon, EmailIcon } from './Icons'
 import { copyText } from '../utils/copyText'
 import styles from './Footer.module.css'
 
 // Discord entry copies the handle since username URLs don't resolve on discord.com
 const SOCIALS = [
   { label: 'GitHub',  href: 'https://github.com/KodaNotABear', icon: <GitHubIcon /> },
-  { label: 'itch.io', href: 'https://kodanotabear.itch.io',    icon: <ItchIcon /> },
   { label: 'Discord', copyValue: 'kodanotabear',               icon: <DiscordIcon /> },
   { label: 'Email',   href: 'mailto:koda@akuro.studio',        icon: <EmailIcon /> },
 ]
