@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styles from './Contact.module.css'
-import { EmailIcon, GitHubIcon, ItchIcon, DiscordIcon, CheckCircleIcon, WarningIcon } from '../components/Icons'
+import { EmailIcon, GitHubIcon, DiscordIcon, CheckCircleIcon, WarningIcon } from '../components/Icons'
 import { copyText } from '../utils/copyText'
 
 const CONTACT_EMAIL = 'koda@akuro.studio'
@@ -10,7 +10,6 @@ const CONTACT_EMAIL = 'koda@akuro.studio'
 const CONTACT_INFO = [
   { icon: <EmailIcon />, label: 'Email', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
   { icon: <GitHubIcon />, label: 'GitHub', value: 'github.com/KodaNotABear', href: 'https://github.com/KodaNotABear' },
-  { icon: <ItchIcon />, label: 'itch.io', value: 'kodanotabear.itch.io', href: 'https://kodanotabear.itch.io' },
   { icon: <DiscordIcon />, label: 'Discord', value: 'kodanotabear', copy: true },
 ]
 
@@ -73,7 +72,7 @@ export default function Contact() {
             <p className={styles.eyebrow}>// get in touch</p>
             <h1 className="section-title">Contact</h1>
             <p className={styles.subtitle}>
-              Open to full-time game developer roles, internships, collaborations,
+              Open to full-time game developer roles, collaborations,
               and general conversation. I typically respond within 24 hours.
             </p>
           </motion.div>

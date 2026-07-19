@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { EmailIcon, GlobeIcon, GitHubIcon, ItchIcon } from '../components/Icons'
+import { EmailIcon, GlobeIcon, GitHubIcon } from '../components/Icons'
 import styles from './Resume.module.css'
 
 const EXPERIENCE = [
@@ -20,7 +20,7 @@ const EXPERIENCE = [
     date: '2025 – Present',
     bullets: [
       'Developing Black Signal, a first-person horror game in Unity (C#) set on a derelict space station, as a solo developer handling all design, programming, and production',
-      'Owning the full development pipeline for an original title: concept, prototyping, implementation, and playtesting',
+      'Designing and prototyping the core loop: on-foot exploration, anomaly detection, and station systems that compete for the player\'s attention',
     ],
   },
   {
@@ -59,12 +59,30 @@ const PROJECTS = [
     ],
   },
   {
+    title: 'League Stats Portal',
+    org: 'Arizona State University · Class Project',
+    date: 'Spring 2026',
+    bullets: [
+      'C# / ASP.NET web app for League of Legends stats lookup, backed by a WCF service layer over the Riot Games API: Riot ID lookup, total champion mastery, and last-match stats',
+      'Implemented member and staff login flows with reCAPTCHA verification, sessions, and cookies',
+    ],
+  },
+  {
+    title: 'Vanilla Extended: Minecraft Modpack & Server',
+    org: 'Personal Project',
+    date: '2025 – Present',
+    bullets: [
+      'Curate and operate a 400+ mod NeoForge pack on a dedicated server, self-hosted with Docker on a VPS',
+      'Wrote custom datapacks and KubeJS scripts to patch cross-mod conflicts, and Python tooling that decodes spark profiler captures for frame-time analysis',
+    ],
+  },
+  {
     title: 'Black Signal',
     org: 'AKURO STUDIO',
     date: '2025 – Present',
     bullets: [
       'Solo first-person horror game in Unity (C#) set on a space station, where the player explores on foot and flags anomalies while onboard sensors and tasks compete for their attention',
-      'Designing all gameplay systems, UI, audio direction, and level layout independently',
+      'Designing and prototyping all gameplay systems, UI, and level layout independently',
     ],
   },
   {
@@ -78,10 +96,10 @@ const PROJECTS = [
 ]
 
 const SKILLS = [
-  { group: 'Languages', items: ['C# (Unity)', 'C++', 'Python', 'JavaScript / React', 'HTML & CSS'] },
+  { group: 'Languages', items: ['C# (Unity, ASP.NET)', 'C++', 'Java', 'Python', 'JavaScript / React', 'HTML & CSS'] },
   { group: 'Engines & Tools', items: ['Unity (3+ years)', 'Git / GitHub', 'Blender', 'FMOD', 'Rider / Visual Studio'] },
   { group: 'Game Dev', items: ['Gameplay Systems', 'UI Implementation', 'Level Design', 'WebGL Builds'] },
-  { group: 'Engineering', items: ['Embedded Systems', 'Data Acquisition', 'Agile / Scrum', 'Code Review'] },
+  { group: 'Engineering', items: ['Embedded Systems', 'Data Acquisition', 'Game Servers (Docker / VPS)', 'Agile / Scrum', 'Code Review'] },
 ]
 
 function Section({ title, children }) {
@@ -150,7 +168,6 @@ export default function Resume() {
                 <span className={styles.contactItem}><EmailIcon size={14} /> <a href="mailto:koda@akuro.studio">koda@akuro.studio</a></span>
                 <span className={styles.contactItem}><GlobeIcon size={14} /> <a href="https://akuro.studio" target="_blank" rel="noopener noreferrer">akuro.studio</a></span>
                 <span className={styles.contactItem}><GitHubIcon size={14} /> <a href="https://github.com/KodaNotABear" target="_blank" rel="noopener noreferrer">github.com/KodaNotABear</a></span>
-                <span className={styles.contactItem}><ItchIcon size={14} /> <a href="https://kodanotabear.itch.io" target="_blank" rel="noopener noreferrer">kodanotabear.itch.io</a></span>
               </div>
             </header>
 

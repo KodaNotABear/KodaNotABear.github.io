@@ -19,9 +19,31 @@ export const projects = [
     title: 'Black Signal',
     studio: 'AKURO STUDIO',
     description:
-      'A first-person horror game I\'m building solo in Unity, set on a derelict space station. You move through it on foot, watching for anomalies while the station\'s sensors and upkeep tasks keep pulling your attention away. Actively in development, with the core systems coming together.',
+      'A first-person horror game I\'m building solo in Unity, set on a derelict space station. You move through it on foot, watching for anomalies while the station\'s sensors and upkeep tasks keep pulling your attention away. Early in development.',
     tags: ['Unity', 'C#', 'Horror', 'First-Person', 'In Development'],
     image: '/images/black-signal-teaser.png',
+    featured: false,
+    links: {},
+  },
+  {
+    id: 'league-stats-portal',
+    title: 'League Stats Portal',
+    studio: 'Arizona State University · Class Project',
+    description:
+      'A League of Legends stats site built in C# and ASP.NET for a web development course. A WCF service layer wraps the Riot Games API for Riot ID lookup, total champion mastery, and last-match stats, behind member and staff login flows with reCAPTCHA verification.',
+    tags: ['C#', 'ASP.NET', 'Riot Games API', 'Web'],
+    image: '/images/league-stats-portal.png',
+    featured: false,
+    links: {},
+  },
+  {
+    id: 'vanilla-extended',
+    title: 'Vanilla Extended',
+    studio: 'Minecraft Modpack & Server',
+    description:
+      'A curated NeoForge modpack running on a dedicated server I host with Docker on a VPS. Ongoing live-ops work: custom datapacks and KubeJS scripts that patch cross-mod conflicts, plus Python tooling that decodes spark profiler captures to track down frame-time spikes across 400+ mods.',
+    tags: ['Minecraft', 'NeoForge', 'Python', 'Docker / VPS', 'Live Ops'],
+    image: '/images/vanilla-extended.png',
     featured: false,
     links: {},
   },

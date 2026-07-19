@@ -202,7 +202,117 @@ function lapTiming() {
   render(svg, join(ROOT, 'public/images/lap-timing.png'), W)
 }
 
-// ── 4. Placeholder avatar (640×640) ─────────────────────────
+// ── 4. League stats portal card (1280×720) ──────────────────
+function leaguePortal() {
+  const W = 1280, H = 720
+  const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    ${gridDefs('lpmin', 24, 'rgba(0,212,255,0.04)')}
+    ${gridDefs('lpmaj', 120, 'rgba(124,58,237,0.08)')}
+  </defs>
+  <rect width="${W}" height="${H}" fill="${BG}"/>
+  <rect width="${W}" height="${H}" fill="url(#lpmin)"/>
+  <rect width="${W}" height="${H}" fill="url(#lpmaj)"/>
+
+  <text x="64" y="78" font-family="JetBrains Mono" font-size="20" fill="${CYAN}">// LEAGUE STATS PORTAL :: RIOT GAMES API</text>
+
+  <!-- lookup bar -->
+  <g>
+    <rect x="180" y="130" width="700" height="64" rx="8" fill="#10131a" stroke="rgba(0,212,255,0.35)" stroke-width="2"/>
+    <text x="208" y="171" font-family="JetBrains Mono" font-size="24" fill="${TEXT}">SummonerName <tspan fill="${TEXT2}">#NA1</tspan></text>
+    <rect x="904" y="130" width="196" height="64" rx="8" fill="rgba(0,212,255,0.12)" stroke="${CYAN}" stroke-width="2"/>
+    <text x="1002" y="171" text-anchor="middle" font-family="Rajdhani" font-weight="700" font-size="26" letter-spacing="2" fill="${CYAN}">LOOK UP</text>
+  </g>
+
+  <!-- stat panels -->
+  <g>
+    <rect x="180" y="240" width="440" height="260" rx="10" fill="#10131a" stroke="rgba(124,58,237,0.4)" stroke-width="2"/>
+    <text x="208" y="288" font-family="JetBrains Mono" font-size="17" letter-spacing="2" fill="${TEXT2}">TOTAL CHAMPION MASTERY</text>
+    <text x="208" y="368" font-family="JetBrains Mono" font-weight="700" font-size="54" fill="${VIOLET}">1,247,832</text>
+    <text x="208" y="414" font-family="JetBrains Mono" font-size="17" fill="${TEXT2}">ACROSS ALL CHAMPIONS</text>
+    <rect x="208" y="440" width="384" height="10" rx="5" fill="rgba(124,58,237,0.2)"/>
+    <rect x="208" y="440" width="276" height="10" rx="5" fill="${VIOLET}"/>
+
+    <rect x="660" y="240" width="440" height="260" rx="10" fill="#10131a" stroke="rgba(0,212,255,0.4)" stroke-width="2"/>
+    <text x="688" y="288" font-family="JetBrains Mono" font-size="17" letter-spacing="2" fill="${TEXT2}">LAST MATCH</text>
+    <text x="688" y="368" font-family="JetBrains Mono" font-weight="700" font-size="54" fill="${CYAN}">7 / 2 / 11</text>
+    <text x="688" y="414" font-family="JetBrains Mono" font-size="17" fill="${TEXT2}">KDA · 28:41 · <tspan fill="${GREEN}">VICTORY</tspan></text>
+    <rect x="688" y="440" width="384" height="10" rx="5" fill="rgba(0,212,255,0.2)"/>
+    <rect x="688" y="440" width="308" height="10" rx="5" fill="${CYAN}"/>
+  </g>
+
+  <!-- title block -->
+  <g>
+    <rect x="64" y="556" width="470" height="110" fill="#10131a" stroke="rgba(0,212,255,0.3)"/>
+    <text x="84" y="596" font-family="Rajdhani" font-weight="700" font-size="29" letter-spacing="1" fill="${TEXT}">LEAGUE STATS PORTAL</text>
+    <text x="84" y="624" font-family="JetBrains Mono" font-size="14" fill="${TEXT2}">C# · ASP.NET · WCF SERVICE LAYER</text>
+    <text x="84" y="648" font-family="JetBrains Mono" font-size="14" fill="${TEXT2}">SPRING 2026 · CLASS PROJECT</text>
+  </g>
+  <text x="1216" y="648" text-anchor="end" font-family="JetBrains Mono" font-size="16" letter-spacing="2" fill="${TEXT2}">MEMBER + STAFF AUTH · RECAPTCHA</text>
+</svg>`
+  render(svg, join(ROOT, 'public/images/league-stats-portal.png'), W)
+}
+
+// ── 5. Vanilla Extended modpack card (1280×720) ─────────────
+function vanillaExtended() {
+  const W = 1280, H = 720
+  const rnd = mulberry32(0xcafe)
+  // spark-style frame-time bars along the bottom
+  let bars = ''
+  for (let i = 0; i < 56; i++) {
+    const x = 80 + i * 20
+    const spike = i === 18 || i === 39
+    const h = spike ? 120 + rnd() * 30 : 22 + rnd() * 46
+    const c = spike ? '#ef4444' : (h > 54 ? VIOLET : GREEN)
+    bars += `<rect x="${x}" y="${640 - h}" width="14" height="${h}" fill="${c}" opacity="0.85"/>`
+  }
+  // voxel cube stack (generic, isometric-ish squares)
+  const cube = (x, y, s, c1, c2) => `
+    <rect x="${x}" y="${y}" width="${s}" height="${s}" fill="${c1}" stroke="rgba(232,234,240,0.25)"/>
+    <rect x="${x}" y="${y}" width="${s}" height="${s * 0.32}" fill="${c2}"/>`
+  const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    ${gridDefs('vemin', 32, 'rgba(34,211,160,0.05)')}
+    ${gridDefs('vemaj', 128, 'rgba(0,212,255,0.07)')}
+  </defs>
+  <rect width="${W}" height="${H}" fill="${BG}"/>
+  <rect width="${W}" height="${H}" fill="url(#vemin)"/>
+  <rect width="${W}" height="${H}" fill="url(#vemaj)"/>
+
+  <text x="64" y="78" font-family="JetBrains Mono" font-size="20" fill="${GREEN}">// VANILLA EXTENDED :: LIVE OPS</text>
+
+  <text x="640" y="216" text-anchor="middle" font-family="Rajdhani" font-weight="700" font-size="88" letter-spacing="6" fill="${TEXT}">VANILLA EXTENDED</text>
+  <text x="640" y="266" text-anchor="middle" font-family="JetBrains Mono" font-size="21" letter-spacing="5" fill="${TEXT2}">NEOFORGE 1.21.1 · 400+ MODS · DEDICATED SERVER</text>
+
+  <!-- status readouts -->
+  <g font-family="JetBrains Mono">
+    <rect x="180" y="316" width="280" height="96" rx="8" fill="#10131a" stroke="rgba(34,211,160,0.4)" stroke-width="2"/>
+    <text x="208" y="354" font-size="16" fill="${TEXT2}">SERVER TPS</text>
+    <text x="208" y="392" font-weight="700" font-size="34" fill="${GREEN}">20.0</text>
+
+    <rect x="500" y="316" width="280" height="96" rx="8" fill="#10131a" stroke="rgba(0,212,255,0.4)" stroke-width="2"/>
+    <text x="528" y="354" font-size="16" fill="${TEXT2}">RUNTIME</text>
+    <text x="528" y="390" font-weight="700" font-size="27" fill="${CYAN}">DOCKER :: VPS</text>
+
+    <rect x="820" y="316" width="280" height="96" rx="8" fill="#10131a" stroke="rgba(124,58,237,0.4)" stroke-width="2"/>
+    <text x="848" y="354" font-size="16" fill="${TEXT2}">PATCHES</text>
+    <text x="848" y="390" font-weight="700" font-size="27" fill="${VIOLET}">DATAPACK + JS</text>
+  </g>
+
+  ${cube(1064, 108, 44, '#1d2430', 'rgba(34,211,160,0.5)')}
+  ${cube(1108, 152, 44, '#1d2430', 'rgba(34,211,160,0.5)')}
+  ${cube(1064, 152, 44, '#141922', 'rgba(0,212,255,0.35)')}
+
+  <!-- frame-time profile -->
+  ${bars}
+  <line x1="80" y1="640" x2="1200" y2="640" stroke="${TEXT2}" stroke-width="1" opacity="0.5"/>
+  <text x="80" y="672" font-family="JetBrains Mono" font-size="15" letter-spacing="2" fill="${TEXT2}">SPARK PROFILE :: FRAME TIME · PYTHON DECODER</text>
+  <text x="1200" y="672" text-anchor="end" font-family="JetBrains Mono" font-size="15" fill="#ef4444">SPIKES FLAGGED: 2</text>
+</svg>`
+  render(svg, join(ROOT, 'public/images/vanilla-extended.png'), W)
+}
+
+// ── 6. Placeholder avatar (640×640) ─────────────────────────
 function avatar() {
   const S = 640
   const svg = `<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}" xmlns="http://www.w3.org/2000/svg">
@@ -232,4 +342,6 @@ function avatar() {
 ogBanner()
 blackSignalTeaser()
 lapTiming()
+leaguePortal()
+vanillaExtended()
 avatar()
