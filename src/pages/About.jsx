@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Toolbox from '../components/Toolbox'
-import GitHubHeatmap from '../components/GitHubHeatmap'
 import { GamepadIcon, AnchorIcon, BoltIcon, GradCapIcon, MapPinIcon, TrophyIcon } from '../components/Icons'
 import styles from './About.module.css'
 
@@ -24,7 +23,7 @@ const TIMELINE = [
     date: '2025 – Present',
     title: 'Founder & Solo Developer',
     org: 'AKURO STUDIO',
-    desc: 'Building Black Signal, a first-person horror game set on a derelict space station (Unity). You explore on foot, tracking anomalies while keeping the station\'s systems running. Actively in development.',
+    desc: 'Building Black Signal, a first-person horror game set on a derelict space station (Unity). You explore on foot, tracking anomalies while keeping the station\'s systems running. Early in development.',
     color: 'var(--accent-cyan)',
   },
   {
@@ -143,12 +142,6 @@ export default function About() {
                 <Toolbox />
               </div>
 
-              {/* GitHub heatmap */}
-              <div className={styles.sectionBlock}>
-                <h2>GitHub Activity</h2>
-                <GitHubHeatmap />
-              </div>
-
               {/* Fun facts */}
               <div className={styles.sectionBlock}>
                 <h2>Quick Facts</h2>
@@ -169,7 +162,7 @@ export default function About() {
                   AKURO STUDIO is really just me. It's the name I put on my own
                   games so everything I make has one place to live instead of
                   being scattered across random project pages. Everything under
-                  it is something I built and shipped myself.
+                  it is something I built myself.
                 </p>
               </div>
 
