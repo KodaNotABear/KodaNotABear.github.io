@@ -15,13 +15,13 @@ export const projects = [
     links: {},
   },
   {
-    id: 'cogitation',
-    title: 'Cogitation',
+    id: 'create-cognition',
+    title: 'Create: Cognition',
     studio: 'AKURO STUDIO · Create Add-on',
     description:
       'A Create add-on I wrote in Java for Minecraft (NeoForge 1.21.1). Surplus rotational power feeds a mechanical neural-network datacenter: gather data from mobs, train models of them, then run simulations that print their loot with zero spawned entities. A server-friendly answer to entity farm lag, now in beta with the full loop playable.',
     tags: ['Java', 'NeoForge', 'Create Add-on', 'Minecraft', 'Beta'],
-    image: '/images/cogitation.png',
+    image: '/images/create-cognition.png',
     featured: true,
     links: {},
   },

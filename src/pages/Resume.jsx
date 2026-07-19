@@ -59,7 +59,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: 'Cogitation',
+    title: 'Create: Cognition',
     org: 'AKURO STUDIO · Create Add-on for Minecraft',
     date: 'Jun 2026 – Present',
     bullets: [
