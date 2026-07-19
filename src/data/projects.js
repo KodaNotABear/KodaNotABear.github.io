@@ -15,6 +15,17 @@ export const projects = [
     links: {},
   },
   {
+    id: 'cogitation',
+    title: 'Cogitation',
+    studio: 'AKURO STUDIO · Create Add-on',
+    description:
+      'A Create add-on I wrote in Java for Minecraft (NeoForge 1.21.1). Surplus rotational power feeds a mechanical neural-network datacenter: gather data from mobs, train models of them, then run simulations that print their loot with zero spawned entities. A server-friendly answer to entity farm lag, now in beta with the full loop playable.',
+    tags: ['Java', 'NeoForge', 'Create Add-on', 'Minecraft', 'Beta'],
+    image: '/images/cogitation.png',
+    featured: true,
+    links: {},
+  },
+  {
     id: 'black-signal',
     title: 'Black Signal',
     studio: 'AKURO STUDIO',
@@ -33,17 +44,6 @@ export const projects = [
       'A League of Legends stats site built in C# and ASP.NET for a web development course. A WCF service layer wraps the Riot Games API for Riot ID lookup, total champion mastery, and last-match stats, behind member and staff login flows with reCAPTCHA verification.',
     tags: ['C#', 'ASP.NET', 'Riot Games API', 'Web'],
     image: '/images/league-stats-portal.png',
-    featured: false,
-    links: {},
-  },
-  {
-    id: 'vanilla-extended',
-    title: 'Vanilla Extended',
-    studio: 'Minecraft Modpack & Server',
-    description:
-      'A curated NeoForge modpack running on a dedicated server I host with Docker on a VPS. Ongoing live-ops work: custom datapacks and KubeJS scripts that patch cross-mod conflicts, plus Python tooling that decodes spark profiler captures to track down frame-time spikes across 400+ mods.',
-    tags: ['Minecraft', 'NeoForge', 'Python', 'Docker / VPS', 'Live Ops'],
-    image: '/images/vanilla-extended.png',
     featured: false,
     links: {},
   },

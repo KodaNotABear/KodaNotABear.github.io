@@ -60,7 +60,7 @@ def section(title):
     ]
 
 
-def entry(role, org, date, bullets, gap=3):
+def entry(role, org, date, bullets, gap=2):
     head = Table(
         [[Paragraph(role, styles["role"]), Paragraph(date, styles["date"])]],
         colWidths=[5.05 * inch, 2.15 * inch],
@@ -116,17 +116,18 @@ LEAGUE_BULLETS = [
     "Implemented member and staff login flows with reCAPTCHA verification, sessions, and cookies",
 ]
 
-MODPACK_BULLETS = [
-    "Curate and operate a 400+ mod NeoForge pack on a dedicated server, self-hosted with Docker on "
-    "a VPS; wrote custom datapacks, KubeJS scripts, and Python tooling that decodes spark profiler "
-    "captures for frame-time analysis",
+COGITATION_BULLETS = [
+    "Create add-on in Java (NeoForge 1.21.1): a mechanical neural-network datacenter that turns "
+    "surplus rotational power into compute, trains models of mobs, and simulates their loot with "
+    "zero spawned entities, a performance-friendly alternative to entity farms",
+    "Shipped a playable beta: multiblock networks with flood-fill discovery and proportional "
+    "compute allocation, sequenced-assembly recipes, an advancement tree, and full balance config",
 ]
 
 EDUCATION = entry(
     "B.S. Computer Science, Software Engineering Focus", "Arizona State University", "May 2026",
     [
-        "Coursework: Game Development, Computer Graphics, Algorithms, Operating Systems · "
-        "Activities: Formula SAE · SoDA",
+        "Coursework: Game Development, Computer Graphics, Algorithms, OS · Formula SAE · SoDA",
     ],
     gap=0,
 )
@@ -181,17 +182,18 @@ build(
     "game programmer role.",
     experience=[
         ("Game Development Intern", PIXEL_PIRATE_ORG, "Aug 2025 – May 2026",
-         [PP_ONBOARDING, PP_TOURNAMENT, PP_WEBGL, PP_AGILE]),
+         [PP_ONBOARDING, PP_TOURNAMENT, PP_WEBGL,
+          "Collaborated with designers and producers in an Agile team: standups, sprint planning, code review"]),
         ("Founder &amp; Solo Developer", "AKURO STUDIO", "2025 – Present", AKURO_BULLETS),
         ("Data Acquisition Developer",
          "Sun Devil Motorsports (Formula SAE), Arizona State University",
          "Jun 2022 – 2025", FSAE_BULLETS),
     ],
     projects=[
+        ("Cogitation", "AKURO STUDIO · Create add-on for Minecraft", "Jun 2026 – Present",
+         COGITATION_BULLETS),
         ("League Stats Portal", "Class project, Arizona State University", "Spring 2026",
-         LEAGUE_BULLETS),
-        ("Vanilla Extended: Minecraft Modpack &amp; Server", "Personal project", "2025 – Present",
-         MODPACK_BULLETS),
+         LEAGUE_BULLETS[:1]),
     ],
     skills=[
         ("Languages", "C# (Unity, ASP.NET) · C++ · Java · Python · JavaScript / React · HTML &amp; CSS"),
@@ -224,8 +226,9 @@ build(
     projects=[
         ("League Stats Portal", "Class project, Arizona State University", "Spring 2026",
          LEAGUE_BULLETS),
-        ("Vanilla Extended: Minecraft Modpack &amp; Server", "Personal project", "2025 – Present",
-         MODPACK_BULLETS),
+        ("Cogitation", "AKURO STUDIO · Create add-on for Minecraft", "Jun 2026 – Present",
+         ["Java mod (NeoForge 1.21.1) in beta: multiblock compute networks with flood-fill discovery "
+          "and proportional allocation, simulating mob loot with zero spawned entities to cut server load"]),
         ("akuro.studio", "Personal site", "2026",
          ["React 19 + Vite portfolio with build-time art generation, deployed to GitHub Pages "
           "through a GitHub Actions CI pipeline"]),
