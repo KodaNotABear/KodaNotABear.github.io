@@ -190,7 +190,7 @@ build(
          "Jun 2022 – 2025", FSAE_BULLETS),
     ],
     projects=[
-        ("Cogitation", "AKURO STUDIO · Create add-on for Minecraft", "Jun 2026 – Present",
+        ("Create: Cognition", "AKURO STUDIO · Create add-on for Minecraft", "Jun 2026 – Present",
          COGITATION_BULLETS),
         ("League Stats Portal", "Class project, Arizona State University", "Spring 2026",
          LEAGUE_BULLETS[:1]),
@@ -226,7 +226,7 @@ build(
     projects=[
         ("League Stats Portal", "Class project, Arizona State University", "Spring 2026",
          LEAGUE_BULLETS),
-        ("Cogitation", "AKURO STUDIO · Create add-on for Minecraft", "Jun 2026 – Present",
+        ("Create: Cognition", "AKURO STUDIO · Create add-on for Minecraft", "Jun 2026 – Present",
          ["Java mod (NeoForge 1.21.1) in beta: multiblock compute networks with flood-fill discovery "
           "and proportional allocation, simulating mob loot with zero spawned entities to cut server load"]),
         ("akuro.studio", "Personal site", "2026",

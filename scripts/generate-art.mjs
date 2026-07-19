@@ -2,7 +2,7 @@
 // Run with: npm run art
 // Output is deterministic (seeded PRNG) so regenerating produces identical files.
 import { Resvg } from '@resvg/resvg-js'
-import { writeFileSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -253,10 +253,13 @@ function leaguePortal() {
   render(svg, join(ROOT, 'public/images/league-stats-portal.png'), W)
 }
 
-// ── 5. Cogitation mod card (1280×720) ───────────────────────
-function cogitation() {
+// ── 5. Create: Cognition mod card (1280×720) ────────────────
+// Ethan's title splash (scripts/art-src) over the site-style grid,
+// with the cognition array schematic below it.
+function createCognition() {
   const W = 1280, H = 720
   const BRASS = '#d9a441'
+  const splash = readFileSync(join(ROOT, 'scripts/art-src/create-cognition-title.png')).toString('base64')
   // cognition array schematic: nodes wired to a controller
   const node = (x, y, on = true) => `
     <rect x="${x}" y="${y}" width="72" height="72" rx="6" fill="#10131a" stroke="${on ? CYAN : TEXT2}" stroke-width="2"/>
@@ -274,30 +277,30 @@ function cogitation() {
   <rect width="${W}" height="${H}" fill="url(#cgmin)"/>
   <rect width="${W}" height="${H}" fill="url(#cgmaj)"/>
 
-  <text x="64" y="78" font-family="JetBrains Mono" font-size="20" fill="${BRASS}">// COGITATION :: COGNITION ARRAY ONLINE</text>
+  <text x="64" y="78" font-family="JetBrains Mono" font-size="20" fill="${BRASS}">// AKURO STUDIO</text>
 
-  <text x="640" y="196" text-anchor="middle" font-family="Rajdhani" font-weight="700" font-size="96" letter-spacing="8" fill="${TEXT}">COGITATION</text>
-  <text x="640" y="246" text-anchor="middle" font-family="JetBrains Mono" font-size="20" letter-spacing="5" fill="${TEXT2}">CREATE ADD-ON · JAVA · NEOFORGE 1.21.1</text>
+  <image href="data:image/png;base64,${splash}" x="310" y="60" width="660" height="270"/>
+  <text x="640" y="384" text-anchor="middle" font-family="JetBrains Mono" font-size="20" letter-spacing="5" fill="${TEXT2}">CREATE ADD-ON · JAVA · NEOFORGE 1.21.1</text>
 
-  <!-- array schematic: 3 neural nodes -> mainframe -> simulation chamber -->
-  ${node(150, 320)}${node(150, 420, true)}${node(150, 520, false)}
-  ${wire(222, 356, 420, 420)}${wire(222, 456, 420, 440)}
-  <rect x="420" y="380" width="150" height="110" rx="8" fill="#10131a" stroke="${BRASS}" stroke-width="2.5"/>
-  <text x="495" y="425" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="${TEXT2}">MAINFRAME</text>
-  <text x="495" y="458" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="22" fill="${BRASS}">512 CU/t</text>
-  ${wire(570, 435, 740, 435)}
-  <rect x="740" y="360" width="390" height="160" rx="8" fill="#10131a" stroke="${CYAN}" stroke-width="2.5"/>
-  <text x="768" y="402" font-family="JetBrains Mono" font-size="15" letter-spacing="2" fill="${TEXT2}">SIMULATION CHAMBER</text>
-  <text x="768" y="442" font-family="JetBrains Mono" font-weight="700" font-size="26" fill="${CYAN}">SUBJECT: WITHER</text>
-  <text x="768" y="478" font-family="JetBrains Mono" font-size="16" fill="${GREEN}">PRINTING LOOT · ENTITIES SPAWNED: 0</text>
-  <circle cx="1102" cy="396" r="7" fill="${GREEN}"/>
+  <!-- array schematic: neural nodes -> mainframe -> simulation chamber -->
+  ${node(150, 415)}${node(150, 515, true)}
+  ${wire(222, 451, 420, 505)}${wire(222, 551, 420, 535)}
+  <rect x="420" y="470" width="150" height="110" rx="8" fill="#10131a" stroke="${BRASS}" stroke-width="2.5"/>
+  <text x="495" y="515" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="${TEXT2}">MAINFRAME</text>
+  <text x="495" y="548" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="22" fill="${BRASS}">512 CU/t</text>
+  ${wire(570, 525, 740, 525)}
+  <rect x="740" y="450" width="390" height="150" rx="8" fill="#10131a" stroke="${CYAN}" stroke-width="2.5"/>
+  <text x="768" y="490" font-family="JetBrains Mono" font-size="15" letter-spacing="2" fill="${TEXT2}">SIMULATION CHAMBER</text>
+  <text x="768" y="528" font-family="JetBrains Mono" font-weight="700" font-size="26" fill="${CYAN}">SUBJECT: WITHER</text>
+  <text x="768" y="562" font-family="JetBrains Mono" font-size="16" fill="${GREEN}">PRINTING LOOT · ENTITIES SPAWNED: 0</text>
+  <circle cx="1102" cy="486" r="7" fill="${GREEN}"/>
 
   <!-- footer -->
-  <line x1="80" y1="600" x2="1200" y2="600" stroke="${TEXT2}" stroke-width="1" opacity="0.4"/>
-  <text x="80" y="646" font-family="JetBrains Mono" font-size="16" letter-spacing="2" fill="${TEXT2}">ROTATION → COMPUTE → TRAINED MODELS → LOOT</text>
-  <text x="1200" y="646" text-anchor="end" font-family="JetBrains Mono" font-size="16" letter-spacing="2" fill="${BRASS}">AKURO STUDIO · BETA</text>
+  <line x1="80" y1="648" x2="1200" y2="648" stroke="${TEXT2}" stroke-width="1" opacity="0.4"/>
+  <text x="80" y="688" font-family="JetBrains Mono" font-size="16" letter-spacing="2" fill="${TEXT2}">ROTATION → COMPUTE → TRAINED MODELS → LOOT</text>
+  <text x="1200" y="688" text-anchor="end" font-family="JetBrains Mono" font-size="16" letter-spacing="2" fill="${BRASS}">AKURO STUDIO · BETA</text>
 </svg>`
-  render(svg, join(ROOT, 'public/images/cogitation.png'), W)
+  render(svg, join(ROOT, 'public/images/create-cognition.png'), W)
 }
 
 // ── 6. Placeholder avatar (640×640) ─────────────────────────
@@ -331,5 +334,5 @@ ogBanner()
 blackSignalTeaser()
 lapTiming()
 leaguePortal()
-cogitation()
+createCognition()
 avatar()
