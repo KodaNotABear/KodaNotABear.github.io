@@ -59,21 +59,21 @@ const PROJECTS = [
     ],
   },
   {
+    title: 'Cogitation',
+    org: 'AKURO STUDIO · Create Add-on for Minecraft',
+    date: 'Jun 2026 – Present',
+    bullets: [
+      'Create add-on in Java (NeoForge 1.21.1) that turns surplus rotational power into compute for a mechanical neural-network datacenter, training models of mobs and simulating their loot with zero spawned entities as a performance-friendly alternative to entity farms',
+      'Shipped a playable beta: multiblock networks with flood-fill discovery and proportional compute allocation, model grades and substrate tiers, sequenced-assembly recipes, an advancement tree, and full balance config',
+    ],
+  },
+  {
     title: 'League Stats Portal',
     org: 'Arizona State University · Class Project',
     date: 'Spring 2026',
     bullets: [
       'C# / ASP.NET web app for League of Legends stats lookup, backed by a WCF service layer over the Riot Games API: Riot ID lookup, total champion mastery, and last-match stats',
       'Implemented member and staff login flows with reCAPTCHA verification, sessions, and cookies',
-    ],
-  },
-  {
-    title: 'Vanilla Extended: Minecraft Modpack & Server',
-    org: 'Personal Project',
-    date: '2025 – Present',
-    bullets: [
-      'Curate and operate a 400+ mod NeoForge pack on a dedicated server, self-hosted with Docker on a VPS',
-      'Wrote custom datapacks and KubeJS scripts to patch cross-mod conflicts, and Python tooling that decodes spark profiler captures for frame-time analysis',
     ],
   },
   {

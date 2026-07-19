@@ -253,63 +253,51 @@ function leaguePortal() {
   render(svg, join(ROOT, 'public/images/league-stats-portal.png'), W)
 }
 
-// ── 5. Vanilla Extended modpack card (1280×720) ─────────────
-function vanillaExtended() {
+// ── 5. Cogitation mod card (1280×720) ───────────────────────
+function cogitation() {
   const W = 1280, H = 720
-  const rnd = mulberry32(0xcafe)
-  // spark-style frame-time bars along the bottom
-  let bars = ''
-  for (let i = 0; i < 56; i++) {
-    const x = 80 + i * 20
-    const spike = i === 18 || i === 39
-    const h = spike ? 120 + rnd() * 30 : 22 + rnd() * 46
-    const c = spike ? '#ef4444' : (h > 54 ? VIOLET : GREEN)
-    bars += `<rect x="${x}" y="${640 - h}" width="14" height="${h}" fill="${c}" opacity="0.85"/>`
-  }
-  // voxel cube stack (generic, isometric-ish squares)
-  const cube = (x, y, s, c1, c2) => `
-    <rect x="${x}" y="${y}" width="${s}" height="${s}" fill="${c1}" stroke="rgba(232,234,240,0.25)"/>
-    <rect x="${x}" y="${y}" width="${s}" height="${s * 0.32}" fill="${c2}"/>`
+  const BRASS = '#d9a441'
+  // cognition array schematic: nodes wired to a controller
+  const node = (x, y, on = true) => `
+    <rect x="${x}" y="${y}" width="72" height="72" rx="6" fill="#10131a" stroke="${on ? CYAN : TEXT2}" stroke-width="2"/>
+    <circle cx="${x + 36}" cy="${y + 36}" r="12" fill="${on ? CYAN : '#1d2430'}" opacity="${on ? 0.9 : 1}"/>
+    <circle cx="${x + 14}" cy="${y + 14}" r="4" fill="${on ? BRASS : TEXT2}"/>
+    <circle cx="${x + 58}" cy="${y + 14}" r="4" fill="${on ? '#ef4444' : TEXT2}"/>`
+  const wire = (x1, y1, x2, y2) =>
+    `<path d="M ${x1} ${y1} H ${(x1 + x2) / 2} V ${y2} H ${x2}" fill="none" stroke="${VIOLET}" stroke-width="3" opacity="0.8"/>`
   const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    ${gridDefs('vemin', 32, 'rgba(34,211,160,0.05)')}
-    ${gridDefs('vemaj', 128, 'rgba(0,212,255,0.07)')}
+    ${gridDefs('cgmin', 28, 'rgba(217,164,65,0.05)')}
+    ${gridDefs('cgmaj', 112, 'rgba(0,212,255,0.07)')}
   </defs>
   <rect width="${W}" height="${H}" fill="${BG}"/>
-  <rect width="${W}" height="${H}" fill="url(#vemin)"/>
-  <rect width="${W}" height="${H}" fill="url(#vemaj)"/>
+  <rect width="${W}" height="${H}" fill="url(#cgmin)"/>
+  <rect width="${W}" height="${H}" fill="url(#cgmaj)"/>
 
-  <text x="64" y="78" font-family="JetBrains Mono" font-size="20" fill="${GREEN}">// VANILLA EXTENDED :: LIVE OPS</text>
+  <text x="64" y="78" font-family="JetBrains Mono" font-size="20" fill="${BRASS}">// COGITATION :: COGNITION ARRAY ONLINE</text>
 
-  <text x="640" y="216" text-anchor="middle" font-family="Rajdhani" font-weight="700" font-size="88" letter-spacing="6" fill="${TEXT}">VANILLA EXTENDED</text>
-  <text x="640" y="266" text-anchor="middle" font-family="JetBrains Mono" font-size="21" letter-spacing="5" fill="${TEXT2}">NEOFORGE 1.21.1 · 400+ MODS · DEDICATED SERVER</text>
+  <text x="640" y="196" text-anchor="middle" font-family="Rajdhani" font-weight="700" font-size="96" letter-spacing="8" fill="${TEXT}">COGITATION</text>
+  <text x="640" y="246" text-anchor="middle" font-family="JetBrains Mono" font-size="20" letter-spacing="5" fill="${TEXT2}">CREATE ADD-ON · JAVA · NEOFORGE 1.21.1</text>
 
-  <!-- status readouts -->
-  <g font-family="JetBrains Mono">
-    <rect x="180" y="316" width="280" height="96" rx="8" fill="#10131a" stroke="rgba(34,211,160,0.4)" stroke-width="2"/>
-    <text x="208" y="354" font-size="16" fill="${TEXT2}">SERVER TPS</text>
-    <text x="208" y="392" font-weight="700" font-size="34" fill="${GREEN}">20.0</text>
+  <!-- array schematic: 3 neural nodes -> mainframe -> simulation chamber -->
+  ${node(150, 320)}${node(150, 420, true)}${node(150, 520, false)}
+  ${wire(222, 356, 420, 420)}${wire(222, 456, 420, 440)}
+  <rect x="420" y="380" width="150" height="110" rx="8" fill="#10131a" stroke="${BRASS}" stroke-width="2.5"/>
+  <text x="495" y="425" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="${TEXT2}">MAINFRAME</text>
+  <text x="495" y="458" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="22" fill="${BRASS}">512 CU/t</text>
+  ${wire(570, 435, 740, 435)}
+  <rect x="740" y="360" width="390" height="160" rx="8" fill="#10131a" stroke="${CYAN}" stroke-width="2.5"/>
+  <text x="768" y="402" font-family="JetBrains Mono" font-size="15" letter-spacing="2" fill="${TEXT2}">SIMULATION CHAMBER</text>
+  <text x="768" y="442" font-family="JetBrains Mono" font-weight="700" font-size="26" fill="${CYAN}">SUBJECT: WITHER</text>
+  <text x="768" y="478" font-family="JetBrains Mono" font-size="16" fill="${GREEN}">PRINTING LOOT · ENTITIES SPAWNED: 0</text>
+  <circle cx="1102" cy="396" r="7" fill="${GREEN}"/>
 
-    <rect x="500" y="316" width="280" height="96" rx="8" fill="#10131a" stroke="rgba(0,212,255,0.4)" stroke-width="2"/>
-    <text x="528" y="354" font-size="16" fill="${TEXT2}">RUNTIME</text>
-    <text x="528" y="390" font-weight="700" font-size="27" fill="${CYAN}">DOCKER :: VPS</text>
-
-    <rect x="820" y="316" width="280" height="96" rx="8" fill="#10131a" stroke="rgba(124,58,237,0.4)" stroke-width="2"/>
-    <text x="848" y="354" font-size="16" fill="${TEXT2}">PATCHES</text>
-    <text x="848" y="390" font-weight="700" font-size="27" fill="${VIOLET}">DATAPACK + JS</text>
-  </g>
-
-  ${cube(1064, 108, 44, '#1d2430', 'rgba(34,211,160,0.5)')}
-  ${cube(1108, 152, 44, '#1d2430', 'rgba(34,211,160,0.5)')}
-  ${cube(1064, 152, 44, '#141922', 'rgba(0,212,255,0.35)')}
-
-  <!-- frame-time profile -->
-  ${bars}
-  <line x1="80" y1="640" x2="1200" y2="640" stroke="${TEXT2}" stroke-width="1" opacity="0.5"/>
-  <text x="80" y="672" font-family="JetBrains Mono" font-size="15" letter-spacing="2" fill="${TEXT2}">SPARK PROFILE :: FRAME TIME · PYTHON DECODER</text>
-  <text x="1200" y="672" text-anchor="end" font-family="JetBrains Mono" font-size="15" fill="#ef4444">SPIKES FLAGGED: 2</text>
+  <!-- footer -->
+  <line x1="80" y1="600" x2="1200" y2="600" stroke="${TEXT2}" stroke-width="1" opacity="0.4"/>
+  <text x="80" y="646" font-family="JetBrains Mono" font-size="16" letter-spacing="2" fill="${TEXT2}">ROTATION → COMPUTE → TRAINED MODELS → LOOT</text>
+  <text x="1200" y="646" text-anchor="end" font-family="JetBrains Mono" font-size="16" letter-spacing="2" fill="${BRASS}">AKURO STUDIO · BETA</text>
 </svg>`
-  render(svg, join(ROOT, 'public/images/vanilla-extended.png'), W)
+  render(svg, join(ROOT, 'public/images/cogitation.png'), W)
 }
 
 // ── 6. Placeholder avatar (640×640) ─────────────────────────
@@ -343,5 +331,5 @@ ogBanner()
 blackSignalTeaser()
 lapTiming()
 leaguePortal()
-vanillaExtended()
+cogitation()
 avatar()
