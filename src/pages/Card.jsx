@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
-import { GitHubIcon, ItchIcon, DiscordIcon, EmailIcon, GlobeIcon } from '../components/Icons'
+import { GitHubIcon, DiscordIcon, EmailIcon, GlobeIcon } from '../components/Icons'
 import { copyText } from '../utils/copyText'
 import styles from './Card.module.css'
 
@@ -18,12 +18,6 @@ const LINKS = [
     label: 'GitHub',
     value: 'KodaNotABear',
     href: 'https://github.com/KodaNotABear',
-  },
-  {
-    icon: <ItchIcon size={20} />,
-    label: 'itch.io',
-    value: 'kodanotabear.itch.io',
-    href: 'https://kodanotabear.itch.io',
   },
   {
     icon: <DiscordIcon size={20} />,
