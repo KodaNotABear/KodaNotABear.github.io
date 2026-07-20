@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { UnityIcon, ItchIcon, GitHubIcon } from './Icons'
+import { BoltIcon, ItchIcon, GitHubIcon } from './Icons'
 import styles from './ProjectCard.module.css'
 
 function useTilt() {
@@ -51,7 +51,7 @@ export default function ProjectCard({ project, index = 0 }) {
         {image ? (
           <img src={image} alt={title} loading="lazy" />
         ) : (
-          <div className={styles.thumbPlaceholder}><UnityIcon size={64} /></div>
+          <div className={styles.thumbPlaceholder}><BoltIcon size={48} /></div>
         )}
       </div>
 
