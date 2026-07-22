@@ -99,11 +99,6 @@ PP_AGILE = (
     "planning, and code review"
 )
 
-AKURO_BULLETS = [
-    "Developing <b>Black Signal</b>, a first-person horror game in Unity (C#) set on a derelict space "
-    "station; designing and prototyping the core loop, UI, and level layout as the sole developer",
-]
-
 FSAE_BULLETS = [
     "Designed and tested on-vehicle data acquisition tools across three race seasons",
     "Built embedded systems for live telemetry capture, including an infrared lap timing system "
@@ -177,23 +172,25 @@ build(
     "GAME PROGRAMMER &amp; DESIGNER",
     "Game programmer with a B.S. in Computer Science (Arizona State University, May 2026) and nine months "
     "of professional Unity experience shipping onboarding, LiveOps, and WebGL features for a live mobile "
-    "racing game. Three years building embedded race telemetry for a collegiate FSAE team. Currently "
-    "prototyping <b>Black Signal</b>, an original first-person horror game in Unity. Seeking a junior "
-    "game programmer role.",
+    "racing game. Three years building embedded race telemetry for a collegiate FSAE team. Recently "
+    "shipped the first beta of <b>Create: Cognition</b>, an original Minecraft mod in Java. Seeking a "
+    "junior game programmer role.",
     experience=[
         ("Game Development Intern", PIXEL_PIRATE_ORG, "Aug 2025 – May 2026",
          [PP_ONBOARDING, PP_TOURNAMENT, PP_WEBGL,
           "Collaborated with designers and producers in an Agile team: standups, sprint planning, code review"]),
-        ("Founder &amp; Solo Developer", "AKURO STUDIO", "2025 – Present", AKURO_BULLETS),
         ("Data Acquisition Developer",
          "Sun Devil Motorsports (Formula SAE), Arizona State University",
          "Jun 2022 – 2025", FSAE_BULLETS),
     ],
     projects=[
-        ("Create: Cognition", "AKURO STUDIO · Create add-on for Minecraft", "Jun 2026 – Present",
+        ("Create: Cognition", "Create add-on for Minecraft", "Jun 2026 – Present",
          COGITATION_BULLETS),
         ("League Stats Portal", "Class project, Arizona State University", "Spring 2026",
          LEAGUE_BULLETS[:1]),
+        ("Black Signal", "Personal project", "2026 – Present",
+         ["Prototyping a solo first-person horror game in Unity (C#): on-foot exploration of a "
+          "derelict space station with anomaly detection as the core loop"]),
     ],
     skills=[
         ("Languages", "C# (Unity, ASP.NET) · C++ · Java · Python · JavaScript / React · HTML &amp; CSS"),
@@ -219,14 +216,11 @@ build(
          "Jun 2022 – 2025",
          ["Designed and tested embedded on-vehicle data acquisition and telemetry tools across "
           "three race seasons, including an infrared lap timing system"]),
-        ("Founder &amp; Solo Developer", "AKURO STUDIO", "2025 – Present",
-         ["Designing and prototyping <b>Black Signal</b>, an original first-person horror game in "
-          "Unity (C#), as the sole developer"]),
     ],
     projects=[
         ("League Stats Portal", "Class project, Arizona State University", "Spring 2026",
          LEAGUE_BULLETS),
-        ("Create: Cognition", "AKURO STUDIO · Create add-on for Minecraft", "Jun 2026 – Present",
+        ("Create: Cognition", "Create add-on for Minecraft", "Jun 2026 – Present",
          ["Java mod (NeoForge 1.21.1) in beta: multiblock compute networks with flood-fill discovery "
           "and proportional allocation, simulating mob loot with zero spawned entities to cut server load"]),
         ("akuro.studio", "Personal site", "2026",

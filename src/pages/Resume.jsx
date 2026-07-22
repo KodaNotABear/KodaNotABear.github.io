@@ -15,15 +15,6 @@ const EXPERIENCE = [
     ],
   },
   {
-    title: 'Founder & Solo Developer',
-    org: 'AKURO STUDIO',
-    date: '2025 – Present',
-    bullets: [
-      'Developing Black Signal, a first-person horror game in Unity (C#) set on a derelict space station, as a solo developer handling all design, programming, and production',
-      'Designing and prototyping the core loop: on-foot exploration, anomaly detection, and station systems that compete for the player\'s attention',
-    ],
-  },
-  {
     title: 'Data Acquisition Developer',
     org: 'Sun Devil Motorsports (Formula SAE)',
     date: 'Jun 2022 – 2025',
@@ -78,11 +69,10 @@ const PROJECTS = [
   },
   {
     title: 'Black Signal',
-    org: 'AKURO STUDIO',
-    date: '2025 – Present',
+    org: 'Personal Project',
+    date: '2026 – Present',
     bullets: [
-      'Solo first-person horror game in Unity (C#) set on a space station, where the player explores on foot and flags anomalies while onboard sensors and tasks compete for their attention',
-      'Designing and prototyping all gameplay systems, UI, and level layout independently',
+      'Prototyping a solo first-person horror game in Unity (C#): on-foot exploration of a derelict space station with anomaly detection as the core loop. Early in development',
     ],
   },
   {

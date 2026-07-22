@@ -20,10 +20,10 @@ const TIMELINE = [
     color: 'var(--accent-violet)',
   },
   {
-    date: '2025 – Present',
-    title: 'Founder & Solo Developer',
+    date: '2026 – Present',
+    title: 'Independent Projects',
     org: 'AKURO STUDIO',
-    desc: 'Building Black Signal, a first-person horror game set on a derelict space station (Unity). You explore on foot, tracking anomalies while keeping the station\'s systems running. Early in development.',
+    desc: 'Shipped the first beta of Create: Cognition, a Minecraft mod in Java that simulates mob loot with zero spawned entities. Black Signal, a first-person horror game in Unity, is in early prototyping.',
     color: 'var(--accent-cyan)',
   },
   {
@@ -53,7 +53,7 @@ const INTERESTS = [
 const funFacts = [
   { Icon: GamepadIcon, fact: 'Game dev since high school with Unity' },
   { Icon: AnchorIcon,  fact: 'Interned at Pixel Pirate Studio (Off-Road Champion)' },
-  { Icon: BoltIcon,    fact: 'Founded AKURO STUDIO as a solo dev label' },
+  { Icon: BoltIcon,    fact: 'Shipped the first beta of Create: Cognition, a Minecraft mod' },
   { Icon: TrophyIcon,  fact: '3 seasons of FSAE racing telemetry at Sun Devil Motorsports' },
   { Icon: GradCapIcon, fact: 'CS grad, Arizona State University, May 2026' },
   { Icon: MapPinIcon,  fact: 'Based in Arizona' },
@@ -77,10 +77,9 @@ export default function About() {
               <p className={styles.role}>Game Programmer &amp; Designer · CS Graduate</p>
               <p className={styles.bio}>
                 I'm a game developer from Arizona, working mostly in Unity. I've
-                been making games since high school, and these days I build my
+                been making games since high school, and now I build my
                 own projects under AKURO STUDIO. When I'm not working on
-                something, I'm usually trying to understand how the games I like
-                are put together.
+                a game, I'm usually playing or reading about one.
               </p>
             </div>
 
@@ -90,7 +89,7 @@ export default function About() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              {/* Swap avatar.png for a real headshot when ready (same path, same size) */}
+
               <img src="/images/avatar.png" alt="Ethan Peterson" className={styles.avatarImg} />
             </motion.div>
           </motion.div>
@@ -159,10 +158,9 @@ export default function About() {
               <div className={styles.sectionBlock}>
                 <h2>AKURO STUDIO</h2>
                 <p>
-                  AKURO STUDIO is really just me. It's the name I put on my own
-                  games so everything I make has one place to live instead of
-                  being scattered across random project pages. Everything under
-                  it is something I built myself.
+                  AKURO STUDIO is the label I use for my personal projects. Currently 
+                  I don't have any big projects under the name but you can 
+                  check out the mods I have made for other games under it.
                 </p>
               </div>
 

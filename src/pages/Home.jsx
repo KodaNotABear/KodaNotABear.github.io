@@ -39,9 +39,9 @@ const BOOT_LINES = [
   { text: '  engine:   Unity · C#', delay: 1600, color: 'normal' },
   { text: '  status:   Open to Work ✓', delay: 1900, color: 'green' },
   { text: '> loading current_project...', delay: 2400, color: 'normal' },
-  { text: '  project:  Black Signal', delay: 2750, color: 'normal' },
-  { text: '  genre:    Space Horror', delay: 3000, color: 'normal' },
-  { text: '  build:    IN DEVELOPMENT', delay: 3250, color: 'cyan' },
+  { text: '  project:  Create: Cognition', delay: 2750, color: 'normal' },
+  { text: '  type:     Minecraft mod · Java', delay: 3000, color: 'normal' },
+  { text: '  build:    1.0.0-beta.1', delay: 3250, color: 'cyan' },
   { text: '────────────────────────', delay: 3600, color: 'dim' },
   { text: '> ready_', delay: 3900, color: 'green' },
 ]
@@ -229,7 +229,7 @@ export default function Home() {
               </h1>
 
               <p className={styles.heroRole}>
-                Game Programmer &amp; Designer · AKURO STUDIO
+                Game Programmer &amp; Designer
               </p>
 
               <p className={styles.heroBio}>
@@ -296,19 +296,19 @@ export default function Home() {
             <div className={styles.buildingMeta}>
               <span className={styles.buildingBadge}>
                 <span className={styles.dot} />
-                IN DEVELOPMENT
+                IN BETA
               </span>
               <span className={styles.buildingLabel}>// current_project</span>
             </div>
-            <h2 className={styles.buildingTitle}>Black Signal</h2>
+            <h2 className={styles.buildingTitle}>Create: Cognition</h2>
             <p className={styles.buildingDesc}>
-              A first-person horror game set on a derelict space station, built in Unity. You move through it yourself, watching for anomalies while the station's sensors and tasks pull your attention away. Notice what's wrong before it notices you.
+              A Create add-on for Minecraft, written in Java for NeoForge 1.21.1. Surplus rotational power becomes compute: gather data from mobs, train models of them, and simulate their loot with zero spawned entities. The first beta is playable end to end.
             </p>
             <div className={styles.buildingFooter}>
               <div className={styles.buildingTags}>
-                <span>Unity</span><span>C#</span><span>Solo</span>
+                <span>Java</span><span>NeoForge</span><span>Solo</span>
               </div>
-              <Link to="/devlog" className="btn btn-ghost">Follow development →</Link>
+              <Link to="/portfolio" className="btn btn-ghost">See the project →</Link>
             </div>
           </motion.div>
         </div>
