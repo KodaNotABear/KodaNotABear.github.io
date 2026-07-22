@@ -22,7 +22,7 @@ export const projects = [
       'A Create add-on I wrote in Java for Minecraft (NeoForge 1.21.1). Surplus rotational power feeds a mechanical neural-network datacenter: gather data from mobs, train models of them, then run simulations that print their loot with zero spawned entities. A server-friendly answer to entity farm lag, now in beta with the full loop playable.',
     tags: ['Java', 'NeoForge', 'Create Add-on', 'Minecraft', 'Beta'],
     image: '/images/create-cognition.png',
-    featured: false,
+    featured: true,
     links: {},
   },
   {

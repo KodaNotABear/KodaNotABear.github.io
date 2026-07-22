@@ -172,9 +172,9 @@ build(
     "GAME PROGRAMMER &amp; DESIGNER",
     "Game programmer with a B.S. in Computer Science (Arizona State University, May 2026) and nine months "
     "of professional Unity experience shipping onboarding, LiveOps, and WebGL features for a live mobile "
-    "racing game. Three years building embedded race telemetry for a collegiate FSAE team. Recently "
-    "shipped the first beta of <b>Create: Cognition</b>, an original Minecraft mod in Java. Seeking a "
-    "junior game programmer role.",
+    "racing game. Three years building embedded race telemetry for a collegiate FSAE team. Builds solo "
+    "projects on the side, including a Minecraft mod in Java that recently hit beta. Seeking a junior "
+    "game programmer role.",
     experience=[
         ("Game Development Intern", PIXEL_PIRATE_ORG, "Aug 2025 – May 2026",
          [PP_ONBOARDING, PP_TOURNAMENT, PP_WEBGL,
