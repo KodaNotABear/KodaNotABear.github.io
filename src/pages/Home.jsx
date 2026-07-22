@@ -38,12 +38,8 @@ const BOOT_LINES = [
   { text: '  role:     Game Programmer', delay: 1350, color: 'normal' },
   { text: '  engine:   Unity · C#', delay: 1600, color: 'normal' },
   { text: '  status:   Open to Work ✓', delay: 1900, color: 'green' },
-  { text: '> loading current_project...', delay: 2400, color: 'normal' },
-  { text: '  project:  Create: Cognition', delay: 2750, color: 'normal' },
-  { text: '  type:     Minecraft mod · Java', delay: 3000, color: 'normal' },
-  { text: '  build:    1.0.0-beta.1', delay: 3250, color: 'cyan' },
-  { text: '────────────────────────', delay: 3600, color: 'dim' },
-  { text: '> ready_', delay: 3900, color: 'green' },
+  { text: '────────────────────────', delay: 2300, color: 'dim' },
+  { text: '> ready_', delay: 2600, color: 'green' },
 ]
 
 const PAGES = {
@@ -296,19 +292,19 @@ export default function Home() {
             <div className={styles.buildingMeta}>
               <span className={styles.buildingBadge}>
                 <span className={styles.dot} />
-                IN BETA
+                IN PROGRESS
               </span>
-              <span className={styles.buildingLabel}>// current_project</span>
+              <span className={styles.buildingLabel}>// current_projects</span>
             </div>
-            <h2 className={styles.buildingTitle}>Create: Cognition</h2>
+            <h2 className={styles.buildingTitle}>What I'm Building</h2>
             <p className={styles.buildingDesc}>
-              A Create add-on for Minecraft, written in Java for NeoForge 1.21.1. Surplus rotational power becomes compute: gather data from mobs, train models of them, and simulate their loot with zero spawned entities. The first beta is playable end to end.
+              Create: Cognition, a Minecraft mod in Java, just shipped its first beta. Black Signal, a first-person horror game in Unity, is in early prototyping. Both solo projects, both ongoing.
             </p>
             <div className={styles.buildingFooter}>
               <div className={styles.buildingTags}>
-                <span>Java</span><span>NeoForge</span><span>Solo</span>
+                <span>Unity</span><span>Java</span><span>Solo</span>
               </div>
-              <Link to="/portfolio" className="btn btn-ghost">See the project →</Link>
+              <Link to="/portfolio" className="btn btn-ghost">See all projects →</Link>
             </div>
           </motion.div>
         </div>
