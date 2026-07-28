@@ -224,7 +224,6 @@ body::before {
     repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(0,212,255,0.022) 4px, rgba(0,212,255,0.022) 7px);
   pointer-events: none;
   z-index: 0;
-  will-change: transform;
   animation: scanlines-scroll 8s linear infinite, crt-flicker 6s step-end infinite;
 }
 

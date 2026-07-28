@@ -32,7 +32,6 @@
   right: -100px;
   pointer-events: none;
   animation: floatOrb 12s ease-in-out infinite alternate;
-  will-change: transform;
 }
 
 .orb2 {
@@ -45,7 +44,6 @@
   left: -80px;
   pointer-events: none;
   animation: floatOrb 15s ease-in-out infinite alternate-reverse;
-  will-change: transform;
 }
 
 @keyframes floatOrb {
@@ -199,10 +197,14 @@
 }
 
 .heroName span {
+  display: inline-block;
   background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  /* Own compositing layer: keeps Chromium from dropping the clipped
+     gradient paint when an animated ancestor first renders hidden */
+  transform: translateZ(0);
 }
 
 .heroRole {
