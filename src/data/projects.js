@@ -26,6 +26,17 @@ export const projects = [
     links: {},
   },
   {
+    id: 'noclip',
+    title: 'Noclip',
+    studio: 'Backrooms World Type for Minecraft',
+    description:
+      'A survival challenge I\'m building in Java for NeoForge 1.21.1: a procedural maze generator replaces the overworld with the endless yellow rooms of the backrooms, and the goal is completing vanilla progression from inside them. Rooms are data-driven, authored as structure templates that any datapack can extend. In development, open source.',
+    tags: ['Java', 'NeoForge', 'Worldgen', 'Minecraft', 'In Development'],
+    image: '/images/noclip.png',
+    featured: false,
+    links: { github: 'https://github.com/KodaNotABear/noclip' },
+  },
+  {
     id: 'black-signal',
     title: 'Black Signal',
     studio: 'AKURO STUDIO',

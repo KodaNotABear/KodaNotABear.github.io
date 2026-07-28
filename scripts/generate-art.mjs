@@ -100,7 +100,29 @@ function createCognition() {
   render(svg, join(ROOT, 'public/images/create-cognition.png'), W)
 }
 
-// ── 3. Placeholder avatar (640×640) ─────────────────────────
+// ── 3. Noclip card (1280×720) ───────────────────────────────
+// Ethan's title splash on the site background, backrooms-yellow grid.
+function noclip() {
+  const W = 1280, H = 720
+  const splash = readFileSync(join(ROOT, 'scripts/art-src/noclip-title.png')).toString('base64')
+  const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    ${gridDefs('ncmin', 28, 'rgba(224,178,66,0.06)')}
+    ${gridDefs('ncmaj', 112, 'rgba(224,178,66,0.09)')}
+  </defs>
+  <rect width="${W}" height="${H}" fill="${BG}"/>
+  <rect width="${W}" height="${H}" fill="url(#ncmin)"/>
+  <rect width="${W}" height="${H}" fill="url(#ncmaj)"/>
+
+  <image href="data:image/png;base64,${splash}" x="220" y="180" width="840" height="259"/>
+
+  <text x="640" y="560" text-anchor="middle" font-family="JetBrains Mono" font-size="21" letter-spacing="5" fill="${TEXT2}">MINECRAFT WORLD TYPE · JAVA · NEOFORGE 1.21.1</text>
+  <text x="640" y="602" text-anchor="middle" font-family="JetBrains Mono" font-size="16" letter-spacing="4" fill="#e0b242">OPEN SOURCE · IN DEVELOPMENT</text>
+</svg>`
+  render(svg, join(ROOT, 'public/images/noclip.png'), W)
+}
+
+// ── 4. Placeholder avatar (640×640) ─────────────────────────
 function avatar() {
   const S = 640
   const svg = `<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}" xmlns="http://www.w3.org/2000/svg">
@@ -129,4 +151,5 @@ function avatar() {
 
 ogBanner()
 createCognition()
+noclip()
 avatar()

@@ -59,6 +59,14 @@ const PROJECTS = [
     ],
   },
   {
+    title: 'Noclip',
+    org: 'Backrooms World Type for Minecraft · Open Source',
+    date: 'Jul 2026 – Present',
+    bullets: [
+      'Building a backrooms world type in Java (NeoForge 1.21.1): a seed-stable procedural maze generator with zoned variety and guaranteed connectivity, plus data-driven room templates (structure NBT + JSON) loadable from any datapack',
+    ],
+  },
+  {
     title: 'League Stats Portal',
     org: 'Arizona State University · Class Project',
     date: 'Spring 2026',
