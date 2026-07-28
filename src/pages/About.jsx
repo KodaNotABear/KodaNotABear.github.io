@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Toolbox from '../components/Toolbox'
+import GitHubHeatmap from '../components/GitHubHeatmap'
 import { GamepadIcon, AnchorIcon, BoltIcon, GradCapIcon, MapPinIcon, TrophyIcon } from '../components/Icons'
 import styles from './About.module.css'
 
@@ -82,16 +83,6 @@ export default function About() {
                 a game, I'm usually playing or reading about one.
               </p>
             </div>
-
-            <motion.div
-              className={styles.avatarWrap}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-            >
-
-              <img src="/images/avatar.png" alt="Ethan Peterson" className={styles.avatarImg} />
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -139,6 +130,12 @@ export default function About() {
               <div className={styles.sectionBlock}>
                 <h2>What I Work With</h2>
                 <Toolbox />
+              </div>
+
+              {/* GitHub heatmap */}
+              <div className={styles.sectionBlock}>
+                <h2>GitHub Activity</h2>
+                <GitHubHeatmap />
               </div>
 
               {/* Fun facts */}

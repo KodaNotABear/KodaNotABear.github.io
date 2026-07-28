@@ -122,34 +122,6 @@ function noclip() {
   render(svg, join(ROOT, 'public/images/noclip.png'), W)
 }
 
-// ── 4. Placeholder avatar (640×640) ─────────────────────────
-function avatar() {
-  const S = 640
-  const svg = `<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    ${gridDefs('agrid', 40, 'rgba(0,212,255,0.05)')}
-    <radialGradient id="abg"><stop offset="0" stop-color="#181d27"/><stop offset="1" stop-color="${BG}"/></radialGradient>
-    <linearGradient id="abolt" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="${CYAN}"/><stop offset="1" stop-color="${VIOLET}"/>
-    </linearGradient>
-    <filter id="aglow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="14"/>
-    </filter>
-  </defs>
-  <rect width="${S}" height="${S}" fill="url(#abg)"/>
-  <rect width="${S}" height="${S}" fill="url(#agrid)"/>
-  <circle cx="320" cy="320" r="278" fill="none" stroke="rgba(0,212,255,0.55)" stroke-width="5"/>
-  <circle cx="320" cy="320" r="246" fill="none" stroke="rgba(124,58,237,0.4)" stroke-width="2" stroke-dasharray="6 14"/>
-  <g transform="translate(176 158) scale(12)">
-    <path d="${BOLT}" fill="url(#abolt)" filter="url(#aglow)" opacity="0.55"/>
-    <path d="${BOLT}" fill="url(#abolt)"/>
-  </g>
-  <text x="320" y="560" text-anchor="middle" font-family="JetBrains Mono" font-size="26" letter-spacing="10" fill="${TEXT2}">AKURO STUDIO</text>
-</svg>`
-  render(svg, join(ROOT, 'public/images/avatar.png'), S)
-}
-
 ogBanner()
 createCognition()
 noclip()
-avatar()
