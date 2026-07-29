@@ -16,6 +16,7 @@
 }
 
 .terminal {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: min(600px, 96vw);
@@ -32,6 +33,27 @@
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Same CRT scanline treatment as the home terminal */
+.terminal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.13) 2px 3px);
+  animation: crt-drift 14s linear infinite;
+  z-index: 1;
+}
+
+@keyframes crt-drift {
+  from { background-position-y: 0; }
+  to   { background-position-y: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal::after { animation: none; }
 }
 
 /* ── Title bar ── */

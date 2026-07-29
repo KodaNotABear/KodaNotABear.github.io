@@ -36,6 +36,7 @@
 
 /* Terminal window, graphite edition */
 .terminal {
+  position: relative;
   width: 100%;
   max-width: 440px;
   background: var(--bg-surface);
@@ -45,6 +46,26 @@
   font-family: var(--font-mono);
   font-size: 0.82rem;
   overflow: hidden;
+}
+
+/* CRT scanlines, diegetic: this is the one actual screen on the site */
+.terminal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.13) 2px 3px);
+  animation: crt-drift 14s linear infinite;
+}
+
+@keyframes crt-drift {
+  from { background-position-y: 0; }
+  to   { background-position-y: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal::after { animation: none; }
 }
 
 .terminalBar {

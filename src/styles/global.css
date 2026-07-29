@@ -226,9 +226,10 @@ img, video { max-width: 100%; display: block; }
   inset: 0;
   pointer-events: none;
   background-image:
+    radial-gradient(ellipse 55% 70% at 75% 0%, rgba(var(--accent-rgb), 0.05), transparent 70%),
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 56px 56px;
+  background-size: 100% 100%, 56px 56px, 56px 56px;
   -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 55%, transparent 90%);
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 55%, transparent 90%);
 }
