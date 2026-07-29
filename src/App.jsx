@@ -11,6 +11,7 @@ import MobileEasterEggs from './components/MobileEasterEggs'
 import Home from './pages/Home'
 import About from './pages/About'
 import Portfolio from './pages/Portfolio'
+import Project from './pages/Project'
 import Resume from './pages/Resume'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
@@ -28,6 +29,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/:id" element={<Project />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/devlog" element={<Blog />} />
         <Route path="/devlog/:id" element={<BlogPost />} />
