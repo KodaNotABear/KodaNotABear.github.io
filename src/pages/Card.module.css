@@ -32,11 +32,11 @@
   width: 40px;
   height: 40px;
   border-radius: var(--radius-md);
-  background: var(--accent);
+  background: var(--fill);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--on-fill);
   flex-shrink: 0;
 }
 

@@ -16,9 +16,11 @@
   /* Accent palette: details only, never surfaces.
      Blue is primary; amber and mint are supporting accents used for
      status semantics, the ticker, and terminal output. */
-  --accent:         #e8e6e1;
-  --accent-rgb:     232, 230, 225;
-  --on-accent:      #121212;
+  --accent:         #7fa3e8;
+  --accent-rgb:     127, 163, 232;
+  --on-accent:      #10182b;
+  --fill:           #e8e6e1;
+  --on-fill:        #131313;
   --accent-2:       #e8b44a;
   --accent-2-rgb:   232, 180, 74;
   --on-accent-2:    #1c1204;
@@ -29,7 +31,7 @@
   --accent-cyan-dim:#9a9891;
   --accent-violet:  #8b8b8d;            /* legacy alias, now neutral */
   --accent-violet-dim: #4a4a4c;
-  --accent-glow:    rgba(232, 230, 225, 0.12);
+  --accent-glow:    rgba(127, 163, 232, 0.12);
 
   /* Text palette */
   --text-primary:   #ececec;
@@ -183,13 +185,13 @@ img, video { max-width: 100%; display: block; }
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: var(--on-accent);
-  border-color: var(--accent);
+  background: var(--fill);
+  color: var(--on-fill);
+  border-color: var(--fill);
 }
 .btn-primary:hover {
   filter: brightness(1.1);
-  color: var(--on-accent);
+  color: var(--on-fill);
 }
 
 .btn-outline {

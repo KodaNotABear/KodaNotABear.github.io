@@ -119,8 +119,8 @@
 .statusChip {
   display: inline-block;
   padding: 4px 12px;
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--fill);
+  color: var(--on-fill);
   border-radius: var(--radius-sm);
   font-size: 0.7rem;
   font-weight: 700;

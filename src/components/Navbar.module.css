@@ -91,15 +91,15 @@
 
 /* Resume gets the one solid-accent CTA in the nav */
 .linkCta {
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--fill);
+  color: var(--on-fill);
   border-radius: var(--radius-sm);
   margin-left: var(--space-2);
 }
 
 .linkCta:hover {
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--fill);
+  color: var(--on-fill);
   filter: brightness(1.1);
 }
 

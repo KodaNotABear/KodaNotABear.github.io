@@ -18,7 +18,7 @@ const FONTS = [
 
 // Site palette (src/styles/global.css), Graphite theme
 const BG = '#0f0f10'
-const ACCENT = '#e8e6e1'
+const ACCENT = '#7fa3e8'
 const TEXT = '#ececec'
 const TEXT2 = '#8b8b8d'
 const LINE = 'rgba(255,255,255,0.05)'

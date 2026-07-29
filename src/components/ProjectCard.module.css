@@ -25,8 +25,8 @@
   top: var(--space-3);
   right: var(--space-3);
   padding: 3px var(--space-3);
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--fill);
+  color: var(--on-fill);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -153,10 +153,10 @@
 .actionBtn:hover { filter: brightness(1.1); }
 
 .actionPrimary {
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--fill);
+  color: var(--on-fill);
 }
-.actionPrimary:hover { color: var(--on-accent); }
+.actionPrimary:hover { color: var(--on-fill); }
 
 .actionSecondary {
   background: transparent;
