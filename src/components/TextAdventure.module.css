@@ -44,7 +44,7 @@
   border-radius: inherit;
   background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.13) 2px 3px);
   animation: crt-drift 14s linear infinite;
-  z-index: 1;
+  z-index: 0;
 }
 
 @keyframes crt-drift {
@@ -58,6 +58,8 @@
 
 /* ── Title bar ── */
 .bar {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: var(--space-2);
@@ -100,6 +102,8 @@
 
 /* ── Log ── */
 .log {
+  position: relative;
+  z-index: 1;
   flex: 1;
   overflow-y: auto;
   padding: var(--space-4);
@@ -147,6 +151,8 @@
 
 /* ── Input ── */
 .inputRow {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: var(--space-2);

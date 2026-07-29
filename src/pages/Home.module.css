@@ -48,7 +48,8 @@
   overflow: hidden;
 }
 
-/* CRT scanlines, diegetic: this is the one actual screen on the site */
+/* CRT scanlines, diegetic: this is the one actual screen on the site.
+   z-index 0 keeps the texture on the screen surface, under the text. */
 .terminal::after {
   content: '';
   position: absolute;
@@ -57,6 +58,7 @@
   border-radius: inherit;
   background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.13) 2px 3px);
   animation: crt-drift 14s linear infinite;
+  z-index: 0;
 }
 
 @keyframes crt-drift {
@@ -69,6 +71,8 @@
 }
 
 .terminalBar {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: var(--space-2);
@@ -94,6 +98,8 @@
 }
 
 .terminalBody {
+  position: relative;
+  z-index: 1;
   padding: var(--space-4) var(--space-6);
   height: 390px;
   overflow-y: auto;

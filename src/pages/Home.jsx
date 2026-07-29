@@ -11,8 +11,6 @@ import styles from './Home.module.css'
 
 const EYEBROW_TEXT = '* akuro.studio'
 
-const TICKER_ITEMS = ['unity', 'c#', 'java', 'neoforge', 'webgl', 'liveops', 'worldgen', 'gameplay']
-
 function Typewriter({ text }) {
   const [count, setCount] = useState(0)
   useEffect(() => {
@@ -252,15 +250,6 @@ export default function Home() {
         </div>
 
       </section>
-
-      {/* ── Ticker ── */}
-      <div className="ticker" aria-hidden>
-        <div className="ticker-track">
-          {Array.from({ length: 4 }, () => TICKER_ITEMS).flat().map((t, i) => (
-            <span key={i}>{t}<i>*</i></span>
-          ))}
-        </div>
-      </div>
 
       {/* ── Stats ── */}
       <section className={styles.stats}>

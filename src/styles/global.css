@@ -256,36 +256,5 @@ body::after {
   z-index: 1;
 }
 
-/* ── Marquee ticker ─────────────────────────────────────── */
-.ticker {
-  border-top: 1px solid var(--bg-border);
-  border-bottom: 1px solid var(--bg-border);
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 13px 0;
-}
-.ticker-track {
-  display: inline-flex;
-  width: max-content;
-  animation: ticker-scroll 40s linear infinite;
-}
-.ticker-track span {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  white-space: pre;
-}
-.ticker-track span i {
-  font-style: normal;
-  color: var(--accent);
-  margin: 0 14px;
-}
-@keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track { animation: none; }
-}
+/* The scrolling skill marquee lived here once. It repeated info shown
+   twice elsewhere on the page, and it's become an AI-mockup cliche. */
