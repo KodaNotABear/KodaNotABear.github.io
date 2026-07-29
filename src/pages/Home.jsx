@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
 import { projects } from '../data/projects'
+import { posts } from '../data/posts'
 import { statusVariant } from '../utils/status'
 import {
   UnityIcon, CSharpIcon, GitHubIcon, ReactIcon,
@@ -194,6 +195,8 @@ const TECH = [
 ]
 
 const featured = projects.filter(p => p.image).slice(0, 3)
+const currentProject = projects.find(p => p.status === 'In development')
+const latestPost = posts[0]
 
 export default function Home() {
   return (
@@ -250,6 +253,27 @@ export default function Home() {
         </div>
 
       </section>
+
+      {/* ── Now bar: real status pulled from site data ── */}
+      <div className={styles.nowBar}>
+        <div className={`container ${styles.nowInner}`}>
+          {currentProject && (
+            <span className={styles.nowItem}>
+              <i>*</i> Now building:{' '}
+              <Link to={`/portfolio/${currentProject.id}`}>{currentProject.title}</Link>
+            </span>
+          )}
+          {latestPost && (
+            <span className={styles.nowItem}>
+              <i>*</i> Latest devlog:{' '}
+              <Link to={`/devlog/${latestPost.id}`}>{latestPost.title}</Link>
+            </span>
+          )}
+          <span className={styles.nowItem}>
+            <i>*</i> Status: Open to work<span className={styles.nowCursor}>&#9611;</span>
+          </span>
+        </div>
+      </div>
 
       {/* ── Stats ── */}
       <section className={styles.stats}>

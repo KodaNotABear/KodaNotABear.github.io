@@ -252,6 +252,45 @@
   50%       { opacity: 0.5; transform: scale(0.8); }
 }
 
+/* Now bar: replaces the old skill marquee with actual status data */
+.nowBar {
+  border-top: 1px solid var(--bg-border);
+  border-bottom: 1px solid var(--bg-border);
+}
+
+.nowInner {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-8);
+  flex-wrap: wrap;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.nowItem {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.nowItem i {
+  font-style: normal;
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+.nowItem a { color: var(--text-primary); }
+.nowItem a:hover { color: var(--accent); }
+
+.nowCursor {
+  color: var(--accent-3);
+  margin-left: 5px;
+  animation: blink 1s step-end infinite;
+}
+
 /* Stats strip */
 .stats {
   padding: var(--space-12) 0;
