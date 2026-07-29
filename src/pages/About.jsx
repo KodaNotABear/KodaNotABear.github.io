@@ -18,21 +18,21 @@ const TIMELINE = [
     title: 'Game Development Intern',
     org: 'Pixel Pirate Studio',
     desc: 'Shipped player onboarding, a tournament update, and a WebGL port for Off-Road Champion on mobile. Real production pipeline experience inside a professional Unity team.',
-    color: 'var(--accent-2)',
+    color: 'var(--accent)',
   },
   {
     date: '2026 – Present',
     title: 'Independent Projects',
     org: 'AKURO STUDIO',
     desc: 'Shipped the first beta of Create: Cognition, a Minecraft mod in Java that simulates mob loot with zero spawned entities. Black Signal, a first-person horror game in Unity, is in early prototyping.',
-    color: 'var(--accent-3)',
+    color: 'var(--accent)',
   },
   {
     date: 'Jun 2022 – 2025',
     title: 'Data Acquisition Developer, Formula SAE',
     org: 'Sun Devil Motorsports',
     desc: 'Designed and tested on-vehicle data acquisition and embedded telemetry tools for ASU\'s FSAE racing team, including an infrared lap timing system.',
-    color: 'var(--accent-2)',
+    color: 'var(--accent)',
   },
   {
     date: '2022',
@@ -76,10 +76,10 @@ export default function About() {
               <h1 className={styles.name}>Ethan Peterson</h1>
               <p className={styles.role}>Game Programmer &amp; Designer · CS Graduate</p>
               <p className={styles.bio}>
-                I'm a game developer from Arizona, working mostly in Unity. I've
-                been making games since high school, and now I build my
-                own projects under AKURO STUDIO. When I'm not working on
-                a game, I'm usually playing or reading about one.
+                Game developer from Arizona, working mostly in Unity. Making
+                games since high school, now shipping personal projects under
+                AKURO STUDIO. Time away from building games usually goes to
+                playing or reading about them.
               </p>
             </div>
           </motion.div>
@@ -116,7 +116,7 @@ export default function About() {
 
               {/* Interests */}
               <div className={styles.sectionBlock}>
-                <h2>What I Care About</h2>
+                <h2>Interests</h2>
                 <ul>
                   {INTERESTS.map(i => <li key={i}>{i}</li>)}
                 </ul>
@@ -127,7 +127,7 @@ export default function About() {
             <div>
               {/* Toolbox */}
               <div className={styles.sectionBlock}>
-                <h2>What I Work With</h2>
+                <h2>Toolbox</h2>
                 <Toolbox />
               </div>
 
@@ -154,15 +154,14 @@ export default function About() {
               <div className={styles.sectionBlock}>
                 <h2>AKURO STUDIO</h2>
                 <p>
-                  AKURO STUDIO is the label I use for my personal projects. Currently 
-                  I don't have any big projects under the name but you can 
-                  check out the mods I have made for other games under it.
+                  AKURO STUDIO is the label for personal projects. Nothing big
+                  ships under the name yet, but the Minecraft mods live there.
                 </p>
               </div>
 
               {/* CTA */}
               <div style={{ display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', marginTop: 'var(--space-6)' }}>
-                <Link to="/portfolio" className="btn btn-primary">See My Games</Link>
+                <Link to="/portfolio" className="btn btn-primary">View Projects</Link>
                 <Link to="/contact" className="btn btn-outline">Get In Touch</Link>
               </div>
             </div>

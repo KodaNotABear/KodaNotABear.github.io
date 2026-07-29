@@ -214,6 +214,19 @@
   font-weight: 700;
 }
 
+/* Screenshot gallery: fills in as projects get real captures and renders */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.gallery img {
+  width: 100%;
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius-md);
+}
+
 /* ── Next project ── */
 .nextWrap {
   border-top: 1px solid var(--bg-border);

@@ -229,16 +229,14 @@ export default function Home() {
               </p>
 
               <p className={styles.heroBio}>
-                CS grad, Software Engineering focus. I build games in Unity
-                and care a lot about how they feel to play. Right now I'm
-                looking for my first full-time role in games. The terminal
-                works, by the way.
+                CS grad, Software Engineering focus. Builds games in Unity
+                with a lot of attention to how they feel to play. Open to a
+                first full-time role in games. The terminal works, by the way.
               </p>
 
               <div className={styles.heroActions}>
-                <Link to="/portfolio" className="btn btn-primary">View My Games</Link>
+                <Link to="/portfolio" className="btn btn-primary">View Projects</Link>
                 <Link to="/contact" className="btn btn-outline">Get In Touch</Link>
-                <Link to="/resume" className="btn btn-ghost">Résumé</Link>
               </div>
             </motion.div>
 
@@ -317,7 +315,7 @@ export default function Home() {
                       </div>
                       <h3 className={styles.showTitle}>{project.title}</h3>
                       <p className={styles.showTagline}>{project.tagline}</p>
-                      <span className={styles.showCta}>Read case study &rarr;</span>
+                      <span className={styles.showCta}>See the project &rarr;</span>
                     </div>
                   </Link>
                 </motion.div>
@@ -337,18 +335,13 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className={styles.buildingMeta}>
-              <span className={styles.buildingBadge}>
-                <span className={styles.dot} />
-                IN PROGRESS
-              </span>
-              <span className={styles.buildingLabel}>* current projects</span>
-            </div>
-            <h2 className={styles.buildingTitle}>What I'm Building</h2>
+            <h2 className={styles.buildingTitle}>
+              <span className={styles.titleDot} aria-hidden /> Currently Building
+            </h2>
             <p className={styles.buildingDesc}>
+              Noclip's procedural backrooms are deep in worldgen territory.
               Black Signal, a first-person horror game in Unity, is in early
-              prototyping. Create: Cognition just shipped its first beta, and
-              Noclip's backrooms worldgen is coming together. All solo, all ongoing.
+              prototyping. Create: Cognition is out in beta. All solo, all ongoing.
             </p>
             <div className={styles.buildingFooter}>
               <div className={styles.buildingTags}>
@@ -365,7 +358,7 @@ export default function Home() {
         <div className="container">
           <h2 className="section-title">Skills &amp; Tools</h2>
           <p style={{ color: 'var(--text-secondary)', marginTop: 'var(--space-4)', marginBottom: 'var(--space-6)', maxWidth: 480 }}>
-            The stack I reach for when building games and interactive experiences.
+            The everyday stack for games and interactive work.
           </p>
           <div className={styles.techGrid}>
             {TECH.map(({ Icon, label }) => (

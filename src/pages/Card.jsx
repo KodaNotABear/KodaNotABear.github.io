@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
-import { GitHubIcon, DiscordIcon, EmailIcon, GlobeIcon } from '../components/Icons'
+import { GitHubIcon, LinkedInIcon, DiscordIcon, EmailIcon, GlobeIcon } from '../components/Icons'
 import { copyText } from '../utils/copyText'
 import styles from './Card.module.css'
 
@@ -18,6 +18,12 @@ const LINKS = [
     label: 'GitHub',
     value: 'KodaNotABear',
     href: 'https://github.com/KodaNotABear',
+  },
+  {
+    icon: <LinkedInIcon size={20} />,
+    label: 'LinkedIn',
+    value: 'ethan-peterson-sweng',
+    href: 'https://www.linkedin.com/in/ethan-peterson-sweng/',
   },
   {
     icon: <DiscordIcon size={20} />,
@@ -148,7 +154,7 @@ export default function Card() {
         <div className={styles.qrOverlay} onClick={() => setQrOpen(false)} role="dialog" aria-modal aria-label="QR code">
           <div className={styles.qrModal} onClick={e => e.stopPropagation()}>
             <div className={styles.qrGlow} aria-hidden />
-            <p className={styles.qrTitle}>Scan to open my card</p>
+            <p className={styles.qrTitle}>Scan to open the card</p>
             <div className={styles.qrFrame}>
               <QRCodeSVG
                 value={CARD_URL}

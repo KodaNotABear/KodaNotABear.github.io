@@ -16,9 +16,9 @@
   /* Accent palette: details only, never surfaces.
      Blue is primary; amber and mint are supporting accents used for
      status semantics, the ticker, and terminal output. */
-  --accent:         #7fa3e8;
-  --accent-rgb:     127, 163, 232;
-  --on-accent:      #10182b;
+  --accent:         #4c7dff;
+  --accent-rgb:     76, 125, 255;
+  --on-accent:      #eef2ff;
   --fill:           #e8e6e1;
   --on-fill:        #131313;
   --accent-2:       #e8b44a;
@@ -31,7 +31,7 @@
   --accent-cyan-dim:#9a9891;
   --accent-violet:  #8b8b8d;            /* legacy alias, now neutral */
   --accent-violet-dim: #4a4a4c;
-  --accent-glow:    rgba(127, 163, 232, 0.12);
+  --accent-glow:    rgba(76, 125, 255, 0.12);
 
   /* Text palette */
   --text-primary:   #ececec;
@@ -261,8 +261,6 @@ body::after {
   color: var(--accent);
   margin: 0 14px;
 }
-.ticker-track span:nth-child(3n+2) i { color: var(--accent-2); }
-.ticker-track span:nth-child(3n) i   { color: var(--accent-3); }
 @keyframes ticker-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

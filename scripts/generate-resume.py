@@ -24,8 +24,8 @@ pdfmetrics.registerFont(TTFont("JBMono", FONTS / "JetBrainsMono-Regular.ttf"))
 
 INK = HexColor("#16181d")       # near-black body text
 MUTED = HexColor("#5a6372")     # secondary text
-ACCENT = HexColor("#007ea0")    # site --accent-cyan-dim, print-friendly
-VIOLET = HexColor("#4c1d95")
+ACCENT = HexColor("#3057c4")    # site --accent, darkened for print
+VIOLET = HexColor("#444b56")    # org line, neutral to match the site
 
 styles = {
     "name": ParagraphStyle("name", fontName="Rajdhani-Bold", fontSize=27,
@@ -80,8 +80,20 @@ def entry(role, org, date, bullets, gap=2):
 
 CONTACT = (
     "Gilbert, AZ · 602-849-1101 · epeterson3136@gmail.com · "
-    '<link href="https://akuro.studio" color="#007ea0">akuro.studio</link> · '
-    '<link href="https://github.com/KodaNotABear" color="#007ea0">github.com/KodaNotABear</link>'
+    '<link href="https://akuro.studio" color="#3057c4">akuro.studio</link> · '
+    '<link href="https://github.com/KodaNotABear" color="#3057c4">github.com/KodaNotABear</link> · '
+    '<link href="https://www.linkedin.com/in/ethan-peterson-sweng/" color="#3057c4">linkedin.com/in/ethan-peterson-sweng</link>'
+)
+
+NOCLIP_GAME = (
+    "Building a backrooms world type in Java (NeoForge 1.21.1): seed-stable procedural maze "
+    "generation with zoned variety and guaranteed connectivity, plus data-driven room templates "
+    "(structure NBT + JSON) that any datapack can extend"
+)
+NOCLIP_SWE = (
+    "Open-source Java mod (NeoForge 1.21.1): seed-stable procedural generation with guaranteed "
+    "connectivity and a data-driven content pipeline (NBT + JSON templates) extensible by "
+    "third-party packs"
 )
 
 PIXEL_PIRATE_ORG = "Pixel Pirate Studio · Off-Road Champion (mobile racing, Unity)"
@@ -173,8 +185,8 @@ build(
     "Game programmer with a B.S. in Computer Science (Arizona State University, May 2026) and nine months "
     "of professional Unity experience shipping onboarding, LiveOps, and WebGL features for a live mobile "
     "racing game. Three years building embedded race telemetry for a collegiate FSAE team. Builds solo "
-    "projects on the side, including a Minecraft mod in Java that recently hit beta. Seeking a junior "
-    "game programmer role.",
+    "projects on the side, including two Minecraft mods in Java: one in open beta, one open source. "
+    "Seeking a junior game programmer role.",
     experience=[
         ("Game Development Intern", PIXEL_PIRATE_ORG, "Aug 2025 – May 2026",
          [PP_ONBOARDING, PP_TOURNAMENT, PP_WEBGL,
@@ -184,10 +196,10 @@ build(
          "Jun 2022 – 2025", FSAE_BULLETS),
     ],
     projects=[
-        ("Create: Cognition", "Create add-on for Minecraft", "Jun 2026 – Present",
-         COGITATION_BULLETS),
-        ("League Stats Portal", "Class project, Arizona State University", "Spring 2026",
-         LEAGUE_BULLETS[:1]),
+        ("Noclip", "Backrooms world type for Minecraft · Open source", "Jul 2026 – Present",
+         [NOCLIP_GAME]),
+        ("Create: Cognition", "Create add-on for Minecraft · In beta", "Jun 2026 – Present",
+         COGITATION_BULLETS[:1]),
         ("Black Signal", "Personal project", "2026 – Present",
          ["Prototyping a solo first-person horror game in Unity (C#): on-foot exploration of a "
           "derelict space station with anomaly detection as the core loop"]),
@@ -220,12 +232,11 @@ build(
     projects=[
         ("League Stats Portal", "Class project, Arizona State University", "Spring 2026",
          LEAGUE_BULLETS),
-        ("Create: Cognition", "Create add-on for Minecraft", "Jun 2026 – Present",
+        ("Noclip", "Open-source Minecraft mod", "Jul 2026 – Present",
+         [NOCLIP_SWE]),
+        ("Create: Cognition", "Minecraft mod, in beta", "Jun 2026 – Present",
          ["Java mod (NeoForge 1.21.1) in beta: multiblock compute networks with flood-fill discovery "
           "and proportional allocation, simulating mob loot with zero spawned entities to cut server load"]),
-        ("akuro.studio", "Personal site", "2026",
-         ["React 19 + Vite portfolio with build-time art generation, deployed to GitHub Pages "
-          "through a GitHub Actions CI pipeline"]),
     ],
     skills=[
         ("Languages", "C# (.NET, Unity) · JavaScript / React · Python · Java · C++ · HTML &amp; CSS"),

@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import { GitHubIcon, DiscordIcon, EmailIcon } from './Icons'
+import { GitHubIcon, LinkedInIcon, DiscordIcon, EmailIcon } from './Icons'
 import { copyText } from '../utils/copyText'
 import styles from './Footer.module.css'
 
 // Discord entry copies the handle since username URLs don't resolve on discord.com
 const SOCIALS = [
-  { label: 'GitHub',  href: 'https://github.com/KodaNotABear', icon: <GitHubIcon /> },
-  { label: 'Discord', copyValue: 'kodanotabear',               icon: <DiscordIcon /> },
-  { label: 'Email',   href: 'mailto:koda@akuro.studio',        icon: <EmailIcon /> },
+  { label: 'GitHub',   href: 'https://github.com/KodaNotABear',                       icon: <GitHubIcon /> },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ethan-peterson-sweng/',     icon: <LinkedInIcon /> },
+  { label: 'Discord',  copyValue: 'kodanotabear',                                     icon: <DiscordIcon /> },
+  { label: 'Email',    href: 'mailto:koda@akuro.studio',                              icon: <EmailIcon /> },
 ]
 
 const STACK = [
@@ -34,7 +35,7 @@ export default function Footer() {
           Say hi<span className={styles.sayDot}>.</span>
         </a>
         <p className={styles.saySub}>
-          Currently looking for my first full-time role in games. I typically respond within 24 hours.
+          Open to a first full-time role in games. Replies usually land within 24 hours.
         </p>
       </div>
 

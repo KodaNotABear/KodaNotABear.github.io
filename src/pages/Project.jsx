@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { getProject, nextProject } from '../data/projects'
 import { statusVariant } from '../utils/status'
-import { GitHubIcon, ItchIcon, WarningIcon } from '../components/Icons'
+import { GitHubIcon, ItchIcon } from '../components/Icons'
 import NotFound from './NotFound'
 import styles from './Project.module.css'
 
@@ -19,7 +19,7 @@ export default function Project() {
 
   if (!project) return <NotFound />
 
-  const { title, studio, role, period, status, tagline, tags, image, links, nda, caseStudy = [] } = project
+  const { title, studio, role, period, status, tagline, tags, image, links, gallery = [], caseStudy = [] } = project
 
   return (
     <main className={styles.page}>
@@ -100,9 +100,6 @@ export default function Project() {
                 </div>
               </div>
             )}
-            {nda && (
-              <p className={styles.nda}><WarningIcon size={13} /> {nda}</p>
-            )}
           </aside>
 
           {/* Case study */}
@@ -125,6 +122,23 @@ export default function Project() {
                 )}
               </motion.div>
             ))}
+
+            {gallery.length > 0 && (
+              <motion.div
+                className={styles.section}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.4 }}
+              >
+                <h2 className={styles.sectionTitle}><span>*</span> Screenshots</h2>
+                <div className={styles.gallery}>
+                  {gallery.map(src => (
+                    <img key={src} src={src} alt={`${title} screenshot`} loading="lazy" />
+                  ))}
+                </div>
+              </motion.div>
+            )}
           </div>
         </div>
       </section>

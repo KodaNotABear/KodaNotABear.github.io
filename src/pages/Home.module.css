@@ -309,6 +309,17 @@
   background: var(--accent);
 }
 
+.titleDot {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: var(--space-2);
+  vertical-align: middle;
+  animation: pulse 2s ease-in-out infinite;
+}
+
 .buildingLabel {
   font-size: 0.72rem;
   font-weight: 600;

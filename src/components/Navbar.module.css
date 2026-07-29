@@ -47,7 +47,7 @@
 
 .logo:hover .logoStar {
   transform: rotate(180deg);
-  color: var(--accent-2);
+  color: var(--accent);
 }
 
 .logoIcon {

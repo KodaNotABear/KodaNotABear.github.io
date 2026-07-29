@@ -21,16 +21,15 @@ export const projects = [
     image: '/images/off-road-champion.jpeg',
     featured: true,
     links: {},
-    nda: 'Some details are restricted pending NDA expiry.',
     caseStudy: [
       {
         heading: 'Overview',
         paragraphs: [
-          'Off-Road Champion is a live mobile racing game built in Unity. I joined Pixel Pirate Studio as a game development intern and spent nine months working inside a professional Unity team: daily standups, sprint planning, and features shipping to a live game.',
+          'Off-Road Champion is a live mobile racing game built in Unity. Nine months as a game development intern at Pixel Pirate Studio meant working inside a professional Unity team: daily standups, sprint planning, and features shipping to a live game.',
         ],
       },
       {
-        heading: 'What I built',
+        heading: 'Highlights',
         bullets: [
           'Designed and implemented the player onboarding system, guiding new players through core mechanics in their first session.',
           'Shipped a tournament update where players compete for virtual currency, connected to a web portal for live standings and rewards.',
@@ -41,7 +40,43 @@ export const projects = [
       {
         heading: 'Why it matters',
         paragraphs: [
-          'This was live-game work: features I built went out to an existing player base as part of a team\'s release cycle, not a solo repo. It is the part of my experience closest to how a studio operates day to day.',
+          'This was live-game work: features went out to an existing player base as part of a team\'s release cycle, not a solo repo. Of everything on this site, it is the closest to how a studio operates day to day.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'noclip',
+    title: 'Noclip',
+    studio: 'Backrooms World Type for Minecraft',
+    role: 'Solo developer · Open source',
+    period: 'Jul 2026 – Present',
+    status: 'In development',
+    tagline: 'The backrooms as a survival world type, procedural maze included.',
+    description:
+      'A survival challenge built in Java for NeoForge 1.21.1: a procedural maze generator replaces the overworld with the endless yellow rooms of the backrooms, and the goal is completing vanilla progression from inside them. Rooms are data-driven, authored as structure templates that any datapack can extend. In development, open source.',
+    tags: ['Java', 'NeoForge', 'Worldgen', 'Minecraft', 'In Development'],
+    image: '/images/noclip.png',
+    featured: true,
+    links: { github: 'https://github.com/KodaNotABear/noclip' },
+    caseStudy: [
+      {
+        heading: 'Overview',
+        paragraphs: [
+          'Noclip replaces the Minecraft overworld with the endless yellow rooms of the backrooms. The challenge is completing vanilla progression from inside the maze: same goals, hostile new world.',
+        ],
+      },
+      {
+        heading: 'The worldgen',
+        bullets: [
+          'A seed-stable procedural maze generator with zoned variety and guaranteed connectivity, so every world is different but never walls you off.',
+          'Rooms are data-driven: structure NBT plus JSON templates, loadable from any datapack, so other creators can extend the maze without touching the mod.',
+        ],
+      },
+      {
+        heading: 'Status',
+        paragraphs: [
+          'In active development and open source. The generator and room template system are working; current work is on populating zones and progression pacing.',
         ],
       },
     ],
@@ -55,7 +90,7 @@ export const projects = [
     status: 'Beta',
     tagline: 'A mechanical neural-network datacenter for Minecraft, powered by rotational energy.',
     description:
-      'A Create add-on I wrote in Java for Minecraft (NeoForge 1.21.1). Surplus rotational power feeds a mechanical neural-network datacenter: gather data from mobs, train models of them, then run simulations that print their loot with zero spawned entities. A server-friendly answer to entity farm lag, now in beta with the full loop playable.',
+      'A Create add-on written in Java for Minecraft (NeoForge 1.21.1). Surplus rotational power feeds a mechanical neural-network datacenter: gather data from mobs, train models of them, then run simulations that print their loot with zero spawned entities. A server-friendly answer to entity farm lag, now in beta with the full loop playable.',
     tags: ['Java', 'NeoForge', 'Create Add-on', 'Minecraft', 'Beta'],
     image: '/images/create-cognition.png',
     featured: true,
@@ -86,42 +121,6 @@ export const projects = [
     ],
   },
   {
-    id: 'noclip',
-    title: 'Noclip',
-    studio: 'Backrooms World Type for Minecraft',
-    role: 'Solo developer · Open source',
-    period: 'Jul 2026 – Present',
-    status: 'In development',
-    tagline: 'The backrooms as a survival world type, procedural maze included.',
-    description:
-      'A survival challenge I\'m building in Java for NeoForge 1.21.1: a procedural maze generator replaces the overworld with the endless yellow rooms of the backrooms, and the goal is completing vanilla progression from inside them. Rooms are data-driven, authored as structure templates that any datapack can extend. In development, open source.',
-    tags: ['Java', 'NeoForge', 'Worldgen', 'Minecraft', 'In Development'],
-    image: '/images/noclip.png',
-    featured: false,
-    links: { github: 'https://github.com/KodaNotABear/noclip' },
-    caseStudy: [
-      {
-        heading: 'Overview',
-        paragraphs: [
-          'Noclip replaces the Minecraft overworld with the endless yellow rooms of the backrooms. The challenge is completing vanilla progression from inside the maze: same goals, hostile new world.',
-        ],
-      },
-      {
-        heading: 'The worldgen',
-        bullets: [
-          'A seed-stable procedural maze generator with zoned variety and guaranteed connectivity, so every world is different but never walls you off.',
-          'Rooms are data-driven: structure NBT plus JSON templates, loadable from any datapack, so other creators can extend the maze without touching the mod.',
-        ],
-      },
-      {
-        heading: 'Status',
-        paragraphs: [
-          'In active development and open source. The generator and room template system are working; current work is on populating zones and progression pacing.',
-        ],
-      },
-    ],
-  },
-  {
     id: 'black-signal',
     title: 'Black Signal',
     studio: 'AKURO STUDIO',
@@ -130,7 +129,7 @@ export const projects = [
     status: 'Prototyping',
     tagline: 'Solo first-person horror on a derelict space station.',
     description:
-      'A first-person horror game I\'m building solo in Unity, set on a derelict space station. You move through it on foot, watching for anomalies while the station\'s sensors and upkeep tasks keep pulling your attention away. Early in development.',
+      'A first-person horror game built solo in Unity, set on a derelict space station. You move through it on foot, watching for anomalies while the station\'s sensors and upkeep tasks keep pulling your attention away. Early in development.',
     tags: ['Unity', 'C#', 'Horror', 'First-Person', 'In Development'],
     image: null,
     featured: false,
