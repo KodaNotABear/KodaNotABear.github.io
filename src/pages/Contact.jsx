@@ -69,7 +69,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
           >
-            <p className={styles.eyebrow}>// get in touch</p>
+            <p className={styles.eyebrow}>get in touch</p>
             <h1 className="section-title">Contact</h1>
             <p className={styles.subtitle}>
               Open to full-time game developer roles, collaborations,

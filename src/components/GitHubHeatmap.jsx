@@ -7,9 +7,9 @@ const WEEKS = 26 // last ~6 months
 
 function getDayColor(count) {
   if (count === 0) return 'var(--bg-surface)'
-  if (count <= 2)  return 'rgba(0,212,255,0.25)'
-  if (count <= 5)  return 'rgba(0,212,255,0.5)'
-  if (count <= 9)  return 'rgba(0,212,255,0.75)'
+  if (count <= 2)  return 'rgba(var(--accent-rgb),0.25)'
+  if (count <= 5)  return 'rgba(var(--accent-rgb),0.5)'
+  if (count <= 9)  return 'rgba(var(--accent-rgb),0.75)'
   return 'var(--accent-cyan)'
 }
 

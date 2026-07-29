@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(10, 11, 15, 0.85);
+  background: rgba(15, 15, 16, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--bg-border);
@@ -18,36 +18,43 @@
 }
 
 .nav.scrolled {
-  border-bottom-color: rgba(0, 212, 255, 0.2);
+  border-bottom-color: rgba(var(--accent-rgb), 0.2);
 }
 
 /* Logo */
 .logo {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
   text-decoration: none;
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 400;
   color: var(--text-primary);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   transition: color var(--transition-fast);
 }
 
-.logo:hover { color: var(--accent-cyan); }
+.logo:hover { color: var(--text-primary); }
+
+.logoStar {
+  color: var(--accent);
+  font-family: var(--font-display);
+  display: inline-block;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.logo:hover .logoStar {
+  transform: rotate(180deg);
+  color: var(--accent-2);
+}
 
 .logoIcon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
-  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  color: #fff;
-  font-weight: 900;
+  color: var(--accent);
   flex-shrink: 0;
 }
 
@@ -62,24 +69,38 @@
 .link {
   display: block;
   padding: var(--space-2) var(--space-3);
-  font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.18em;
   color: var(--text-secondary);
-  border-radius: var(--radius-md);
-  transition: color var(--transition-fast), background var(--transition-fast);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
   text-transform: uppercase;
 }
 
 .link:hover {
   color: var(--text-primary);
-  background: var(--bg-elevated);
+  background: transparent;
 }
 
 .linkActive {
-  color: var(--accent-cyan);
-  background: rgba(0, 212, 255, 0.08);
+  color: var(--accent);
+  background: transparent;
+}
+
+/* Resume gets the one solid-accent CTA in the nav */
+.linkCta {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: var(--radius-sm);
+  margin-left: var(--space-2);
+}
+
+.linkCta:hover {
+  background: var(--accent);
+  color: var(--on-accent);
+  filter: brightness(1.1);
 }
 
 /* Mobile menu button */

@@ -18,8 +18,8 @@
     0deg,
     transparent,
     transparent 3px,
-    rgba(0,212,255,0.015) 3px,
-    rgba(0,212,255,0.015) 5px
+    rgba(var(--accent-rgb),0.015) 3px,
+    rgba(var(--accent-rgb),0.015) 5px
   );
   pointer-events: none;
   z-index: 2;
@@ -48,7 +48,7 @@
   font-family: var(--font-display);
   font-size: clamp(2rem, 6vw, 3.5rem);
   font-weight: 700;
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+  background: var(--accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -131,5 +131,5 @@
 
 .exit:hover {
   color: var(--accent-cyan);
-  border-color: rgba(0,212,255,0.35);
+  border-color: rgba(var(--accent-rgb),0.35);
 }

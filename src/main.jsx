@@ -4,7 +4,7 @@ import './styles/global.css'
 import App from './App.jsx'
 
 // ── Console Easter Egg ──────────────────────────────────────
-const cyan  = 'color:#00d4ff;font-weight:bold'
+const cyan  = 'color:var(--accent);font-weight:bold'
 const dim   = 'color:#6b7280'
 const white = 'color:#fff;font-weight:600'
 console.log(

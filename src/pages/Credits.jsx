@@ -11,7 +11,7 @@ const CREDITS = [
   { role: 'Animation', name: 'Framer Motion' },
   { role: 'Hosting', name: 'GitHub Pages' },
   { role: 'CDN', name: 'Cloudflare' },
-  { role: 'Fonts', name: 'Rajdhani · Inter · JetBrains Mono' },
+  { role: 'Fonts', name: 'Anton · Archivo · JetBrains Mono' },
   { role: '', name: '' },
   { role: 'SPECIAL THANKS', name: '' },
   { role: 'Inspiration', name: 'Every game that made me want to make games' },

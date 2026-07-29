@@ -17,7 +17,7 @@ export default function BlogPost() {
       <main className={styles.page}>
         <div className="container">
           <div className={styles.notFound}>
-            <p className={styles.eyebrow}>// 404</p>
+            <p className={styles.eyebrow}>404</p>
             <h1>Post not found</h1>
             <Link to="/devlog" className="btn btn-primary">← Back to Devlog</Link>
           </div>

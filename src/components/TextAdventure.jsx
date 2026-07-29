@@ -329,7 +329,7 @@ export default function TextAdventure() {
         <div className={styles.bar}>
           <span className={styles.dot} style={{ background: '#ef4444' }} />
           <span className={styles.dot} style={{ background: '#fbbf24' }} />
-          <span className={styles.dot} style={{ background: '#22d3a0' }} />
+          <span className={styles.dot} style={{ background: 'var(--accent-3)' }} />
           <span className={styles.barTitle}>AXIOM-7 // EMERGENCY TERMINAL</span>
           <button className={styles.closeBtn} onClick={() => setOpen(false)}>✕</button>
         </div>

@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { BoltIcon, ItchIcon, GitHubIcon } from './Icons'
+import { ItchIcon, GitHubIcon } from './Icons'
 import styles from './ProjectCard.module.css'
 
 function useTilt() {
@@ -22,6 +22,7 @@ function useTilt() {
 
 export default function ProjectCard({ project, index = 0 }) {
   const {
+    id,
     title,
     studio,
     description,
@@ -47,18 +48,18 @@ export default function ProjectCard({ project, index = 0 }) {
     >
       {featured && <span className={styles.featuredBadge}>Featured</span>}
 
-      <div className={styles.thumb}>
+      <Link to={`/portfolio/${id}`} className={styles.thumb} aria-label={`${title} case study`}>
         {image ? (
           <img src={image} alt={title} loading="lazy" />
         ) : (
-          <div className={styles.thumbPlaceholder}><BoltIcon size={48} /></div>
+          <div className={styles.thumbPlaceholder} aria-hidden>{title}</div>
         )}
-      </div>
+      </Link>
 
       <div className={styles.body}>
         <div className={styles.header}>
           <div>
-            <h3 className={styles.title}>{title}</h3>
+            <h3 className={styles.title}><Link to={`/portfolio/${id}`}>{title}</Link></h3>
             {studio && <p className={styles.studio}>{studio}</p>}
           </div>
         </div>
@@ -72,8 +73,10 @@ export default function ProjectCard({ project, index = 0 }) {
         )}
       </div>
 
-      {(links.itch || links.github || links.demo) && (
-        <div className={styles.actions}>
+      <div className={styles.actions}>
+        <Link to={`/portfolio/${id}`} className={`${styles.actionBtn} ${styles.actionPrimary}`}>
+          Case study &rarr;
+        </Link>
           {links.itch && (
             <a href={links.itch} target="_blank" rel="noopener noreferrer"
                className={`${styles.actionBtn} ${styles.actionPrimary}`}>
@@ -98,8 +101,7 @@ export default function ProjectCard({ project, index = 0 }) {
               <GitHubIcon size={14} /> Source
             </a>
           )}
-        </div>
-      )}
+      </div>
     </motion.article>
   )
 }

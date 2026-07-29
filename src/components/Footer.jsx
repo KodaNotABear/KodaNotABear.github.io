@@ -28,10 +28,24 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
+      <div className={`container ${styles.sayBlock}`}>
+        <p className={styles.sayLabel}>Have a role, a mod idea, or feedback?</p>
+        <a className={styles.sayBig} href="mailto:koda@akuro.studio">
+          Say hi<span className={styles.sayDot}>.</span>
+        </a>
+        <p className={styles.saySub}>
+          Currently looking for my first full-time role in games. I typically respond within 24 hours.
+        </p>
+      </div>
+
       <div className={`container ${styles.inner}`}>
         <p className={styles.brand}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{display:'inline',verticalAlign:'middle',marginRight:'6px'}}>
-            <path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z" />
+          <svg width="13" height="13" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" style={{display:'inline',verticalAlign:'middle',marginRight:'6px'}}>
+            <g transform="translate(16 16)">
+              <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4" />
+              <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4" transform="rotate(60)" />
+              <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4" transform="rotate(120)" />
+            </g>
           </svg>
           AKURO STUDIO
         </p>
@@ -62,6 +76,10 @@ export default function Footer() {
             )
           )}
         </nav>
+
+        <p className={styles.hint}>
+          Press <kbd className={styles.kbd}>?</kbd> for shortcuts. The terminal on the home page knows more.
+        </p>
 
         <p
           className={styles.copy}

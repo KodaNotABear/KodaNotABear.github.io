@@ -15,7 +15,6 @@ export default function NotFound() {
 
   return (
     <main className={styles.page}>
-      <div className={styles.scanline} aria-hidden />
       <div className={styles.content}>
         <div className={styles.gameOver}>GAME OVER</div>
         <p className={styles.code}>ERROR 404: PAGE NOT FOUND</p>

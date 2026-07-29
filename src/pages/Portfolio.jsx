@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import ProjectCard from '../components/ProjectCard'
 import { projects } from '../data/projects'
@@ -26,7 +27,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
           >
-            <p className={styles.eyebrow}>// my work</p>
+            <p className={styles.eyebrow}>my work</p>
             <h1 className="section-title">Portfolio</h1>
             <p className={styles.subtitle}>
               Game projects, and some of the engineering work I've done along
@@ -57,6 +58,11 @@ export default function Portfolio() {
               </div>
               <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap', marginTop: 'var(--space-4)' }}>
                 {internship.tags.map(t => <span key={t} className="tag">{t}</span>)}
+              </div>
+              <div style={{ marginTop: 'var(--space-6)' }}>
+                <Link to={`/portfolio/${internship.id}`} className="btn btn-primary">
+                  Read the full case study &rarr;
+                </Link>
               </div>
             </motion.div>
           )}

@@ -58,8 +58,12 @@ export default function Card() {
         {/* Header */}
         <div className={styles.header}>
           <div className={styles.logoMark}>
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-              <path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z" />
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor" aria-hidden>
+              <g transform="translate(16 16)">
+                <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4" />
+                <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4" transform="rotate(60)" />
+                <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4" transform="rotate(120)" />
+              </g>
             </svg>
           </div>
           <p className={styles.studio}>AKURO STUDIO</p>

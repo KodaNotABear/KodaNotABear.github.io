@@ -43,12 +43,7 @@ export default function Navbar() {
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
         <NavLink to="/" className={styles.logo} onClick={handleLogoClick}>
-          <span className={styles.logoIcon}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z" />
-            </svg>
-          </span>
-          AKURO
+          AKURO<span className={styles.logoStar}>*</span>
         </NavLink>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>
@@ -58,7 +53,7 @@ export default function Navbar() {
                 to={path}
                 end={path === '/'}
                 className={({ isActive }) =>
-                  `${styles.link} ${isActive ? styles.linkActive : ''}`
+                  `${styles.link} ${path === '/resume' ? styles.linkCta : isActive ? styles.linkActive : ''}`
                 }
                 onClick={closeMenu}
               >

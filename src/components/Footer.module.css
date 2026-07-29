@@ -1,8 +1,41 @@
 .footer {
-  background: var(--bg-surface);
+  background: var(--bg-base);
   border-top: 1px solid var(--bg-border);
-  padding: var(--space-8) 0 var(--space-6);
+  padding: var(--space-16) 0 var(--space-6);
   margin-top: auto;
+}
+
+.sayBlock {
+  margin-bottom: var(--space-16);
+}
+
+.sayLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.sayBig {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  display: inline-block;
+  transition: color var(--transition-fast);
+}
+
+.sayBig:hover { color: var(--accent); }
+
+.sayDot { color: var(--accent); }
+
+.saySub {
+  margin-top: var(--space-4);
+  color: var(--text-secondary);
+  max-width: 34em;
 }
 
 .inner {
@@ -11,6 +44,8 @@
   align-items: center;
   gap: var(--space-4);
   text-align: center;
+  border-top: 1px solid var(--bg-border);
+  padding-top: var(--space-6);
 }
 
 .brand {
@@ -46,7 +81,7 @@
 .socialLink:hover {
   color: var(--accent-cyan);
   border-color: var(--accent-cyan-dim);
-  background: rgba(0,212,255,0.05);
+  background: rgba(var(--accent-rgb),0.05);
 }
 
 /* Button variant (Discord copy): match anchor styling */
@@ -55,6 +90,21 @@ button.socialLink {
   font-family: inherit;
   font-size: 0.9rem;
   cursor: pointer;
+}
+
+.hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.kbd {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  background: rgba(var(--accent-rgb), 0.08);
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+  color: var(--accent);
+  border-radius: 4px;
+  padding: 1px 7px;
 }
 
 .copy {
@@ -84,7 +134,7 @@ button.socialLink {
   gap: var(--space-2);
   width: max-content;
   max-width: min(280px, calc(100vw - 2rem));
-  box-shadow: 0 0 20px rgba(0,212,255,0.15);
+  box-shadow: 0 0 20px rgba(var(--accent-rgb),0.15);
   z-index: 100;
   pointer-events: none;
   animation: fadeUp 0.15s ease;
@@ -115,9 +165,9 @@ button.socialLink {
   font-size: 0.7rem;
   padding: 2px 8px;
   border-radius: 4px;
-  background: rgba(0,212,255,0.08);
+  background: rgba(var(--accent-rgb),0.08);
   color: var(--accent-cyan);
-  border: 1px solid rgba(0,212,255,0.2);
+  border: 1px solid rgba(var(--accent-rgb),0.2);
   white-space: nowrap;
 }
 

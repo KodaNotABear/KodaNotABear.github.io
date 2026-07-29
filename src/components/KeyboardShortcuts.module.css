@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 11, 15, 0.7);
+  background: rgba(15, 15, 16, 0.7);
   backdrop-filter: blur(4px);
   z-index: 9000;
   display: flex;
@@ -20,7 +20,7 @@
   border: 1px solid var(--bg-border);
   border-radius: 12px;
   width: min(480px, 92vw);
-  box-shadow: 0 0 40px rgba(0,212,255,0.12), 0 20px 60px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   overflow: hidden;
   animation: slideUp 0.2s ease;
 }
@@ -105,8 +105,8 @@
 .kbd {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  background: rgba(0,212,255,0.08);
-  border: 1px solid rgba(0,212,255,0.25);
+  background: rgba(var(--accent-rgb),0.08);
+  border: 1px solid rgba(var(--accent-rgb),0.25);
   color: var(--accent-cyan);
   border-radius: 5px;
   padding: 2px 8px;

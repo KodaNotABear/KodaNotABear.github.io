@@ -140,7 +140,7 @@ export default function Resume() {
             transition={{ duration: 0.45 }}
           >
             <div>
-              <p className={styles.eyebrow}>// résumé</p>
+              <p className={styles.eyebrow}>the paper version</p>
               <h1 className="section-title">Resume</h1>
             </div>
             <a href="/resume.pdf" className="btn btn-primary" download>

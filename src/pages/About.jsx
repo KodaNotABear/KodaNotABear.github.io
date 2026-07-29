@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Toolbox from '../components/Toolbox'
 import GitHubHeatmap from '../components/GitHubHeatmap'
-import { GamepadIcon, AnchorIcon, BoltIcon, GradCapIcon, MapPinIcon, TrophyIcon } from '../components/Icons'
+import { GamepadIcon, AnchorIcon, GradCapIcon, MapPinIcon, TrophyIcon } from '../components/Icons'
 import styles from './About.module.css'
 
 const TIMELINE = [
@@ -11,28 +11,28 @@ const TIMELINE = [
     title: 'CS Degree Awarded',
     org: 'Arizona State University',
     desc: 'Graduated with a B.S. in Computer Science, Software Engineering focus.',
-    color: 'var(--accent-cyan)',
+    color: 'var(--accent)',
   },
   {
     date: 'Aug 2025 – May 2026',
     title: 'Game Development Intern',
     org: 'Pixel Pirate Studio',
     desc: 'Shipped player onboarding, a tournament update, and a WebGL port for Off-Road Champion on mobile. Real production pipeline experience inside a professional Unity team.',
-    color: 'var(--accent-violet)',
+    color: 'var(--accent-2)',
   },
   {
     date: '2026 – Present',
     title: 'Independent Projects',
     org: 'AKURO STUDIO',
     desc: 'Shipped the first beta of Create: Cognition, a Minecraft mod in Java that simulates mob loot with zero spawned entities. Black Signal, a first-person horror game in Unity, is in early prototyping.',
-    color: 'var(--accent-cyan)',
+    color: 'var(--accent-3)',
   },
   {
     date: 'Jun 2022 – 2025',
     title: 'Data Acquisition Developer, Formula SAE',
     org: 'Sun Devil Motorsports',
     desc: 'Designed and tested on-vehicle data acquisition and embedded telemetry tools for ASU\'s FSAE racing team, including an infrared lap timing system.',
-    color: 'var(--accent-violet)',
+    color: 'var(--accent-2)',
   },
   {
     date: '2022',
@@ -54,7 +54,6 @@ const INTERESTS = [
 const funFacts = [
   { Icon: GamepadIcon, fact: 'Game dev since high school with Unity' },
   { Icon: AnchorIcon,  fact: 'Interned at Pixel Pirate Studio (Off-Road Champion)' },
-  { Icon: BoltIcon,    fact: 'Shipped the first beta of Create: Cognition, a Minecraft mod' },
   { Icon: TrophyIcon,  fact: '3 seasons of FSAE racing telemetry at Sun Devil Motorsports' },
   { Icon: GradCapIcon, fact: 'CS grad, Arizona State University, May 2026' },
   { Icon: MapPinIcon,  fact: 'Based in Arizona' },
@@ -73,7 +72,7 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <div>
-              <p className={styles.eyebrow}>// about me</p>
+              <p className={styles.eyebrow}>about me</p>
               <h1 className={styles.name}>Ethan Peterson</h1>
               <p className={styles.role}>Game Programmer &amp; Designer · CS Graduate</p>
               <p className={styles.bio}>

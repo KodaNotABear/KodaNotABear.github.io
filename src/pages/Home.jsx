@@ -1,15 +1,17 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
-import ProjectCard from '../components/ProjectCard'
 import { projects } from '../data/projects'
+import { statusVariant } from '../utils/status'
 import {
   UnityIcon, CSharpIcon, GitHubIcon, ReactIcon,
   BlenderIcon, RiderIcon, FmodIcon,
 } from '../components/Icons'
 import styles from './Home.module.css'
 
-const EYEBROW_TEXT = '// akuro.studio'
+const EYEBROW_TEXT = '* akuro.studio'
+
+const TICKER_ITEMS = ['unity', 'c#', 'java', 'neoforge', 'webgl', 'liveops', 'worldgen', 'gameplay']
 
 function Typewriter({ text }) {
   const [count, setCount] = useState(0)
@@ -37,7 +39,7 @@ const BOOT_LINES = [
   { text: '  name:     Ethan Peterson', delay: 1100, color: 'normal' },
   { text: '  role:     Game Programmer', delay: 1350, color: 'normal' },
   { text: '  engine:   Unity · C#', delay: 1600, color: 'normal' },
-  { text: '  status:   Open to Work ✓', delay: 1900, color: 'green' },
+  { text: '  status:   Open to Work', delay: 1900, color: 'green' },
   { text: '────────────────────────', delay: 2300, color: 'dim' },
   { text: '> ready_', delay: 2600, color: 'green' },
 ]
@@ -193,17 +195,13 @@ const TECH = [
   { Icon: ReactIcon,   label: 'React' },
 ]
 
-const featured = projects.filter(p => p.featured).slice(0, 2)
+const featured = projects.filter(p => p.image).slice(0, 3)
 
 export default function Home() {
   return (
     <main>
       {/* ── Hero ── */}
       <section className={styles.hero}>
-        <div className={styles.heroGrid} aria-hidden />
-        <div className={styles.orb1} aria-hidden />
-        <div className={styles.orb2} aria-hidden />
-
         <div className="container">
           <div className={styles.heroLayout}>
             <motion.div
@@ -221,11 +219,13 @@ export default function Home() {
 
               <h1 className={styles.heroName}>
                 Ethan<br />
-                <span>Peterson</span>
+                Peterson<em>.</em>
               </h1>
 
+              <div className={styles.heroRule} aria-hidden />
+
               <p className={styles.heroRole}>
-                Game Programmer &amp; Designer
+                Game Programmer &amp; Designer <b>&middot;</b> Unity / C# / Java
               </p>
 
               <p className={styles.heroBio}>
@@ -253,11 +253,16 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.scrollHint} aria-hidden>
-          <span>SCROLL</span>
-          <span>↓</span>
-        </div>
       </section>
+
+      {/* ── Ticker ── */}
+      <div className="ticker" aria-hidden>
+        <div className="ticker-track">
+          {Array.from({ length: 4 }, () => TICKER_ITEMS).flat().map((t, i) => (
+            <span key={i}>{t}<i>*</i></span>
+          ))}
+        </div>
+      </div>
 
       {/* ── Stats ── */}
       <section className={styles.stats}>
@@ -279,6 +284,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Featured Projects ── */}
+      {featured.length > 0 && (
+        <section className={styles.featuredSection}>
+          <div className="container">
+            <div className={styles.sectionHeader}>
+              <h2 className="section-title">Featured Work</h2>
+              <Link to="/portfolio" className="btn btn-ghost">All Projects →</Link>
+            </div>
+
+            <div className={styles.showcase}>
+              {featured.map((project, i) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-60px' }}
+                  transition={{ duration: 0.5, delay: i * 0.06 }}
+                >
+                  <Link to={`/portfolio/${project.id}`} className={styles.showRow}>
+                    <div className={styles.showArt}>
+                      {project.image ? (
+                        <img src={project.image} alt={project.title} loading="lazy" />
+                      ) : (
+                        <span className={styles.showGhost} aria-hidden>{project.title}</span>
+                      )}
+                    </div>
+                    <div className={styles.showInfo}>
+                      <div className={styles.showMeta}>
+                        <span className={styles.showNum}>{String(i + 1).padStart(2, '0')}</span>
+                        <span className={styles.showStatus} data-variant={statusVariant(project.status)}>{project.status}</span>
+                      </div>
+                      <h3 className={styles.showTitle}>{project.title}</h3>
+                      <p className={styles.showTagline}>{project.tagline}</p>
+                      <span className={styles.showCta}>Read case study &rarr;</span>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── Currently Building ── */}
       <section className={styles.buildingSection}>
         <div className="container">
@@ -294,11 +342,13 @@ export default function Home() {
                 <span className={styles.dot} />
                 IN PROGRESS
               </span>
-              <span className={styles.buildingLabel}>// current_projects</span>
+              <span className={styles.buildingLabel}>* current projects</span>
             </div>
             <h2 className={styles.buildingTitle}>What I'm Building</h2>
             <p className={styles.buildingDesc}>
-              Create: Cognition, a Minecraft mod in Java, just shipped its first beta. Black Signal, a first-person horror game in Unity, is in early prototyping. Both solo projects, both ongoing.
+              Black Signal, a first-person horror game in Unity, is in early
+              prototyping. Create: Cognition just shipped its first beta, and
+              Noclip's backrooms worldgen is coming together. All solo, all ongoing.
             </p>
             <div className={styles.buildingFooter}>
               <div className={styles.buildingTags}>
@@ -309,24 +359,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
-      {/* ── Featured Projects ── */}
-      {featured.length > 0 && (
-        <section className={styles.featuredSection}>
-          <div className="container">
-            <div className={styles.sectionHeader}>
-              <h2 className="section-title">Featured Work</h2>
-              <Link to="/portfolio" className="btn btn-ghost">All Projects →</Link>
-            </div>
-
-            <div className={styles.featuredGrid}>
-              {featured.map((project, i) => (
-                <ProjectCard key={project.id} project={project} index={i} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ── Tech ── */}
       <section className={`${styles.techSection} section`}>

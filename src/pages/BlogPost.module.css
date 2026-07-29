@@ -19,10 +19,10 @@
 .backLink:hover { opacity: 0.7; }
 
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--accent-cyan);
-  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.22em;
   margin-bottom: var(--space-3);
 }
 
