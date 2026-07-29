@@ -89,11 +89,6 @@ html {
 
 body {
   background-color: var(--bg-base);
-  /* Faint blueprint grid, same language as the og banner art */
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-  background-size: 56px 56px;
   color: var(--text-primary);
   font-family: var(--font-body);
   font-weight: 400;
@@ -216,6 +211,26 @@ img, video { max-width: 100%; display: block; }
 }
 .btn-ghost:hover {
   color: var(--text-primary);
+}
+
+/* ── Blueprint grid zones ───────────────────────────────────
+   Scoped to heroes and page headers instead of the whole body,
+   fading out before content so it never crosses a section break. */
+.grid-zone {
+  position: relative;
+}
+
+.grid-zone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 55%, transparent 90%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 55%, transparent 90%);
 }
 
 /* ── Scrollbar ──────────────────────────────────────────── */

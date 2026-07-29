@@ -62,7 +62,7 @@ const funFacts = [
 export default function About() {
   return (
     <main className={styles.page}>
-      <section className={styles.hero}>
+      <section className={`${styles.hero} grid-zone`}>
         <div className={styles.heroAccent} aria-hidden />
         <div className="container">
           <motion.div

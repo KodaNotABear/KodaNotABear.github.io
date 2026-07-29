@@ -201,7 +201,7 @@ export default function Home() {
   return (
     <main>
       {/* ── Hero ── */}
-      <section className={styles.hero}>
+      <section className={`${styles.hero} grid-zone`}>
         <div className="container">
           <div className={styles.heroLayout}>
             <motion.div

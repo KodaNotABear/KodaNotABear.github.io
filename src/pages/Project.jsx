@@ -24,7 +24,7 @@ export default function Project() {
   return (
     <main className={styles.page}>
       {/* ── Head ── */}
-      <section className={styles.head}>
+      <section className={`${styles.head} grid-zone`}>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

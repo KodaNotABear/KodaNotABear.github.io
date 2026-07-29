@@ -131,7 +131,7 @@ function Entry({ title, org, date, bullets }) {
 export default function Resume() {
   return (
     <main className={styles.page}>
-      <section className={styles.header}>
+      <section className={`${styles.header} grid-zone`}>
         <div className="container">
           <motion.div
             className={styles.headerInner}

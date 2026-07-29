@@ -63,7 +63,7 @@ export default function Contact() {
 
   return (
     <main className={styles.page}>
-      <section className={styles.header}>
+      <section className={`${styles.header} grid-zone`}>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
