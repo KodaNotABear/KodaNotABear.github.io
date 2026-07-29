@@ -1,13 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00d4ff"/>
-      <stop offset="100%" stop-color="#7c3aed"/>
-    </linearGradient>
-    <clipPath id="c">
-      <rect width="32" height="32" rx="7" ry="7"/>
-    </clipPath>
-  </defs>
-  <rect width="32" height="32" rx="7" ry="7" fill="url(#g)"/>
-  <path clip-path="url(#c)" d="M17.333 3L7.5 17h8.167L14.5 29L26.5 14h-8.167L17.333 3Z" fill="white"/>
+  <rect width="32" height="32" rx="7" ry="7" fill="#151516"/>
+  <g transform="translate(16 16)" fill="#e8e6e1">
+    <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4"/>
+    <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4" transform="rotate(60)"/>
+    <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4" transform="rotate(120)"/>
+  </g>
 </svg>

@@ -16,15 +16,20 @@ const FONTS = [
   join(ROOT, 'scripts/fonts/JetBrainsMono-Bold.ttf'),
 ]
 
-// Site palette (src/styles/global.css)
-const BG = '#0a0b0f'
-const CYAN = '#00d4ff'
-const VIOLET = '#7c3aed'
-const TEXT = '#e8eaf0'
-const TEXT2 = '#8892a4'
-const GREEN = '#22d3a0'
+// Site palette (src/styles/global.css), Graphite theme
+const BG = '#0f0f10'
+const ACCENT = '#e8e6e1'
+const TEXT = '#ececec'
+const TEXT2 = '#8b8b8d'
+const LINE = 'rgba(255,255,255,0.05)'
 
-const BOLT = 'M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z'
+// Three rounded bars rotated 0/60/120 degrees make the asterisk mark
+const asterisk = (x, y, scale, color) => `
+  <g transform="translate(${x} ${y}) scale(${scale})" fill="${color}">
+    <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4"/>
+    <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4" transform="rotate(60)"/>
+    <rect x="-2.4" y="-12" width="4.8" height="24" rx="2.4" transform="rotate(120)"/>
+  </g>`
 
 function render(svg, outPath, width) {
   const resvg = new Resvg(svg, {
@@ -47,32 +52,26 @@ function ogBanner() {
   const W = 1200, H = 630
   const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    ${gridDefs('grid', 48, 'rgba(0,212,255,0.05)')}
-    <linearGradient id="name" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="${CYAN}"/><stop offset="1" stop-color="${VIOLET}"/>
-    </linearGradient>
-    <radialGradient id="orbC"><stop offset="0" stop-color="rgba(0,212,255,0.16)"/><stop offset="1" stop-color="rgba(0,212,255,0)"/></radialGradient>
-    <radialGradient id="orbV"><stop offset="0" stop-color="rgba(124,58,237,0.18)"/><stop offset="1" stop-color="rgba(124,58,237,0)"/></radialGradient>
+    ${gridDefs('grid', 48, LINE)}
   </defs>
   <rect width="${W}" height="${H}" fill="${BG}"/>
   <rect width="${W}" height="${H}" fill="url(#grid)"/>
-  <circle cx="1040" cy="90" r="320" fill="url(#orbC)"/>
-  <circle cx="140" cy="600" r="360" fill="url(#orbV)"/>
 
-  <text x="92" y="148" font-family="JetBrains Mono" font-size="26" fill="${CYAN}">// akuro.studio</text>
+  ${asterisk(104, 140, 1.1, ACCENT)}
+  <text x="132" y="150" font-family="JetBrains Mono" font-size="26" letter-spacing="4" fill="${ACCENT}">AKURO.STUDIO</text>
 
-  <rect x="90" y="178" width="436" height="46" rx="23" fill="rgba(34,211,160,0.07)" stroke="rgba(34,211,160,0.45)"/>
-  <circle cx="118" cy="201" r="5" fill="${GREEN}"/>
-  <text x="136" y="209" font-family="JetBrains Mono" font-size="19" fill="${GREEN}">OPEN TO WORK · CS GRADUATE MAY 2026</text>
+  <rect x="90" y="186" width="452" height="46" rx="4" fill="none" stroke="rgba(255,255,255,0.14)"/>
+  <circle cx="118" cy="209" r="5" fill="${ACCENT}"/>
+  <text x="136" y="217" font-family="JetBrains Mono" font-size="19" letter-spacing="2" fill="${TEXT}">OPEN TO WORK · CS GRADUATE MAY 2026</text>
 
-  <text x="86" y="356" font-family="Rajdhani" font-weight="700" font-size="128" letter-spacing="2" fill="${TEXT}">ETHAN</text>
-  <text x="86" y="474" font-family="Rajdhani" font-weight="700" font-size="128" letter-spacing="2" fill="url(#name)">PETERSON</text>
+  <text x="86" y="368" font-family="Rajdhani" font-weight="700" font-size="132" letter-spacing="2" fill="${TEXT}">ETHAN</text>
+  <text x="86" y="486" font-family="Rajdhani" font-weight="700" font-size="132" letter-spacing="2" fill="${TEXT}">PETERSON<tspan fill="${ACCENT}">.</tspan></text>
 
-  <text x="92" y="532" font-family="Rajdhani" font-weight="600" font-size="33" letter-spacing="3" fill="${TEXT2}">GAME PROGRAMMER &amp; DESIGNER · UNITY / C#</text>
+  <rect x="90" y="512" width="84" height="6" fill="${ACCENT}"/>
+  <text x="92" y="556" font-family="Rajdhani" font-weight="600" font-size="33" letter-spacing="3" fill="${TEXT2}">GAME PROGRAMMER &amp; DESIGNER · UNITY / C# / JAVA</text>
 
-  <g transform="translate(92 564) scale(1.4)" fill="${CYAN}"><path d="${BOLT}"/></g>
-  <text x="136" y="589" font-family="JetBrains Mono" font-size="21" letter-spacing="4" fill="${TEXT2}">AKURO STUDIO</text>
-  <text x="1108" y="589" text-anchor="end" font-family="JetBrains Mono" font-size="21" fill="${CYAN}">akuro.studio</text>
+  <text x="1108" y="150" text-anchor="end" font-family="JetBrains Mono" font-size="21" fill="${TEXT2}">EST. ARIZONA</text>
+  <text x="1108" y="589" text-anchor="end" font-family="JetBrains Mono" font-size="21" fill="${ACCENT}">akuro.studio</text>
 </svg>`
   render(svg, join(ROOT, 'public/og.png'), W)
 }
@@ -86,7 +85,7 @@ function createCognition() {
   const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
   <defs>
     ${gridDefs('ccmin', 28, 'rgba(217,164,65,0.05)')}
-    ${gridDefs('ccmaj', 112, 'rgba(0,212,255,0.06)')}
+    ${gridDefs('ccmaj', 112, LINE)}
   </defs>
   <rect width="${W}" height="${H}" fill="${BG}"/>
   <rect width="${W}" height="${H}" fill="url(#ccmin)"/>
