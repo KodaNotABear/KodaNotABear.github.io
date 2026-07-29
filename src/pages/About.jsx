@@ -25,7 +25,7 @@ const TIMELINE = [
     title: 'Independent Projects',
     org: 'AKURO STUDIO',
     desc: 'Shipped the first beta of Create: Cognition, a Minecraft mod in Java that simulates mob loot with zero spawned entities. Black Signal, a first-person horror game in Unity, is in early prototyping.',
-    color: 'var(--accent)',
+    color: 'var(--accent-3)',
   },
   {
     date: 'Jun 2022 – 2025',

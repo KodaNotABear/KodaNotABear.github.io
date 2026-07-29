@@ -33,6 +33,7 @@ export default function Footer() {
         <p className={styles.sayLabel}>Have a role, a mod idea, or feedback?</p>
         <a className={styles.sayBig} href="mailto:koda@akuro.studio">
           Say hi<span className={styles.sayDot}>.</span>
+          <span className={styles.sayMail}>koda@akuro.studio &rarr;</span>
         </a>
         <p className={styles.saySub}>
           Open to a first full-time role in games. Replies usually land within 24 hours.

@@ -7,10 +7,10 @@ const WEEKS = 26 // last ~6 months
 
 function getDayColor(count) {
   if (count === 0) return 'var(--bg-surface)'
-  if (count <= 2)  return 'rgba(var(--accent-rgb),0.25)'
-  if (count <= 5)  return 'rgba(var(--accent-rgb),0.5)'
-  if (count <= 9)  return 'rgba(var(--accent-rgb),0.75)'
-  return 'var(--accent-cyan)'
+  if (count <= 2)  return 'rgba(var(--accent-3-rgb),0.25)'
+  if (count <= 5)  return 'rgba(var(--accent-3-rgb),0.5)'
+  if (count <= 9)  return 'rgba(var(--accent-3-rgb),0.75)'
+  return 'var(--accent-3)'
 }
 
 export default function GitHubHeatmap() {

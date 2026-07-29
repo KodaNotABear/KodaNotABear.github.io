@@ -32,6 +32,23 @@
 
 .sayDot { color: var(--accent); }
 
+/* Click affordance: the actual address rides along under the headline */
+.sayMail {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: var(--text-secondary);
+  margin-top: var(--space-3);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.sayBig:hover .sayMail {
+  color: var(--accent);
+  transform: translateX(6px);
+}
+
 .saySub {
   margin-top: var(--space-4);
   color: var(--text-secondary);

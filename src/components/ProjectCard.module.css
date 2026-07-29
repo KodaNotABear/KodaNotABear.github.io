@@ -5,13 +5,15 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: border-color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
+  transition: border-color var(--transition-normal), translate var(--transition-normal), box-shadow var(--transition-normal);
   position: relative;
 }
 
+/* `translate` (not transform) so framer-motion's inline transform can't
+   swallow the hover lift after the entrance animation settles */
 .card:hover {
   border-color: var(--accent);
-  transform: translateY(-4px);
+  translate: 0 -4px;
   box-shadow: var(--shadow-card);
 }
 

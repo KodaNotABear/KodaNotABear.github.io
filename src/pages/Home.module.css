@@ -216,7 +216,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--success);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -314,7 +314,7 @@
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--success);
   margin-right: var(--space-2);
   vertical-align: middle;
   animation: pulse 2s ease-in-out infinite;

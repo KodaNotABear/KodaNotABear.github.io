@@ -36,15 +36,15 @@
 
 /* Chip brightness encodes how much I actually use it. */
 .core {
-  background: rgba(var(--accent-rgb), 0.12);
-  border-color: rgba(var(--accent-rgb), 0.45);
-  color: var(--accent-cyan);
+  background: transparent;
+  border-color: rgba(var(--accent-rgb), 0.55);
+  color: var(--accent);
 }
 
 .mid {
-  background: rgba(var(--accent-rgb), 0.05);
-  border-color: rgba(var(--accent-rgb), 0.2);
-  color: var(--text-secondary);
+  background: transparent;
+  border-color: var(--bg-border);
+  color: var(--text-primary);
 }
 
 .low {
