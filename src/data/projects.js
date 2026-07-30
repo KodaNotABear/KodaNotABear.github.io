@@ -46,6 +46,59 @@ export const projects = [
     ],
   },
   {
+    id: 'wincon',
+    title: 'Wincon',
+    studio: 'AKURO STUDIO · League of Legends Analytics',
+    role: 'Solo developer',
+    period: 'Jul 2026 – Present',
+    status: 'Playable demo',
+    tagline: 'A ranked review tool that turns match timelines into a clear coaching focus.',
+    description:
+      'Wincon reads League of Legends match timelines and finds the habits behind a player\'s results. It produces explainable coaching notes, maps every death, compares laning against the actual opponent, and replays all ten players around the moments worth reviewing.',
+    tags: ['TypeScript', 'React', 'Riot Games API', 'Data Visualization', 'Testing'],
+    image: '/images/wincon-dashboard.png',
+    featured: true,
+    links: {
+      github: 'https://github.com/KodaNotABear/wincon',
+      demo: '/wincon/',
+    },
+    gallery: ['/images/wincon-replay.png'],
+    caseStudy: [
+      {
+        heading: 'The problem',
+        paragraphs: [
+          'Most League stat sites summarize the scoreboard. Wincon works from Match-V5 timeline frames and events to answer a more useful question: which repeated habit is holding this player back?',
+          'The dashboard keeps the answer concrete. A player can choose one win condition for the next session, lock the current baseline, and measure progress using only the games played afterward.',
+        ],
+      },
+      {
+        heading: 'Analysis pipeline',
+        bullets: [
+          'A rate-limited Riot API client caches immutable match and timeline responses locally.',
+          'Pure TypeScript analysis compares CS, gold, and XP against the actual lane opponent at 10 and 14 minutes.',
+          'Death position, game phase, objective credit, vision, champion pool, momentum, and win-loss gaps feed explainable coaching rules.',
+          'A seeded synthetic dataset drives the public demo and integration tests without exposing an API key or player data.',
+        ],
+      },
+      {
+        heading: 'Replay as a coaching tool',
+        paragraphs: [
+          'Each match becomes an animated map with ten moving champions, wards, tower state, objective timers, a gold timeline, and event markers. Playback pauses at coaching moments and frames the relevant players without hiding the rest of the play.',
+          'The note beside the map explains the event in context and can turn that pattern into the player\'s next focus in one click.',
+        ],
+      },
+      {
+        heading: 'Quality',
+        bullets: [
+          '41 automated tests cover metrics, insights, replay moments, report generation, lockfile parsing, and focus progress.',
+          'Strict TypeScript keeps the Riot data boundary and analysis contracts explicit.',
+          'Responsive dashboard and replay layouts were checked at desktop and mobile sizes.',
+          'Color and labels carry win-loss meaning together, with the match table serving as the accessible chart data view.',
+        ],
+      },
+    ],
+  },
+  {
     id: 'noclip',
     title: 'Noclip',
     studio: 'Backrooms World Type for Minecraft',
@@ -145,59 +198,6 @@ export const projects = [
         heading: 'Status',
         paragraphs: [
           'Early prototyping. The current focus is the core loop: on-foot exploration with anomaly detection, and making divided attention feel dangerous rather than annoying.',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'wincon',
-    title: 'Wincon',
-    studio: 'AKURO STUDIO · League of Legends Analytics',
-    role: 'Solo developer',
-    period: 'Jul 2026 – Present',
-    status: 'Playable demo',
-    tagline: 'A ranked review tool that turns match timelines into a clear coaching focus.',
-    description:
-      'Wincon reads League of Legends match timelines and finds the habits behind a player\'s results. It produces explainable coaching notes, maps every death, compares laning against the actual opponent, and replays all ten players around the moments worth reviewing.',
-    tags: ['TypeScript', 'React', 'Riot Games API', 'Data Visualization', 'Testing'],
-    image: '/images/wincon-dashboard.png',
-    featured: true,
-    links: {
-      github: 'https://github.com/KodaNotABear/wincon',
-      demo: '/wincon/',
-    },
-    gallery: ['/images/wincon-replay.png'],
-    caseStudy: [
-      {
-        heading: 'The problem',
-        paragraphs: [
-          'Most League stat sites summarize the scoreboard. Wincon works from Match-V5 timeline frames and events to answer a more useful question: which repeated habit is holding this player back?',
-          'The dashboard keeps the answer concrete. A player can choose one win condition for the next session, lock the current baseline, and measure progress using only the games played afterward.',
-        ],
-      },
-      {
-        heading: 'Analysis pipeline',
-        bullets: [
-          'A rate-limited Riot API client caches immutable match and timeline responses locally.',
-          'Pure TypeScript analysis compares CS, gold, and XP against the actual lane opponent at 10 and 14 minutes.',
-          'Death position, game phase, objective credit, vision, champion pool, momentum, and win-loss gaps feed explainable coaching rules.',
-          'A seeded synthetic dataset drives the public demo and integration tests without exposing an API key or player data.',
-        ],
-      },
-      {
-        heading: 'Replay as a coaching tool',
-        paragraphs: [
-          'Each match becomes an animated map with ten moving champions, wards, tower state, objective timers, a gold timeline, and event markers. Playback pauses at coaching moments and frames the relevant players without hiding the rest of the play.',
-          'The note beside the map explains the event in context and can turn that pattern into the player\'s next focus in one click.',
-        ],
-      },
-      {
-        heading: 'Quality',
-        bullets: [
-          '41 automated tests cover metrics, insights, replay moments, report generation, lockfile parsing, and focus progress.',
-          'Strict TypeScript keeps the Riot data boundary and analysis contracts explicit.',
-          'Responsive dashboard and replay layouts were checked at desktop and mobile sizes.',
-          'Color and labels carry win-loss meaning together, with the match table serving as the accessible chart data view.',
         ],
       },
     ],
