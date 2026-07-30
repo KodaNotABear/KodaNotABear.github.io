@@ -77,7 +77,7 @@ export const projects = [
           'A rate-limited Riot API client caches immutable match and timeline responses locally.',
           'Pure TypeScript analysis compares CS, gold, and XP against the actual lane opponent at 10 and 14 minutes.',
           'Death position, game phase, objective credit, vision, champion pool, momentum, and win-loss gaps feed explainable coaching rules.',
-          'A seeded synthetic dataset drives the public demo and integration tests without exposing an API key or player data.',
+          'The public demo combines an anonymized showcase match with seeded history, preserving a real replay without exposing Riot IDs, PUUIDs, summoner IDs, the original match ID, or an API key.',
         ],
       },
       {
@@ -90,7 +90,7 @@ export const projects = [
       {
         heading: 'Quality',
         bullets: [
-          '41 automated tests cover metrics, insights, replay moments, report generation, lockfile parsing, and focus progress.',
+          '43 automated tests cover metrics, insights, replay moments, report generation, lockfile parsing, focus progress, and the anonymized showcase fixture.',
           'Strict TypeScript keeps the Riot data boundary and analysis contracts explicit.',
           'Responsive dashboard and replay layouts were checked at desktop and mobile sizes.',
           'Color and labels carry win-loss meaning together, with the match table serving as the accessible chart data view.',
