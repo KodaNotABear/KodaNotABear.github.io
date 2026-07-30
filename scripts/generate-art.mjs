@@ -113,7 +113,7 @@ function noclip() {
   <rect width="${W}" height="${H}" fill="url(#ncmin)"/>
   <rect width="${W}" height="${H}" fill="url(#ncmaj)"/>
 
-  <image href="data:image/png;base64,${splash}" x="220" y="180" width="840" height="259"/>
+  <image href="data:image/png;base64,${splash}" x="220" y="160" width="840" height="299"/>
 
   <text x="640" y="560" text-anchor="middle" font-family="JetBrains Mono" font-size="21" letter-spacing="5" fill="${TEXT2}">MINECRAFT WORLD TYPE · JAVA · NEOFORGE 1.21.1</text>
   <text x="640" y="602" text-anchor="middle" font-family="JetBrains Mono" font-size="16" letter-spacing="4" fill="#e0b242">OPEN SOURCE · IN DEVELOPMENT</text>
