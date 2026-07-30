@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
+import ScrollToTop from './components/ScrollToTop'
 import KeyboardShortcuts from './components/KeyboardShortcuts'
 import MiniGame from './components/MiniGame'
 import BlackSignalGlitch from './components/BlackSignalGlitch'
@@ -58,6 +59,7 @@ function Layout() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <ScrollProgress />
       <KeyboardShortcuts />
       <MiniGame />
