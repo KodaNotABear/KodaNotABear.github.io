@@ -62,9 +62,9 @@ export default function ProjectCard({ project, index = 0 }) {
           )}
           {links.demo && (
             links.demo.startsWith('/') ? (
-              <Link to={links.demo} className={`${styles.actionBtn} ${styles.actionPrimary}`}>
+              <a href={links.demo} className={`${styles.actionBtn} ${styles.actionPrimary}`}>
                 ▶ Play demo
-              </Link>
+              </a>
             ) : (
               <a href={links.demo} target="_blank" rel="noopener noreferrer"
                  className={`${styles.actionBtn} ${styles.actionPrimary}`}>
