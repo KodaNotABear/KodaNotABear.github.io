@@ -88,7 +88,7 @@ export default function Project() {
                   )}
                   {links.demo && (
                     <a href={links.demo} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                      Live demo
+                      Open demo
                     </a>
                   )}
                 </div>

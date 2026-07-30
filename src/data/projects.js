@@ -51,7 +51,7 @@ export const projects = [
     studio: 'AKURO STUDIO · League of Legends Analytics',
     role: 'Solo developer',
     period: 'Jul 2026 – Present',
-    status: 'Playable demo',
+    status: 'Interactive demo',
     tagline: 'A ranked review tool that turns match timelines into a clear coaching focus.',
     description:
       'Wincon reads League of Legends match timelines and finds the habits behind a player\'s results. It produces explainable coaching notes, maps every death, compares laning against the actual opponent, and replays all ten players around the moments worth reviewing.',
