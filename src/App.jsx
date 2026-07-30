@@ -47,10 +47,21 @@ function AnimatedRoutes() {
 // Layout hides chrome on the /card route so it shows as a clean standalone page
 function Layout() {
   const location = useLocation()
-  const isCard = location.pathname === '/card'
+  const normalizedPath = location.pathname.replace(/\/+$/, '') || '/'
+  const isCard = normalizedPath === '/card'
   return (
     <>
-      {!isCard && <Navbar />}
+      {!isCard && (
+        <>
+          <ScrollProgress />
+          <KeyboardShortcuts />
+          <MiniGame />
+          <BlackSignalGlitch />
+          <TextAdventure />
+          <MobileEasterEggs />
+          <Navbar />
+        </>
+      )}
       <AnimatedRoutes />
       {!isCard && <Footer />}
     </>
@@ -62,12 +73,6 @@ export default function App() {
     <BrowserRouter>
       <PageMeta />
       <ScrollToTop />
-      <ScrollProgress />
-      <KeyboardShortcuts />
-      <MiniGame />
-      <BlackSignalGlitch />
-      <TextAdventure />
-      <MobileEasterEggs />
       <Layout />
     </BrowserRouter>
   )
