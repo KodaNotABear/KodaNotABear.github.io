@@ -4,7 +4,7 @@ import { posts } from '../data/posts'
 import styles from './BlogPost.module.css'
 
 function formatDate(dateStr) {
-  const d = new Date(dateStr)
+  const d = new Date(`${dateStr}T12:00:00`)
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
 }
 
