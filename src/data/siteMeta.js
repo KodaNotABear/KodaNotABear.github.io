@@ -6,7 +6,7 @@ export const siteUrl = 'https://akuro.studio'
 export const defaultMeta = {
   title: 'Ethan Peterson · AKURO STUDIO',
   description:
-    'Game programmer and designer. CS graduate, May 2026. Building games with Unity under AKURO STUDIO.',
+    'Game programmer and designer with professional Unity experience, building Wincon, Noclip, and interactive systems under AKURO STUDIO.',
 }
 
 const staticMeta = {
@@ -14,12 +14,12 @@ const staticMeta = {
   '/about': {
     title: 'About Ethan Peterson · AKURO STUDIO',
     description:
-      'Learn about Ethan Peterson, a CS graduate and game programmer building Unity games and Minecraft mods under AKURO STUDIO.',
+      'Learn about Ethan Peterson, a CS graduate and game programmer with professional Unity experience and projects in TypeScript, React, and Java.',
   },
   '/portfolio': {
     title: 'Portfolio · AKURO STUDIO',
     description:
-      'Game projects and engineering work from Ethan Peterson, including Unity production work, Minecraft mods, and solo prototypes.',
+      'Game and engineering work from Ethan Peterson, including Wincon, professional Unity production work, and procedural Minecraft worldgen.',
   },
   '/resume': {
     title: 'Resume · Ethan Peterson',

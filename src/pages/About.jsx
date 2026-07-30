@@ -24,7 +24,7 @@ const TIMELINE = [
     date: '2026 – Present',
     title: 'Independent Projects',
     org: 'AKURO STUDIO',
-    desc: 'Shipped the first beta of Create: Cognition, a Minecraft mod in Java that simulates mob loot with zero spawned entities. Black Signal, a first-person horror game in Unity, is in early prototyping.',
+    desc: 'Built Wincon, a tested TypeScript and React coaching tool with animated League of Legends match replays, and open-sourced Noclip, a procedural Minecraft world type written in Java.',
     color: 'var(--accent-3)',
   },
   {
@@ -153,8 +153,9 @@ export default function About() {
               <div className={styles.sectionBlock}>
                 <h2>AKURO STUDIO</h2>
                 <p>
-                  AKURO STUDIO is the label for personal projects. Nothing big
-                  ships under the name yet, but the Minecraft mods live there.
+                  AKURO STUDIO is the label for personal projects, including
+                  Wincon and the Minecraft mods. It gives the work a shared
+                  home while each project grows on its own.
                 </p>
               </div>
 

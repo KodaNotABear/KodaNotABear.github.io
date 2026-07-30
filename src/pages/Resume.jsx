@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { EmailIcon, GlobeIcon, GitHubIcon } from '../components/Icons'
+import { EmailIcon, GlobeIcon, GitHubIcon, LinkedInIcon } from '../components/Icons'
 import styles from './Resume.module.css'
 
 const EXPERIENCE = [
@@ -41,21 +41,12 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
-    title: 'Off-Road Champion: Tournament Update & Web Portal',
-    org: 'Pixel Pirate Studio',
-    date: 'Aug 2025 – May 2026',
+    title: 'Wincon',
+    org: 'League of Legends Ranked Review Tool · Open Source',
+    date: 'Jul 2026 – Present',
     bullets: [
-      'Built a tournament system for a live mobile game, letting players compete for virtual currency',
-      'Connected the game to a web portal where players track tournament standings and rewards',
-    ],
-  },
-  {
-    title: 'Create: Cognition',
-    org: 'AKURO STUDIO · Create Add-on for Minecraft',
-    date: 'Jun 2026 – Present',
-    bullets: [
-      'Create add-on in Java (NeoForge 1.21.1) that turns surplus rotational power into compute for a mechanical neural-network datacenter, training models of mobs and simulating their loot with zero spawned entities as a performance-friendly alternative to entity farms',
-      'Shipped a playable beta: multiblock networks with flood-fill discovery and proportional compute allocation, model grades and substrate tiers, sequenced-assembly recipes, an advancement tree, and full balance config',
+      'Built a TypeScript and React tool that turns Riot Match-V5 timelines into explainable coaching notes, lane-opponent comparisons, death maps, and animated ten-player replays',
+      'Implemented rate-limited API caching, an anonymized public showcase, and 43 automated tests covering metrics, insight rules, replay moments, focus tracking, and report generation',
     ],
   },
   {
@@ -67,28 +58,11 @@ const PROJECTS = [
     ],
   },
   {
-    title: 'League Stats Portal',
-    org: 'Arizona State University · Class Project',
-    date: 'Spring 2026',
+    title: 'Create: Cognition',
+    org: 'AKURO STUDIO · Create Add-on for Minecraft',
+    date: 'Jun 2026 – Present',
     bullets: [
-      'C# / ASP.NET web app for League of Legends stats lookup, backed by a WCF service layer over the Riot Games API: Riot ID lookup, total champion mastery, and last-match stats',
-      'Implemented member and staff login flows with reCAPTCHA verification, sessions, and cookies',
-    ],
-  },
-  {
-    title: 'Black Signal',
-    org: 'Personal Project',
-    date: '2026 – Present',
-    bullets: [
-      'Prototyping a solo first-person horror game in Unity (C#): on-foot exploration of a derelict space station with anomaly detection as the core loop. Early in development',
-    ],
-  },
-  {
-    title: 'Infrared Lap Timing System',
-    org: 'Sun Devil Motorsports',
-    date: '2022 – 2025',
-    bullets: [
-      'Designed and built an infrared lap timing system for ASU\'s Formula SAE car, feeding lap data into the team\'s performance analysis workflow',
+      'Built a Java add-on for NeoForge 1.21.1 with multiblock compute networks, flood-fill discovery, proportional allocation, and mob-loot simulation without spawned entities',
     ],
   },
 ]
@@ -166,6 +140,7 @@ export default function Resume() {
                 <span className={styles.contactItem}><EmailIcon size={14} /> <a href="mailto:koda@akuro.studio">koda@akuro.studio</a></span>
                 <span className={styles.contactItem}><GlobeIcon size={14} /> <a href="https://akuro.studio" target="_blank" rel="noopener noreferrer">akuro.studio</a></span>
                 <span className={styles.contactItem}><GitHubIcon size={14} /> <a href="https://github.com/KodaNotABear" target="_blank" rel="noopener noreferrer">github.com/KodaNotABear</a></span>
+                <span className={styles.contactItem}><LinkedInIcon size={14} /> <a href="https://www.linkedin.com/in/ethan-peterson-sweng/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
               </div>
             </header>
 

@@ -29,7 +29,7 @@ export default function Credits() {
 
       <div className={styles.viewport}>
         <div className={styles.scroll}>
-          <div className={styles.title}>AKURO STUDIO</div>
+          <h1 className={styles.title}>AKURO STUDIO</h1>
           <div className={styles.subtitle}>— Credits —</div>
 
           {CREDITS.map((c, i) =>

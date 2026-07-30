@@ -194,7 +194,9 @@ const TECH = [
   { Icon: ReactIcon,   label: 'React' },
 ]
 
-const featured = projects.filter(p => p.image).slice(0, 3)
+const featured = ['wincon', 'pixel-pirate-internship', 'noclip']
+  .map(id => projects.find(project => project.id === id))
+  .filter(Boolean)
 const currentProject = projects.find(p => p.status === 'In development')
 const latestPost = posts[0]
 
@@ -357,13 +359,14 @@ export default function Home() {
               <span className={styles.titleDot} aria-hidden /> Currently Building
             </h2>
             <p className={styles.buildingDesc}>
-              Noclip's procedural backrooms are deep in worldgen territory.
-              Black Signal, a first-person horror game in Unity, is in early
-              prototyping. Create: Cognition is out in beta. All solo, all ongoing.
+              Wincon's replay and coaching workflow is in final portfolio
+              polish. Noclip's procedural backrooms are deep in worldgen
+              territory, with the generator and data-driven room system
+              working in an open-source build.
             </p>
             <div className={styles.buildingFooter}>
               <div className={styles.buildingTags}>
-                <span>Unity</span><span>Java</span><span>Solo</span>
+                <span>TypeScript</span><span>React</span><span>Java</span>
               </div>
               <Link to="/portfolio" className="btn btn-ghost">See all projects →</Link>
             </div>

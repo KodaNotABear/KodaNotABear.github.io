@@ -59,7 +59,7 @@ export default function Card() {
   }
 
   return (
-    <div className={styles.page}>
+    <main className={styles.page}>
       <div className={styles.card}>
         {/* Header */}
         <div className={styles.header}>
@@ -169,6 +169,6 @@ export default function Card() {
           </div>
         </div>
       )}
-    </div>
+    </main>
   )
 }

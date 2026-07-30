@@ -79,7 +79,7 @@ def entry(role, org, date, bullets, gap=2):
 
 
 CONTACT = (
-    "Gilbert, AZ · 602-849-1101 · epeterson3136@gmail.com · "
+    "Gilbert, AZ · 602-849-1101 · koda@akuro.studio · "
     '<link href="https://akuro.studio" color="#3057c4">akuro.studio</link> · '
     '<link href="https://github.com/KodaNotABear" color="#3057c4">github.com/KodaNotABear</link> · '
     '<link href="https://www.linkedin.com/in/ethan-peterson-sweng/" color="#3057c4">linkedin.com/in/ethan-peterson-sweng</link>'
@@ -117,18 +117,19 @@ FSAE_BULLETS = [
     "used for on-track performance analysis",
 ]
 
-LEAGUE_BULLETS = [
-    "C# / ASP.NET web app for League of Legends stats lookup, backed by a WCF service layer over "
-    "the <b>Riot Games API</b>: Riot ID lookup, total champion mastery, and last-match stats",
-    "Implemented member and staff login flows with reCAPTCHA verification, sessions, and cookies",
-]
-
 COGITATION_BULLETS = [
     "Create add-on in Java (NeoForge 1.21.1): a mechanical neural-network datacenter that turns "
     "surplus rotational power into compute, trains models of mobs, and simulates their loot with "
     "zero spawned entities, a performance-friendly alternative to entity farms",
     "Shipped a playable beta: multiblock networks with flood-fill discovery and proportional "
     "compute allocation, sequenced-assembly recipes, an advancement tree, and full balance config",
+]
+
+WINCON_BULLETS = [
+    "Built an open-source TypeScript / React ranked-review tool that turns Riot Match-V5 timelines "
+    "into explainable coaching notes, lane-opponent comparisons, death maps, and animated ten-player replays",
+    "Implemented rate-limited API caching, an anonymized public showcase, and 43 automated tests "
+    "covering metrics, insight rules, replay moments, focus tracking, and report generation",
 ]
 
 EDUCATION = entry(
@@ -184,8 +185,8 @@ build(
     "GAME PROGRAMMER &amp; DESIGNER",
     "Game programmer with a B.S. in Computer Science (Arizona State University, May 2026) and nine months "
     "of professional Unity experience shipping onboarding, LiveOps, and WebGL features for a live mobile "
-    "racing game. Three years building embedded race telemetry for a collegiate FSAE team. Builds solo "
-    "projects on the side, including two Minecraft mods in Java: one in open beta, one open source. "
+    "racing game. Three years building embedded race telemetry for a collegiate FSAE team. Builds polished "
+    "solo projects in TypeScript, React, and Java, including Wincon and open-source procedural worldgen. "
     "Seeking a junior game programmer role.",
     experience=[
         ("Game Development Intern", PIXEL_PIRATE_ORG, "Aug 2025 – May 2026",
@@ -196,13 +197,12 @@ build(
          "Jun 2022 – 2025", FSAE_BULLETS),
     ],
     projects=[
+        ("Wincon", "League of Legends ranked review tool · Open source", "Jul 2026 – Present",
+         [WINCON_BULLETS[0]]),
         ("Noclip", "Backrooms world type for Minecraft · Open source", "Jul 2026 – Present",
          [NOCLIP_GAME]),
         ("Create: Cognition", "Create add-on for Minecraft · In beta", "Jun 2026 – Present",
          COGITATION_BULLETS[:1]),
-        ("Black Signal", "Personal project", "2026 – Present",
-         ["Prototyping a solo first-person horror game in Unity (C#): on-foot exploration of a "
-          "derelict space station with anomaly detection as the core loop"]),
     ],
     skills=[
         ("Languages", "C# (Unity, ASP.NET) · C++ · Java · Python · JavaScript / React · HTML &amp; CSS"),
@@ -230,8 +230,8 @@ build(
           "three race seasons, including an infrared lap timing system"]),
     ],
     projects=[
-        ("League Stats Portal", "Class project, Arizona State University", "Spring 2026",
-         LEAGUE_BULLETS),
+        ("Wincon", "League of Legends ranked review tool · Open source", "Jul 2026 – Present",
+         WINCON_BULLETS),
         ("Noclip", "Open-source Minecraft mod", "Jul 2026 – Present",
          [NOCLIP_SWE]),
         ("Create: Cognition", "Minecraft mod, in beta", "Jun 2026 – Present",
