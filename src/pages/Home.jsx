@@ -359,10 +359,11 @@ export default function Home() {
               <span className={styles.titleDot} aria-hidden /> Currently Building
             </h2>
             <p className={styles.buildingDesc}>
-              Wincon's replay and coaching workflow is in final portfolio
-              polish. Noclip's procedural backrooms are deep in worldgen
-              territory, with the generator and data-driven room system
-              working in an open-source build.
+              Wincon's public demo just shipped; next up is sampling the
+              ranked ladder so its coaching notes compare against real rank
+              cohorts instead of hand-tuned benchmarks. Noclip's procedural
+              backrooms are deep in worldgen territory, with the generator
+              and data-driven room system working in an open-source build.
             </p>
             <div className={styles.buildingFooter}>
               <div className={styles.buildingTags}>

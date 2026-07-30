@@ -40,7 +40,7 @@ export const projects = [
       {
         heading: 'Why it matters',
         paragraphs: [
-          'This was live-game work: features went out to an existing player base as part of a team\'s release cycle, not a solo repo. Of everything on this site, it is the closest to how a studio operates day to day.',
+          'This was live-game work: features went out to an existing player base as part of a team\'s release cycle, not a solo repo. It is the closest experience to how a studio operates day to day: standups, sprints, and players who notice when something breaks.',
         ],
       },
     ],

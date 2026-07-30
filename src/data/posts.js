@@ -18,7 +18,7 @@ export const posts = [
       { type: 'p', text: 'The replay became the most interesting part of the project. It animates all ten champions alongside wards, tower state, objectives, and the gold timeline. Playback pauses at coaching moments and frames the relevant players while leaving enough of the map visible to understand the play around them.' },
       { type: 'h2', text: 'Shipping the Demo' },
       { type: 'p', text: 'The public version uses an anonymized showcase match with seeded history, including the Locke versus Fizz replay. Player identifiers, the original match ID, and API keys stay out of the build. Forty-three automated tests cover the metrics, insight rules, replay moments, focus tracking, and report generation.' },
-      { type: 'p', text: 'Wincon is live on the portfolio now, along with the source code. This is the first personal project where the analysis, interaction design, and presentation all feel like parts of the same finished idea.' },
+      { type: 'p', text: 'The live demo and source code are both public now. This is the first personal project where the analysis, interaction design, and presentation all feel like parts of the same finished idea.' },
     ],
   },
   {
