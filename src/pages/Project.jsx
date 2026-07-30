@@ -23,6 +23,9 @@ export default function Project() {
     tags,
     image,
     imageFit = 'cover',
+    heroImage = image,
+    heroImageFit = imageFit,
+    heroAlt = title,
     links,
     gallery = [],
     caseStudy = [],
@@ -54,11 +57,11 @@ export default function Project() {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <div className="container">
-          {image ? (
+          {heroImage ? (
             <img
-              className={`${styles.art}${imageFit === 'contain' ? ` ${styles.artContain}` : ''}`}
-              src={image}
-              alt={title}
+              className={`${styles.art}${heroImageFit === 'contain' ? ` ${styles.artContain}` : ''}`}
+              src={heroImage}
+              alt={heroAlt}
             />
           ) : (
             <div className={styles.artGhost} aria-hidden>{title}</div>

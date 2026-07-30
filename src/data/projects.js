@@ -111,8 +111,12 @@ export const projects = [
     tags: ['Java', 'NeoForge', 'Worldgen', 'Minecraft', 'In Development'],
     image: '/images/noclip.png?v=3',
     imageFit: 'contain',
+    heroImage: '/images/noclip-gameplay.webp',
+    heroImageFit: 'cover',
+    heroAlt: 'First-person gameplay inside Noclip\'s procedurally generated backrooms maze',
     featured: true,
     links: { github: 'https://github.com/KodaNotABear/noclip' },
+    gallery: ['/images/noclip-large-room.webp'],
     caseStudy: [
       {
         heading: 'Overview',
