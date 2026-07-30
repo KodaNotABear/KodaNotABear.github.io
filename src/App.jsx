@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
 import ScrollToTop from './components/ScrollToTop'
 import KeyboardShortcuts from './components/KeyboardShortcuts'
+import PageMeta from './components/PageMeta'
 import MiniGame from './components/MiniGame'
 import BlackSignalGlitch from './components/BlackSignalGlitch'
 import TextAdventure from './components/TextAdventure'
@@ -59,6 +60,7 @@ function Layout() {
 export default function App() {
   return (
     <BrowserRouter>
+      <PageMeta />
       <ScrollToTop />
       <ScrollProgress />
       <KeyboardShortcuts />

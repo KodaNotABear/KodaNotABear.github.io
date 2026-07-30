@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { getProject, nextProject } from '../data/projects'
@@ -11,11 +10,6 @@ export default function Project() {
   const { id } = useParams()
   const project = getProject(id)
   const next = nextProject(id)
-
-  useEffect(() => {
-    if (project) document.title = `${project.title} · AKURO STUDIO`
-    return () => { document.title = 'Ethan Peterson · AKURO STUDIO' }
-  }, [project])
 
   if (!project) return <NotFound />
 

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "node scripts/generate-route-pages.mjs",
     "art": "node scripts/generate-art.mjs",
     "resume": "python scripts/generate-resume.py",
     "lint": "eslint .",

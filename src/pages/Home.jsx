@@ -218,7 +218,7 @@ export default function Home() {
                 CS Graduate · May 2026
               </div>
 
-              <h1 className={styles.heroName}>
+              <h1 className={styles.heroName} aria-label="Ethan Peterson">
                 Ethan<br />
                 Peterson<em>.</em>
               </h1>

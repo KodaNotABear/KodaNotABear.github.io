@@ -7,7 +7,7 @@ Personal portfolio of **Ethan Peterson**, a game programmer and designer buildin
 ## Stack
 
 - [React 19](https://react.dev) + [Vite 8](https://vite.dev)
-- [React Router v7](https://reactrouter.com) for client-side routing, with a GitHub Pages 404 redirect shim
+- [React Router v7](https://reactrouter.com) for client-side routing, with generated static route entries for GitHub Pages
 - [Framer Motion](https://www.framer.com/motion/) for page transitions and scroll reveals
 - CSS Modules with a custom design-token system (`src/styles/global.css`)
 - Hosted on GitHub Pages behind Cloudflare
@@ -18,7 +18,7 @@ Personal portfolio of **Ethan Peterson**, a game programmer and designer buildin
 npm install
 npm run dev      # local dev server
 npm run lint     # eslint
-npm run build    # production build to dist/
+npm run build    # production build to dist/ + static route entries
 npm run art      # regenerate og image + project art (scripts/generate-art.mjs)
 npm run resume   # regenerate public/resume.pdf (needs Python + reportlab)
 ```
