@@ -494,8 +494,18 @@
   transition: transform var(--transition-slow);
 }
 
+.showArt img.containArt {
+  object-fit: contain;
+  padding: 5%;
+  background: #020808;
+}
+
 .showRow:hover .showArt img {
   transform: scale(1.04);
+}
+
+.showRow:hover .showArt img.containArt {
+  transform: scale(1.02);
 }
 
 .showGhost {

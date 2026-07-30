@@ -11,6 +11,7 @@ export default function ProjectCard({ project, index = 0 }) {
     description,
     tags = [],
     image,
+    imageFit = 'cover',
     links = {},
     featured = false,
   } = project
@@ -27,7 +28,12 @@ export default function ProjectCard({ project, index = 0 }) {
 
       <Link to={`/portfolio/${id}`} className={styles.thumb} aria-label={`${title} details`}>
         {image ? (
-          <img src={image} alt={title} loading="lazy" />
+          <img
+            className={imageFit === 'contain' ? styles.containArt : undefined}
+            src={image}
+            alt={title}
+            loading="lazy"
+          />
         ) : (
           <div className={styles.thumbPlaceholder} aria-hidden>{title}</div>
         )}

@@ -51,6 +51,13 @@
   border-radius: var(--radius-lg);
 }
 
+.artContain {
+  aspect-ratio: 21 / 9;
+  object-fit: contain;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background: #020808;
+}
+
 .artGhost {
   width: 100%;
   aspect-ratio: 21 / 9;

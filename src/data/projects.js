@@ -109,7 +109,8 @@ export const projects = [
     description:
       'A survival challenge built in Java for NeoForge 1.21.1: a procedural maze generator replaces the overworld with the endless yellow rooms of the backrooms, and the goal is completing vanilla progression from inside them. Rooms are data-driven, authored as structure templates that any datapack can extend. In development, open source.',
     tags: ['Java', 'NeoForge', 'Worldgen', 'Minecraft', 'In Development'],
-    image: '/images/noclip.png?v=2',
+    image: '/images/noclip.png?v=3',
+    imageFit: 'contain',
     featured: true,
     links: { github: 'https://github.com/KodaNotABear/noclip' },
     caseStudy: [

@@ -316,7 +316,12 @@ export default function Home() {
                   <Link to={`/portfolio/${project.id}`} className={styles.showRow}>
                     <div className={styles.showArt}>
                       {project.image ? (
-                        <img src={project.image} alt={project.title} loading="lazy" />
+                        <img
+                          className={project.imageFit === 'contain' ? styles.containArt : undefined}
+                          src={project.image}
+                          alt={project.title}
+                          loading="lazy"
+                        />
                       ) : (
                         <span className={styles.showGhost} aria-hidden>{project.title}</span>
                       )}

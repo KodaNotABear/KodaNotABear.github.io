@@ -13,7 +13,20 @@ export default function Project() {
 
   if (!project) return <NotFound />
 
-  const { title, studio, role, period, status, tagline, tags, image, links, gallery = [], caseStudy = [] } = project
+  const {
+    title,
+    studio,
+    role,
+    period,
+    status,
+    tagline,
+    tags,
+    image,
+    imageFit = 'cover',
+    links,
+    gallery = [],
+    caseStudy = [],
+  } = project
 
   return (
     <main className={styles.page}>
@@ -42,7 +55,11 @@ export default function Project() {
       >
         <div className="container">
           {image ? (
-            <img className={styles.art} src={image} alt={title} />
+            <img
+              className={`${styles.art}${imageFit === 'contain' ? ` ${styles.artContain}` : ''}`}
+              src={image}
+              alt={title}
+            />
           ) : (
             <div className={styles.artGhost} aria-hidden>{title}</div>
           )}

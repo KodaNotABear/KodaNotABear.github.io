@@ -57,8 +57,18 @@
   transition: transform var(--transition-slow);
 }
 
+.thumb img.containArt {
+  object-fit: contain;
+  padding: 5%;
+  background: #020808;
+}
+
 .card:hover .thumb img {
   transform: scale(1.04);
+}
+
+.card:hover .thumb img.containArt {
+  transform: scale(1.02);
 }
 
 .thumbPlaceholder {
