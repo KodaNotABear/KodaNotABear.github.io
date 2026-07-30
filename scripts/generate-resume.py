@@ -205,7 +205,7 @@ build(
          COGITATION_BULLETS[:1]),
     ],
     skills=[
-        ("Languages", "C# (Unity, ASP.NET) · C++ · Java · Python · JavaScript / React · HTML &amp; CSS"),
+        ("Languages", "C# (Unity, ASP.NET) · C++ · Java · TypeScript / JavaScript · Python · HTML &amp; CSS"),
         ("Engines &amp; Tools", "Unity (3+ years) · Git / GitHub · Blender · FMOD · JetBrains Rider · Visual Studio"),
         ("Game Development", "Gameplay systems · UI implementation · Level design · WebGL builds · Onboarding / LiveOps"),
         ("Engineering", "Embedded systems · Data acquisition · Game servers (Docker / VPS) · Agile / Scrum"),
@@ -239,7 +239,7 @@ build(
           "and proportional allocation, simulating mob loot with zero spawned entities to cut server load"]),
     ],
     skills=[
-        ("Languages", "C# (.NET, Unity) · JavaScript / React · Python · Java · C++ · HTML &amp; CSS"),
+        ("Languages", "C# (.NET, Unity) · TypeScript / JavaScript · Python · Java · C++ · HTML &amp; CSS"),
         ("Web &amp; Services", "ASP.NET · WCF · REST APIs · Vite · GitHub Actions CI"),
         ("Infrastructure", "Docker · Linux VPS · Game server hosting · Git / GitHub"),
         ("Practices", "Agile / Scrum · Code review · Embedded systems · Data acquisition"),

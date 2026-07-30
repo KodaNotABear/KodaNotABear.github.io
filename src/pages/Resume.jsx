@@ -68,7 +68,7 @@ const PROJECTS = [
 ]
 
 const SKILLS = [
-  { group: 'Languages', items: ['C# (Unity, ASP.NET)', 'C++', 'Java', 'Python', 'JavaScript / React', 'HTML & CSS'] },
+  { group: 'Languages', items: ['C# (Unity, ASP.NET)', 'C++', 'Java', 'TypeScript / JavaScript', 'Python', 'HTML & CSS'] },
   { group: 'Engines & Tools', items: ['Unity (3+ years)', 'Git / GitHub', 'Blender', 'FMOD', 'Rider / Visual Studio'] },
   { group: 'Game Dev', items: ['Gameplay Systems', 'UI Implementation', 'Level Design', 'WebGL Builds'] },
   { group: 'Engineering', items: ['Embedded Systems', 'Data Acquisition', 'Game Servers (Docker / VPS)', 'Agile / Scrum', 'Code Review'] },
