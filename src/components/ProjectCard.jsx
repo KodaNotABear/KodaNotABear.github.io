@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ItchIcon, GitHubIcon } from './Icons'
+import { ItchIcon, GitHubIcon, ModrinthIcon } from './Icons'
 import styles from './ProjectCard.module.css'
 
 export default function ProjectCard({ project, index = 0 }) {
@@ -64,6 +64,12 @@ export default function ProjectCard({ project, index = 0 }) {
             <a href={links.itch} target="_blank" rel="noopener noreferrer"
                className={`${styles.actionBtn} ${styles.actionPrimary}`}>
               <ItchIcon size={14} /> Play / Download
+            </a>
+          )}
+          {links.modrinth && (
+            <a href={links.modrinth} target="_blank" rel="noopener noreferrer"
+               className={`${styles.actionBtn} ${styles.actionPrimary}`}>
+              <ModrinthIcon size={14} /> Download
             </a>
           )}
           {links.demo && (

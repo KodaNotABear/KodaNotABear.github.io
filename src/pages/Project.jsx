@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { getProject, nextProject } from '../data/projects'
 import { statusVariant } from '../utils/status'
-import { GitHubIcon, ItchIcon } from '../components/Icons'
+import { GitHubIcon, ItchIcon, ModrinthIcon } from '../components/Icons'
 import NotFound from './NotFound'
 import styles from './Project.module.css'
 
@@ -92,7 +92,7 @@ export default function Project() {
                 {tags.map(t => <span key={t} className="tag">{t}</span>)}
               </div>
             </div>
-            {(links.github || links.itch || links.demo) && (
+            {(links.github || links.itch || links.demo || links.modrinth) && (
               <div className={styles.metaItem}>
                 <div className={styles.metaLabel}>Links</div>
                 <div className={styles.metaLinks}>
@@ -104,6 +104,11 @@ export default function Project() {
                   {links.itch && (
                     <a href={links.itch} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                       <ItchIcon size={14} /> Play
+                    </a>
+                  )}
+                  {links.modrinth && (
+                    <a href={links.modrinth} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                      <ModrinthIcon size={14} /> Modrinth
                     </a>
                   )}
                   {links.demo && (

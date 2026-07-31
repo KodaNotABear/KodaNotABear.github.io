@@ -104,18 +104,21 @@ export const projects = [
     studio: 'Backrooms World Type for Minecraft',
     role: 'Solo developer · Open source',
     period: 'Jul 2026 – Present',
-    status: 'In development',
+    status: 'Alpha on Modrinth',
     tagline: 'The backrooms as a survival world type, procedural maze included.',
     description:
-      'A survival challenge built in Java for NeoForge 1.21.1: a procedural maze generator replaces the overworld with the endless yellow rooms of the backrooms, and the goal is completing vanilla progression from inside them. Rooms are data-driven, authored as structure templates that any datapack can extend. In development, open source.',
-    tags: ['Java', 'NeoForge', 'Worldgen', 'Minecraft', 'In Development'],
+      'A survival challenge built in Java for NeoForge 1.21.1: a procedural maze generator replaces the overworld with the endless yellow rooms of the backrooms, and the goal is completing vanilla progression from inside them. Rooms are data-driven, authored as structure templates that any datapack can extend. Now in public alpha on Modrinth, open source.',
+    tags: ['Java', 'NeoForge', 'Worldgen', 'Minecraft', 'Alpha'],
     image: '/images/noclip.png?v=3',
     imageFit: 'contain',
     heroImage: '/images/noclip-gameplay.webp',
     heroImageFit: 'cover',
     heroAlt: 'First-person gameplay inside Noclip\'s procedurally generated backrooms maze',
     featured: true,
-    links: { github: 'https://github.com/KodaNotABear/noclip' },
+    links: {
+      github: 'https://github.com/KodaNotABear/noclip',
+      modrinth: 'https://modrinth.com/mod/noclip-backrooms',
+    },
     gallery: ['/images/noclip-large-room.webp'],
     caseStudy: [
       {
@@ -134,7 +137,7 @@ export const projects = [
       {
         heading: 'Status',
         paragraphs: [
-          'In active development and open source. The generator and room template system are working; current work is on populating zones and progression pacing.',
+          'Version 0.1.0 alpha is live on Modrinth for Minecraft 1.21.1 / NeoForge: the Level 0 world type, unbreakable architecture, supply room loot, and a craftable key for visiting the backrooms from ordinary worlds. Current work is on the authored room pool and progression pacing toward a full playthrough.',
         ],
       },
     ],
