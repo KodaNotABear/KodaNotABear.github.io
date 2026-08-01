@@ -90,15 +90,14 @@ export default function NoclipPlan() {
       </p>
 
       <ul className={styles.legend}>
-        <li><i style={{ background: '#c2b57d' }} />Wall, 4 blocks</li>
-        <li><i style={{ background: '#9d9260' }} />Warehouse pillar, 23 blocks</li>
-        <li><i style={{ background: '#9c8d5c' }} />Small room template</li>
-        <li><i style={{ background: '#3d3524' }} />Big room template</li>
+        <li><i style={{ background: '#c2b57d' }} />Wall and pillar</li>
+        <li><i style={{ background: '#4a4130' }} />Room template</li>
         <li><i style={{ background: '#4c7dff' }} />Doorway</li>
         <li><i style={{ background: '#46d39a' }} />Traced route</li>
-        <li><i style={{ background: '#332f24' }} />Open halls</li>
-        <li><i style={{ background: '#2b2820' }} />Corridor maze</li>
-        <li><i style={{ background: '#1e1d18' }} />Warehouse void</li>
+        <li className={styles.legendGap}><i style={{ background: '#282520' }} />Corridor maze</li>
+        <li><i style={{ background: '#332f23' }} />Mixed</li>
+        <li><i style={{ background: '#413b2b' }} />Open halls</li>
+        <li><i style={{ background: '#1c1b17' }} />Warehouse void</li>
       </ul>
     </div>
   )

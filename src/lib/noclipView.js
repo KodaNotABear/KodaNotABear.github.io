@@ -38,9 +38,10 @@ const PATH_MS = 105
 
 const C = {
   bg: '#0f0f10',
-  floor: '#2b2820',
-  floorHalls: '#332f24',
-  floorWarehouse: '#1e1d18',
+  floorMaze: '#282520',
+  floorMixed: '#332f23',
+  floorHalls: '#413b2b',
+  floorWarehouse: '#1c1b17',
   wallLit: '#c2b57d',
   wallDim: '#8a8054',
   wallCap: '#ded2a1',
@@ -49,7 +50,7 @@ const C = {
   propLit: '#7d7048',
   propDim: '#584f34',
   propTop: '#9c8d5c',
-  floorRoom: '#3d3524',
+  floorRoom: '#4a4130',
   path: '#46d39a',
   door: '#4c7dff',
   active: '#4c7dff',
@@ -180,7 +181,7 @@ export function createNoclipView(canvas) {
     })
   }
 
-  function pushWall(out, opening, x1, z1, x2, z2, y, lit) {
+  function pushWall(out, marks, opening, x1, z1, x2, z2, y, lit) {
     if (opening === OPEN) return
     if (opening === SOLID) return pushPanel(out, x1, z1, x2, z2, y, lit)
     // DOOR: leave a gap in the middle so the opening is legible in silhouette,
@@ -191,10 +192,10 @@ export function createNoclipView(canvas) {
     pushPanel(out, x1, z1, x1 + dx * 0.32, z1 + dz * 0.32, y, lit)
     pushPanel(out, x2 - dx * 0.32, z2 - dz * 0.32, x2, z2, y, lit)
     pushLine(
-      out,
+      marks,
       x1 + dx * 0.32, z1 + dz * 0.32,
       x1 + dx * 0.68, z1 + dz * 0.68,
-      DOOR_Y, C.door, Math.max(1.2, view.scale * 0.06)
+      DOOR_Y, C.door, Math.max(1.6, view.scale * 0.08)
     )
   }
 
@@ -307,21 +308,25 @@ export function createNoclipView(canvas) {
       const z = cell.cz
       quad(
         [project(x, z, 0), project(x + 1, z, 0), project(x + 1, z + 1, 0), project(x, z + 1, 0)],
-        cell.zone.warehouse
-          ? C.floorWarehouse
-          : cell.bigRoom
-            ? C.floorRoom
-            : state.showZones && cell.zone.key === 'halls'
-              ? C.floorHalls
-              : C.floor
+        cell.bigRoom && !cell.zone.warehouse
+          ? C.floorRoom
+          : !state.showZones
+            ? (cell.zone.warehouse ? C.floorWarehouse : C.floorMaze)
+            : cell.zone.key === 'warehouse'
+              ? C.floorWarehouse
+              : cell.zone.key === 'halls'
+                ? C.floorHalls
+                : cell.zone.key === 'mixed'
+                  ? C.floorMixed
+                  : C.floorMaze
       )
     }
 
     // Zone boundaries belong to the floor, so they are drawn with it. Drawn
     // after the walls they streak across the geometry that should hide them.
     if (state.showZones) {
-      ctx.strokeStyle = 'rgba(76,125,255,.28)'
-      ctx.lineWidth = 1
+      ctx.strokeStyle = 'rgba(76,125,255,.55)'
+      ctx.lineWidth = 2
       const line = (x1, z1, x2, z2) => {
         const a = project(x1, z1, 0)
         const b = project(x2, z2, 0)
@@ -368,6 +373,7 @@ export function createNoclipView(canvas) {
     // the cell that owns them. Panels lie on grid lines and never intersect, so
     // a per-piece depth is unambiguous and varies smoothly with yaw.
     const pieces = []
+    const marks = []
     for (const { cell, p } of cells) {
       const x = cell.cx
       const z = cell.cz
@@ -382,8 +388,8 @@ export function createNoclipView(canvas) {
       }
 
       const y = WALL_H * e
-      pushWall(pieces, cell.north, x, z, x + 1, z, y, litNorth)
-      pushWall(pieces, cell.west, x, z, x, z + 1, y, litWest)
+      pushWall(pieces, marks, cell.north, x, z, x + 1, z, y, litNorth)
+      pushWall(pieces, marks, cell.west, x, z, x, z + 1, y, litWest)
     }
 
     // room templates the generator would stamp into these cells, and the traced
@@ -411,11 +417,17 @@ export function createNoclipView(canvas) {
       const z1 = az + 0.5
       const x2 = x1 + (bx - ax) * f
       const z2 = z1 + (bz - az) * f
-      pushLine(pieces, x1, z1, x2, z2, PATH_Y, C.path, Math.max(2, view.scale * 0.13))
+      pushLine(marks, x1, z1, x2, z2, PATH_Y, C.path, Math.max(2, view.scale * 0.13))
     }
 
+    // Floor markings are drawn as their own pass, after the floor and before
+    // anything standing. Sorting them alongside walls made them z-fight: a line
+    // at ground level and the wall standing on that same footprint have almost
+    // identical depth, so the comparison flipped as the model turned.
+    for (const m of marks) drawLine(m)
+
     pieces.sort((a, b) => a.d - b.d)
-    for (const pc of pieces) (pc.line ? drawLine : pc.box ? drawBox : drawPanel)(pc)
+    for (const pc of pieces) (pc.box ? drawBox : drawPanel)(pc)
 
     if (state.hover) {
       const [ax, az] = state.hover
