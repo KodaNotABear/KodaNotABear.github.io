@@ -1,5 +1,5 @@
-import { animate } from 'animejs'
-import { buildRegion, seedFromText, ZONE_CELLS, SOLID, OPEN } from './noclip.js'
+import { animate, createTimeline } from 'animejs'
+import { buildRegion, seedFromText, findLongestPath, ZONE_CELLS, SOLID, OPEN } from './noclip.js'
 
 // Axonometric view of Noclip's Level 0, built one CHUNK at a time in shuffled
 // order, walls rising out of the floor as each chunk resolves.
@@ -24,6 +24,13 @@ const SIN_P = 0.81
 const WALL_H = 0.5
 const WAREHOUSE_H = 2.6
 const PILLAR = 0.26
+const PROP_H = 0.2
+const PATH_Y = 0.07
+
+// ms per unit of build time; the build reads as construction rather than a
+// flicker, so it is deliberately unhurried
+const BUILD_MS = 92
+const PATH_MS = 105
 
 const C = {
   bg: '#0f0f10',
@@ -35,6 +42,11 @@ const C = {
   wallCap: '#ded2a1',
   pillarLit: '#9d9260',
   pillarDim: '#6b6342',
+  propLit: '#7d7048',
+  propDim: '#584f34',
+  propTop: '#9c8d5c',
+  floorRoom: '#3d3524',
+  path: '#46d39a',
   text: '#ececec',
   muted: '#5a5a5c',
   accent: '#4c7dff',
@@ -54,12 +66,14 @@ export function createNoclipView(canvas) {
     cols: 15,
     rows: 15,
     t: 0,
+    pathT: 0,
     stagger: 1,
     rise: 6,
     showZones: true,
     hover: null,
   }
   let region = null
+  let path = []
   let orderIndex = new Map() // chunk key -> reveal position
   let dpr = 1
   let disposed = false
@@ -97,6 +111,7 @@ export function createNoclipView(canvas) {
     }
     orderIndex = new Map(anchors.map(([x, z], i) => [chunkKey(x, z), i]))
     state.total = anchors.length
+    path = findLongestPath(region)
   }
 
   const cellAt = (cx, cz) =>
@@ -159,11 +174,27 @@ export function createNoclipView(canvas) {
     pushPanel(out, x2 - dx * 0.32, z2 - dz * 0.32, x2, z2, y, lit)
   }
 
-  function pushBox(out, x, z, size, y, litCol, dimCol) {
+  function pushLine(out, x1, z1, x2, z2, y, color, width) {
+    out.push({ line: true, x1, z1, x2, z2, y, color, width, d: depthAt((x1 + x2) / 2, (z1 + z2) / 2) })
+  }
+
+  function drawLine(pc) {
+    const a = project(pc.x1, pc.z1, pc.y)
+    const b = project(pc.x2, pc.z2, pc.y)
+    ctx.strokeStyle = pc.color
+    ctx.lineWidth = pc.width
+    ctx.lineCap = 'round'
+    ctx.beginPath()
+    ctx.moveTo(a.sx, a.sy)
+    ctx.lineTo(b.sx, b.sy)
+    ctx.stroke()
+  }
+
+  function pushBox(out, x, z, size, y, litCol, dimCol, topCol) {
     if (y <= 0.001) return
     out.push({
       box: true,
-      x, z, size, y, litCol, dimCol,
+      x, z, size, y, litCol, dimCol, topCol,
       d: depthAt(x + size / 2, z + size / 2),
     })
   }
@@ -210,7 +241,7 @@ export function createNoclipView(canvas) {
     }
     quad(
       [project(x, z, y), project(x1, z, y), project(x1, z1, y), project(x, z1, y)],
-      C.wallCap
+      pc.topCol || C.wallCap
     )
   }
 
@@ -254,9 +285,11 @@ export function createNoclipView(canvas) {
         [project(x, z, 0), project(x + 1, z, 0), project(x + 1, z + 1, 0), project(x, z + 1, 0)],
         cell.zone.warehouse
           ? C.floorWarehouse
-          : state.showZones && cell.zone.key === 'halls'
-            ? C.floorHalls
-            : C.floor
+          : cell.bigRoom
+            ? C.floorRoom
+            : state.showZones && cell.zone.key === 'halls'
+              ? C.floorHalls
+              : C.floor
       )
     }
 
@@ -307,8 +340,36 @@ export function createNoclipView(canvas) {
       pushWall(pieces, cell.west, x, z, x, z + 1, y, litWest)
     }
 
+    // room templates the generator would stamp into these cells, and the traced
+    // route, share the piece list so walls occlude them correctly
+    for (const { cell, p } of cells) {
+      const x = cell.cx
+      const z = cell.cz
+      const e = easeOut(p)
+      // Only the PRESENCE of a room template is known; the geometry lives in an
+      // NBT registry this port does not load. So a small room gets a marker
+      // object and a big room gets a floor marking, rather than invented walls.
+      if (cell.zone.warehouse || cell.bigRoom) continue
+      if (cell.smallRoom) {
+        pushBox(pieces, x + 0.33, z + 0.33, 0.34, PROP_H * e, C.propLit, C.propDim, C.propTop)
+      }
+    }
+
+    for (let i = 0; i < path.length - 1; i++) {
+      const head = state.pathT - i
+      if (head <= 0) break
+      const [ax, az] = path[i]
+      const [bx, bz] = path[i + 1]
+      const f = Math.min(1, head)
+      const x1 = ax + 0.5
+      const z1 = az + 0.5
+      const x2 = x1 + (bx - ax) * f
+      const z2 = z1 + (bz - az) * f
+      pushLine(pieces, x1, z1, x2, z2, PATH_Y, C.path, Math.max(2, view.scale * 0.13))
+    }
+
     pieces.sort((a, b) => a.d - b.d)
-    for (const pc of pieces) (pc.box ? drawBox : drawPanel)(pc)
+    for (const pc of pieces) (pc.line ? drawLine : pc.box ? drawBox : drawPanel)(pc)
 
     if (state.hover) {
       const [ax, az] = state.hover
@@ -333,24 +394,29 @@ export function createNoclipView(canvas) {
     ctx.font = '500 11px "JetBrains Mono", monospace'
     ctx.textBaseline = 'top'
     ctx.fillText(`CHUNKS ${String(built).padStart(2, '0')} / ${state.total}`, 16, 14)
+    if (state.pathT > 0 && path.length) {
+      ctx.fillStyle = C.path
+      const done = Math.min(path.length, Math.ceil(state.pathT))
+      ctx.fillText(`ROUTE ${done} / ${path.length} CELLS`, 16, 32)
+    }
   }
 
   function run() {
     if (running) running.pause()
     state.t = 0
+    state.pathT = 0
     const end = state.total * state.stagger + state.rise
-    running = animate(state, {
-      t: end,
-      duration: end * 42,
-      ease: 'linear',
-      onUpdate: draw,
-    })
+    running = createTimeline({ defaults: { ease: 'linear' }, onUpdate: draw })
+      .add(state, { t: [0, end], duration: end * BUILD_MS }, 0)
+      .add(state, { pathT: [0, path.length], duration: path.length * PATH_MS },
+        end * BUILD_MS + 400)
     return running
   }
 
   function finish() {
     if (running) running.pause()
     state.t = state.total * state.stagger + state.rise
+    state.pathT = path.length
     draw()
   }
 

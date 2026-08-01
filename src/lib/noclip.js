@@ -27,6 +27,10 @@ const SALT_BRAID = 0x56
 const SALT_KIND = 0x58
 const SALT_ZONE = 0x5a
 const SALT_BORDER = 0x5e
+const SALT_ROOM_PRESENCE = 0x53
+const SALT_BIG_PRESENCE = 0x5c
+const ROOM_CHANCE = 12
+const BIG_ROOM_CHANCE = 28
 
 export function hash(seed, a, b, salt) {
   let h = U64(
@@ -127,6 +131,8 @@ export function buildRegion(seed, originX, originZ, cols, rows) {
         carvesWest: carvesWest(s, cx, cz),
         west: segmentOpening(s, cx, cz, true),
         north: segmentOpening(s, cx, cz, false),
+        bigRoom: hasBigRoom(s, cx & ~1, cz & ~1),
+        smallRoom: hasSmallRoom(s, cx, cz),
       })
     }
   }
@@ -140,4 +146,143 @@ export function seedFromText(text) {
   let h = 0
   for (let i = 0; i < t.length; i++) h = Math.imul(31, h) + t.charCodeAt(i) | 0
   return BigInt.asIntN(64, BigInt(h))
+}
+
+// ── room templates ────────────────────────────────────────
+// Only the PRESENCE rolls are ported. Which template gets stamped needs the
+// runtime NBT registry, so these answer "does a room go here", not "which one".
+
+/** Big rooms anchor on even cell coords and span 2x2, so they cannot overlap. */
+export function hasBigRoom(seed, anchorX, anchorZ) {
+  const s = typeof seed === 'bigint' ? seed : BigInt(seed)
+  const cells = [[0, 0], [1, 0], [0, 1], [1, 1]]
+  if (cells.some(([dx, dz]) => zoneAt(s, anchorX + dx, anchorZ + dz).warehouse)) return false
+  return Number(hash(s, anchorX, anchorZ, SALT_BIG_PRESENCE) & 0xffn) < BIG_ROOM_CHANCE
+}
+
+export function hasSmallRoom(seed, cellX, cellZ) {
+  const s = typeof seed === 'bigint' ? seed : BigInt(seed)
+  if (zoneAt(s, cellX, cellZ).warehouse) return false
+  return Number(hash(s, cellX, cellZ, SALT_ROOM_PRESENCE) & 0xffn) < ROOM_CHANCE
+}
+
+// ── connectivity ──────────────────────────────────────────
+// The binary-tree carve guarantees the infinite grid is fully connected without
+// any global pass. Tracing an actual route is that guarantee made checkable
+// rather than asserted.
+
+const passable = o => o !== SOLID
+
+export function findPath(region, from, to) {
+  const key = (x, z) => `${x},${z}`
+  const inside = (x, z) =>
+    x >= region.originX && z >= region.originZ &&
+    x < region.originX + region.cols && z < region.originZ + region.rows
+  const cellAt = (x, z) => region.cells[(z - region.originZ) * region.cols + (x - region.originX)]
+
+  const prev = new Map()
+  const seen = new Set([key(...from)])
+  let frontier = [from]
+
+  while (frontier.length) {
+    const next = []
+    for (const [x, z] of frontier) {
+      if (x === to[0] && z === to[1]) {
+        const path = []
+        let cur = key(x, z)
+        while (cur) {
+          path.push(cur.split(',').map(Number))
+          cur = prev.get(cur)
+        }
+        return path.reverse()
+      }
+      const cell = cellAt(x, z)
+      // a cell's own west/north segments gate the steps to those neighbours;
+      // the east/south steps are gated by the neighbour's segments
+      const moves = [
+        [x - 1, z, passable(cell.west)],
+        [x, z - 1, passable(cell.north)],
+        [x + 1, z, inside(x + 1, z) && passable(cellAt(x + 1, z).west)],
+        [x, z + 1, inside(x, z + 1) && passable(cellAt(x, z + 1).north)],
+      ]
+      for (const [nx, nz, ok] of moves) {
+        if (!ok || !inside(nx, nz) || seen.has(key(nx, nz))) continue
+        seen.add(key(nx, nz))
+        prev.set(key(nx, nz), key(x, z))
+        next.push([nx, nz])
+      }
+    }
+    frontier = next
+  }
+  return []
+}
+
+/**
+ * The longest route that stays inside the drawn window.
+ *
+ * The maze IS fully connected, but that connectivity leans on carve chains that
+ * run far outside any finite view: from a 15x15 window, a search clipped to the
+ * window reaches only a handful of cells, while an unclipped one reaches all of
+ * them. Drawing a path that wanders off-frame and back would read as a bug, so
+ * this traces the longest real corridor inside the visible area instead.
+ * Approximate graph diameter by double breadth-first search.
+ */
+export function findLongestPath(region) {
+  const key = (x, z) => `${x},${z}`
+  const inside = (x, z) =>
+    x >= region.originX && z >= region.originZ &&
+    x < region.originX + region.cols && z < region.originZ + region.rows
+  const cellAt = (x, z) => region.cells[(z - region.originZ) * region.cols + (x - region.originX)]
+
+  const neighbours = ([x, z]) => {
+    const c = cellAt(x, z)
+    return [
+      [x - 1, z, passable(c.west)],
+      [x, z - 1, passable(c.north)],
+      [x + 1, z, inside(x + 1, z) && passable(cellAt(x + 1, z).west)],
+      [x, z + 1, inside(x, z + 1) && passable(cellAt(x, z + 1).north)],
+    ].filter(([nx, nz, ok]) => ok && inside(nx, nz))
+  }
+
+  // sweep, tracking both the component and the farthest cell within it
+  const sweep = start => {
+    const prev = new Map()
+    const seen = new Set([key(...start)])
+    let frontier = [start]
+    let last = start
+    while (frontier.length) {
+      const next = []
+      for (const cell of frontier) {
+        last = cell
+        for (const [nx, nz] of neighbours(cell)) {
+          if (seen.has(key(nx, nz))) continue
+          seen.add(key(nx, nz))
+          prev.set(key(nx, nz), key(...cell))
+          next.push([nx, nz])
+        }
+      }
+      frontier = next
+    }
+    return { seen, prev, last }
+  }
+
+  // largest connected component inside the window
+  const assigned = new Set()
+  let best = null
+  for (const c of region.cells) {
+    if (assigned.has(key(c.cx, c.cz))) continue
+    const r = sweep([c.cx, c.cz])
+    r.seen.forEach(k => assigned.add(k))
+    if (!best || r.seen.size > best.seen.size) best = r
+  }
+  if (!best) return []
+
+  const far = sweep(best.last)
+  const path = []
+  let cur = key(...far.last)
+  while (cur) {
+    path.push(cur.split(',').map(Number))
+    cur = far.prev.get(cur)
+  }
+  return path.reverse()
 }
