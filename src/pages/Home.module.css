@@ -109,7 +109,10 @@
 }
 
 .termLine {
-  white-space: pre;
+  /* pre preserves the leading spaces in the help text but never wraps, so long
+     lines were clipped by the body's overflow-x: hidden instead of flowing */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .term_cyan   { color: var(--accent); }

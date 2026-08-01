@@ -61,6 +61,16 @@ export default function MiniGame() {
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     const W = COLS * CELL, H = ROWS * CELL
+
+    // Canvas 2D cannot resolve CSS custom properties: assigning an invalid
+    // colour to fillStyle is silently ignored and the previous value sticks,
+    // so 'var(--accent)' painted every segment in the background colour and the
+    // whole game rendered invisible. Resolve the tokens to literals up front.
+    const cs = getComputedStyle(document.documentElement)
+    const token = (name, fallback) => cs.getPropertyValue(name).trim() || fallback
+    const ACCENT = token('--accent', '#4c7dff')
+    const ACCENT_RGB = token('--accent-rgb', '76, 125, 255')
+    const FOOD = token('--accent-2', '#e8b44a')
     let g = newState()
     let timerId = null
 
@@ -69,13 +79,13 @@ export default function MiniGame() {
       ctx.fillRect(0, 0, W, H)
 
       // Dot grid
-      ctx.fillStyle = 'rgba(var(--accent-rgb),0.06)'
+      ctx.fillStyle = `rgba(${ACCENT_RGB},0.10)`
       for (let x = 0; x < COLS; x++)
         for (let y = 0; y < ROWS; y++)
           ctx.fillRect(x * CELL + CELL / 2 - 1, y * CELL + CELL / 2 - 1, 2, 2)
 
       if (!g.started) {
-        ctx.fillStyle = 'rgba(var(--accent-rgb),0.55)'
+        ctx.fillStyle = `rgba(${ACCENT_RGB},0.75)`
         ctx.font = '13px monospace'
         ctx.textAlign = 'center'
         ctx.fillText('Press any arrow key to start', W / 2, H / 2)
@@ -83,8 +93,8 @@ export default function MiniGame() {
       }
 
       // Food
-      ctx.fillStyle = 'var(--accent-violet)'
-      ctx.shadowColor = 'var(--accent-violet)'
+      ctx.fillStyle = FOOD
+      ctx.shadowColor = FOOD
       ctx.shadowBlur = 14
       ctx.fillRect(g.food.x * CELL + 3, g.food.y * CELL + 3, CELL - 6, CELL - 6)
       ctx.shadowBlur = 0
@@ -92,8 +102,8 @@ export default function MiniGame() {
       // Snake (head bright, tail fades)
       g.snake.forEach((seg, i) => {
         const alpha = i === 0 ? 1 : Math.max(0.28, 1 - i * 0.045)
-        ctx.fillStyle = i === 0 ? 'var(--accent)' : `rgba(var(--accent-rgb),${alpha})`
-        ctx.shadowColor = 'var(--accent)'
+        ctx.fillStyle = i === 0 ? ACCENT : `rgba(${ACCENT_RGB},${alpha})`
+        ctx.shadowColor = ACCENT
         ctx.shadowBlur = i === 0 ? 12 : 3
         ctx.fillRect(seg.x * CELL + 1, seg.y * CELL + 1, CELL - 2, CELL - 2)
       })
@@ -110,7 +120,7 @@ export default function MiniGame() {
         ctx.shadowBlur = 14
         ctx.fillText('GAME OVER', W / 2, H / 2 - 20)
         ctx.shadowBlur = 0
-        ctx.fillStyle = 'rgba(var(--accent-rgb),0.85)'
+        ctx.fillStyle = `rgba(${ACCENT_RGB},0.85)`
         ctx.font = '13px monospace'
         ctx.fillText(`Score: ${g.score}`, W / 2, H / 2 + 8)
         ctx.fillText('Enter to restart · Esc to quit', W / 2, H / 2 + 32)

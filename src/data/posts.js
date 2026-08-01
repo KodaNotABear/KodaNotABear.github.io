@@ -3,6 +3,26 @@
 
 export const posts = [
   {
+    id: 'how-a-dungeon-builds-itself',
+    title: 'How a Dungeon Builds Itself',
+    date: '2026-08-01',
+    tags: ['Procedural Generation', 'Roguelike', 'Interactive'],
+    excerpt:
+      'Seven steps turn a handful of overlapping rectangles into a layout that is connected, loopable, and never strands the player. Take the assembly apart a stage at a time.',
+    readTime: '5 min',
+    body: [
+      { type: 'p', text: 'Most procedural dungeons are built from the same lineage of algorithm, and almost none of the writing about it explains why each step exists. The steps are easy to list. What is harder to see is which decisions actually change how the finished map plays, and which are just bookkeeping.' },
+      { type: 'p', text: 'So this is the algorithm drawn as a technical assembly. Each stage becomes a physical layer, and scrolling takes the layers apart so the structure underneath stays visible. Every shape below is real generator output, so changing the seed rebuilds a genuinely different dungeon rather than reshuffling decoration.' },
+      { type: 'interactive', name: 'dungeon-exploded' },
+      { type: 'h2', text: 'The steps that matter' },
+      { type: 'p', text: 'Two of the seven do most of the work. Selecting rooms by size rather than by count is what ties the finished layout back to the scatter distribution, so a seed still governs how the map feels rather than just where things sit. And adding loops back after the spanning tree is the difference between a dungeon and a corridor: a minimum spanning tree guarantees the map is solvable, but it leaves exactly one path between any two rooms, which gives a player no flanking route, no escape route, and no reason to build a mental map.' },
+      { type: 'p', text: 'The triangulation step is the one most often skipped, and skipping it is why hand-rolled generators produce corridors that cross the entire map to reach a room ten tiles away. Delaunay gives you candidate connections that favour near neighbours before you ever decide which to keep.' },
+      { type: 'h2', text: 'Verification is not optional' },
+      { type: 'p', text: 'The last step is a breadth-first search from the entrance. If a single room is unreachable, the layout is thrown away and the seed regenerated rather than shipped. Generators without that check are the ones that eventually strand a player behind a wall, and the bug surfaces in front of a player instead of in front of the developer.' },
+      { type: 'p', text: 'This generator is the basis for the dungeon half of a game in progress: a tavern by day, a delve by night, where what you kill becomes tomorrow\u2019s menu. More on that when there is something playable to show.' },
+    ],
+  },
+  {
     id: 'building-wincon',
     title: 'Building Wincon',
     date: '2026-07-30',

@@ -78,6 +78,12 @@
   padding: var(--space-12) 0 var(--space-8);
 }
 
+/* prose that resumes after an interactive block should not restate the
+   full top padding */
+.postBodyCont {
+  padding-top: var(--space-8);
+}
+
 .bodyP {
   font-size: 1rem;
   line-height: 1.85;

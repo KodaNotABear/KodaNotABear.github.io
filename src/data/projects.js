@@ -51,7 +51,7 @@ export const projects = [
     studio: 'AKURO STUDIO · League of Legends Analytics',
     role: 'Solo developer',
     period: 'Jul 2026 – Present',
-    status: 'Interactive demo',
+    status: 'Beta',
     tagline: 'A ranked review tool that turns match timelines into a clear coaching focus.',
     description:
       'Wincon reads League of Legends match timelines and finds the habits behind a player\'s results. It produces explainable coaching notes, maps every death, compares laning against the actual opponent, and replays all ten players around the moments worth reviewing.',
@@ -104,11 +104,11 @@ export const projects = [
     studio: 'Backrooms World Type for Minecraft',
     role: 'Solo developer · Open source',
     period: 'Jul 2026 – Present',
-    status: 'Alpha on Modrinth',
+    status: 'Alpha',
     tagline: 'The backrooms as a survival world type, procedural maze included.',
     description:
       'A survival challenge built in Java for NeoForge 1.21.1: a procedural maze generator replaces the overworld with the endless yellow rooms of the backrooms, and the goal is completing vanilla progression from inside them. Rooms are data-driven, authored as structure templates that any datapack can extend. Now in public alpha on Modrinth, open source.',
-    tags: ['Java', 'NeoForge', 'Worldgen', 'Minecraft', 'Alpha'],
+    tags: ['Java', 'NeoForge', 'Worldgen', 'Minecraft'],
     image: '/images/noclip.png?v=3',
     imageFit: 'contain',
     heroImage: '/images/noclip-gameplay.webp',
@@ -118,7 +118,9 @@ export const projects = [
     links: {
       github: 'https://github.com/KodaNotABear/noclip',
       modrinth: 'https://modrinth.com/mod/noclip-backrooms',
+      demo: '/portfolio/noclip#try-it',
     },
+    interactive: 'noclip-plan',
     gallery: ['/images/noclip-large-room.webp'],
     caseStudy: [
       {
@@ -152,7 +154,7 @@ export const projects = [
     tagline: 'A mechanical neural-network datacenter for Minecraft, powered by rotational energy.',
     description:
       'A Create add-on written in Java for Minecraft (NeoForge 1.21.1). Surplus rotational power feeds a mechanical neural-network datacenter: gather data from mobs, train models of them, then run simulations that print their loot with zero spawned entities. A server-friendly answer to entity farm lag, now in beta with the full loop playable.',
-    tags: ['Java', 'NeoForge', 'Create Add-on', 'Minecraft', 'Beta'],
+    tags: ['Java', 'NeoForge', 'Create Add-on', 'Minecraft'],
     image: '/images/create-cognition.png',
     featured: true,
     links: {},
@@ -187,11 +189,11 @@ export const projects = [
     studio: 'AKURO STUDIO',
     role: 'Solo developer',
     period: '2026 – Present',
-    status: 'Prototyping',
+    status: 'In development',
     tagline: 'Solo first-person horror on a derelict space station.',
     description:
       'A first-person horror game built solo in Unity, set on a derelict space station. You move through it on foot, watching for anomalies while the station\'s sensors and upkeep tasks keep pulling your attention away. Early in development.',
-    tags: ['Unity', 'C#', 'Horror', 'First-Person', 'In Development'],
+    tags: ['Unity', 'C#', 'Horror', 'First-Person'],
     image: null,
     featured: false,
     links: {},
@@ -216,7 +218,7 @@ export const projects = [
     studio: 'Sun Devil Motorsports · Formula SAE',
     role: 'Data Acquisition Developer',
     period: 'Jun 2022 – 2025',
-    status: '3 seasons',
+    status: 'Past work',
     tagline: 'Infrared lap timing for a Formula SAE race car.',
     description:
       'Trackside lap timing for ASU\'s Formula SAE racing team. An infrared gate detects the car each lap and feeds the team\'s data acquisition pipeline for on-track performance analysis. Built, tested, and iterated on real race weekends across three seasons.',

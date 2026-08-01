@@ -1,0 +1,149 @@
+.wrap {
+  margin: 8px 0 0;
+}
+
+.frame {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-border);
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 11;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-end;
+  margin-top: 18px;
+}
+
+.ctl {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ctl label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ctl input[type='text'] {
+  background: var(--bg-base);
+  border: 1px solid var(--bg-border);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 7px 10px;
+  width: 140px;
+}
+
+.ctl input[type='text']:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.ghost {
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--bg-border) !important;
+}
+
+.ghost:hover {
+  color: var(--text-primary) !important;
+  border-color: var(--text-muted) !important;
+  opacity: 1 !important;
+}
+
+.controls button {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--fill);
+  color: #141414;
+  border: none;
+  padding: 9px 15px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.controls button:hover {
+  opacity: 0.85;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding-bottom: 8px;
+}
+
+.toggle input {
+  accent-color: var(--accent);
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 14px;
+  min-height: 1.2em;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend i {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+}
+
+.canvas:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 760px) {
+  .canvas {
+    aspect-ratio: 1 / 1;
+  }
+
+  .controls {
+    gap: 14px;
+  }
+}

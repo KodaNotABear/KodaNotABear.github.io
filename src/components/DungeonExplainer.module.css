@@ -1,0 +1,178 @@
+/* Rendered as a direct child of <main>, outside the page container, so it is
+   already full width. No breakout hack needed, and none would be reliable:
+   the prose column it used to sit in is left-aligned, not centred. */
+.wrap {
+  width: 100%;
+  margin: 8px 0;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  align-items: flex-end;
+  /* match .container so the controls line up with the prose column */
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.ctl {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ctl label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ctl input[type='text'] {
+  background: var(--bg-base);
+  border: 1px solid var(--bg-border);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 7px 10px;
+  width: 128px;
+}
+
+.ctl input[type='text']:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.controls button {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--fill);
+  color: #141414;
+  border: none;
+  padding: 9px 15px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.controls button:hover {
+  opacity: 0.85;
+}
+
+.hint {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding-bottom: 10px;
+}
+
+/* scrollytelling: the drawing pins while the stage copy scrolls past it */
+.track {
+  position: relative;
+  margin-top: 24px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 0;
+}
+
+.stage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.stage:active {
+  cursor: grabbing;
+}
+
+/* pulled up over the sticky canvas so the cards read as an overlay column */
+.beats {
+  position: relative;
+  margin-top: -100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.beat {
+  min-height: 96vh;
+  display: flex;
+  align-items: center;
+  padding-left: 4vw;
+}
+
+.card {
+  pointer-events: auto;
+  max-width: 340px;
+  background: rgba(21, 21, 22, 0.9);
+  border: 1px solid var(--bg-border);
+  border-left: 2px solid var(--bg-border);
+  padding: 22px 24px;
+  backdrop-filter: blur(8px);
+  opacity: 0.34;
+  transition: opacity 0.35s ease, border-left-color 0.35s ease;
+}
+
+.cardOn {
+  opacity: 1;
+  border-left-color: var(--accent);
+}
+
+.cardNum {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 9px;
+}
+
+.cardNum span {
+  color: var(--text-muted);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.02;
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  margin-bottom: 11px;
+}
+
+.cardBody {
+  color: var(--text-secondary);
+  font-size: 14.2px;
+  line-height: 1.6;
+}
+
+/* below the split point the canvas sits above the copy instead of behind it */
+@media (max-width: 980px) {
+  .sticky {
+    height: 62vh;
+  }
+
+  .beats {
+    margin-top: 0;
+  }
+
+  .beat {
+    min-height: auto;
+    padding: 22px 18px 0;
+  }
+
+  .card {
+    max-width: none;
+    opacity: 1;
+    backdrop-filter: none;
+  }
+}

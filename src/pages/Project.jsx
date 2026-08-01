@@ -4,6 +4,7 @@ import { getProject, nextProject } from '../data/projects'
 import { statusVariant } from '../utils/status'
 import { GitHubIcon, ItchIcon, ModrinthIcon } from '../components/Icons'
 import NotFound from './NotFound'
+import { getInteractive } from '../components/interactive'
 import styles from './Project.module.css'
 
 export default function Project() {
@@ -28,6 +29,7 @@ export default function Project() {
     heroAlt = title,
     links,
     gallery = [],
+    interactive = null,
     caseStudy = [],
   } = project
 
@@ -141,6 +143,20 @@ export default function Project() {
                 )}
               </motion.div>
             ))}
+
+            {getInteractive(interactive) && (
+              <motion.div
+                id="try-it"
+                className={styles.section}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className={styles.sectionTitle}><span>*</span> Try it</h2>
+                {(() => { const Piece = getInteractive(interactive); return <Piece /> })()}
+              </motion.div>
+            )}
 
             {gallery.length > 0 && (
               <motion.div

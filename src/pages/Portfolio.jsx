@@ -33,7 +33,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
           >
-            <p className={styles.eyebrow}>my work</p>
+            <p className={styles.eyebrow}>selected work</p>
             <h1 className="section-title">Portfolio</h1>
             <p className={styles.subtitle}>
               Game projects, plus engineering work from along the way.
