@@ -118,9 +118,13 @@ export const projects = [
     links: {
       github: 'https://github.com/KodaNotABear/noclip',
       modrinth: 'https://modrinth.com/mod/noclip-backrooms',
-      demo: '/portfolio/noclip#try-it',
+      demo: '/portfolio/noclip#generator',
+      // not "demo": this explains the generator, it is not a playable build of
+      // the mod, and Minecraft itself is obviously not distributed here
+      demoLabel: 'See how it generates',
     },
     interactive: 'noclip-plan',
+    interactiveHeading: 'How the generator works',
     gallery: ['/images/noclip-large-room.webp'],
     caseStudy: [
       {

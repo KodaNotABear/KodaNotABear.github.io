@@ -94,6 +94,7 @@ export default function NoclipPlan() {
         <li><i style={{ background: '#9d9260' }} />Warehouse pillar, 23 blocks</li>
         <li><i style={{ background: '#9c8d5c' }} />Small room template</li>
         <li><i style={{ background: '#3d3524' }} />Big room template</li>
+        <li><i style={{ background: '#4c7dff' }} />Doorway</li>
         <li><i style={{ background: '#46d39a' }} />Traced route</li>
         <li><i style={{ background: '#332f24' }} />Open halls</li>
         <li><i style={{ background: '#2b2820' }} />Corridor maze</li>

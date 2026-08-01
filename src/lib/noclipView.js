@@ -26,6 +26,10 @@ const WAREHOUSE_H = 2.6
 const PILLAR = 0.26
 const PROP_H = 0.2
 const PATH_Y = 0.07
+const DOOR_Y = 0.03
+// cells within a chunk resolve in sequence rather than together, so a single
+// chunk's walls and doorways are legible as they appear
+const CELL_LAG = 0.55
 
 // ms per unit of build time; the build reads as construction rather than a
 // flicker, so it is deliberately unhurried
@@ -47,6 +51,8 @@ const C = {
   propTop: '#9c8d5c',
   floorRoom: '#3d3524',
   path: '#46d39a',
+  door: '#4c7dff',
+  active: '#4c7dff',
   text: '#ececec',
   muted: '#5a5a5c',
   accent: '#4c7dff',
@@ -68,7 +74,7 @@ export function createNoclipView(canvas) {
     t: 0,
     pathT: 0,
     stagger: 1,
-    rise: 6,
+    rise: 3.6,
     showZones: true,
     hover: null,
   }
@@ -117,13 +123,23 @@ export function createNoclipView(canvas) {
   const cellAt = (cx, cz) =>
     region.cells[(cz - region.originZ) * region.cols + (cx - region.originX)]
 
-  /** 0 to 1 build progress for the chunk this cell belongs to. */
+  const CHUNK_SPAN = () => state.rise + (CHUNK_CELLS * CHUNK_CELLS - 1) * CELL_LAG
+
+  /** 0 to 1 build progress for one cell, lagged within its chunk. */
   function progressOf(cx, cz) {
     const ax = Math.floor(cx / CHUNK_CELLS) * CHUNK_CELLS
     const az = Math.floor(cz / CHUNK_CELLS) * CHUNK_CELLS
     const k = orderIndex.get(chunkKey(ax, az))
     if (k === undefined) return 0
-    return clamp01((state.t - k * state.stagger) / state.rise)
+    const sub = (cx - ax + (cz - az) * CHUNK_CELLS) * CELL_LAG
+    return clamp01((state.t - k * state.stagger - sub) / state.rise)
+  }
+
+  /** 0 to 1 for the chunk as a whole, used to flag the one resolving now. */
+  function chunkProgress(ax, az) {
+    const k = orderIndex.get(chunkKey(ax, az))
+    if (k === undefined) return 0
+    return clamp01((state.t - k * state.stagger) / CHUNK_SPAN())
   }
 
   function fit(w, h) {
@@ -167,11 +183,19 @@ export function createNoclipView(canvas) {
   function pushWall(out, opening, x1, z1, x2, z2, y, lit) {
     if (opening === OPEN) return
     if (opening === SOLID) return pushPanel(out, x1, z1, x2, z2, y, lit)
-    // DOOR: leave a gap in the middle so the opening is legible in silhouette
+    // DOOR: leave a gap in the middle so the opening is legible in silhouette,
+    // plus a threshold on the floor. Without it a doorway and a fully OPEN
+    // segment look identical from above, and they are different states.
     const dx = x2 - x1
     const dz = z2 - z1
     pushPanel(out, x1, z1, x1 + dx * 0.32, z1 + dz * 0.32, y, lit)
     pushPanel(out, x2 - dx * 0.32, z2 - dz * 0.32, x2, z2, y, lit)
+    pushLine(
+      out,
+      x1 + dx * 0.32, z1 + dz * 0.32,
+      x1 + dx * 0.68, z1 + dz * 0.68,
+      DOOR_Y, C.door, Math.max(1.2, view.scale * 0.06)
+    )
   }
 
   function pushLine(out, x1, z1, x2, z2, y, color, width) {
@@ -316,6 +340,28 @@ export function createNoclipView(canvas) {
           line(region.originX, cz, region.originX + region.cols, cz)
         }
       }
+    }
+
+    // the chunk resolving right now, so the eye has somewhere to land
+    for (const key of orderIndex.keys()) {
+      const [ax, az] = key.split(',').map(Number)
+      const p = chunkProgress(ax, az)
+      if (p <= 0.02 || p >= 0.98) continue
+      ctx.strokeStyle = C.active
+      ctx.lineWidth = 1.4
+      ctx.globalAlpha = Math.sin(p * Math.PI)
+      const c = [
+        project(ax, az, 0.02),
+        project(ax + CHUNK_CELLS, az, 0.02),
+        project(ax + CHUNK_CELLS, az + CHUNK_CELLS, 0.02),
+        project(ax, az + CHUNK_CELLS, 0.02),
+      ]
+      ctx.beginPath()
+      ctx.moveTo(c[0].sx, c[0].sy)
+      for (let i = 1; i < 4; i++) ctx.lineTo(c[i].sx, c[i].sy)
+      ctx.closePath()
+      ctx.stroke()
+      ctx.globalAlpha = 1
     }
 
     // Standing geometry, sorted as PIECES by their own centre rather than by

@@ -30,6 +30,7 @@ export default function Project() {
     links,
     gallery = [],
     interactive = null,
+    interactiveHeading = 'Try it',
     caseStudy = [],
   } = project
 
@@ -146,14 +147,14 @@ export default function Project() {
 
             {getInteractive(interactive) && (
               <motion.div
-                id="try-it"
+                id="generator"
                 className={styles.section}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className={styles.sectionTitle}><span>*</span> Try it</h2>
+                <h2 className={styles.sectionTitle}><span>*</span> {interactiveHeading}</h2>
                 {(() => { const Piece = getInteractive(interactive); return <Piece /> })()}
               </motion.div>
             )}
