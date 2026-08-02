@@ -60,7 +60,7 @@ export const projects = [
     featured: true,
     links: {
       github: 'https://github.com/KodaNotABear/wincon',
-      demo: '/wincon/',
+      demo: 'https://wincon.akuro.studio',
     },
     gallery: ['/images/wincon-replay.png'],
     caseStudy: [
@@ -77,7 +77,7 @@ export const projects = [
           'A rate-limited Riot API client caches immutable match and timeline responses locally.',
           'Pure TypeScript analysis compares CS, gold, and XP against the actual lane opponent at 10 and 14 minutes.',
           'Death position, game phase, objective credit, vision, champion pool, momentum, and win-loss gaps feed explainable coaching rules.',
-          'The public demo combines an anonymized showcase match with seeded history, preserving a real replay without exposing Riot IDs, PUUIDs, summoner IDs, the original match ID, or an API key.',
+          'The hosted version runs the same pipeline as a public service: anyone can look up a Riot ID, with per-IP rate limits, one sync at a time, and a capped on-disk cache, while the API key stays server-side.',
         ],
       },
       {
