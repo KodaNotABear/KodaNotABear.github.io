@@ -24,7 +24,7 @@ const TIMELINE = [
     date: '2026 – Present',
     title: 'Independent Projects',
     org: 'AKURO STUDIO',
-    desc: 'Built Wincon, a tested TypeScript and React coaching tool with animated League of Legends match replays, and open-sourced Noclip, a procedural Minecraft world type written in Java.',
+    desc: 'Designing and shipping personal projects under one label — web tools, procedural generation experiments, and game mods, most of them open source.',
     color: 'var(--accent-3)',
   },
   {
@@ -153,9 +153,9 @@ export default function About() {
               <div className={styles.sectionBlock}>
                 <h2>AKURO STUDIO</h2>
                 <p>
-                  AKURO STUDIO is the label for personal projects, including
-                  Wincon and the Minecraft mods. It gives the work a shared
-                  home while each project grows on its own.
+                  AKURO STUDIO is the label my personal projects ship under.
+                  It gives the work a shared home while each project grows
+                  on its own.
                 </p>
               </div>
 
