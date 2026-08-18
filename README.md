@@ -37,7 +37,8 @@ The site has a few secrets. Try the Konami code, or press `?` to see what else i
 ```
 src/
   components/   # shared UI + easter eggs (snake, d20, text adventure...)
-  data/         # projects and devlog posts. edit these to add content
+  data/         # projects data. edit these to add content
+  posts/        # devlog posts as markdown (see _template.md; draft at /editor in dev)
   pages/        # one component per route
   styles/       # global design tokens and base styles
 scripts/        # build-time asset generation (og image, card art)

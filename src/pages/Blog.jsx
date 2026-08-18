@@ -59,7 +59,7 @@ export default function Blog() {
 
         <div className={styles.comingSoon}>
           <div className={styles.comingSoonIcon}><PenIcon size={36} /></div>
-          <h2>More posts coming soon</h2>
+          <h2>{posts.length ? 'More posts coming soon' : 'First post coming soon'}</h2>
           <p>
             I'll be writing regularly about Unity, game design, and the
             AKURO STUDIO development process.

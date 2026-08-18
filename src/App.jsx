@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
@@ -22,6 +23,10 @@ import Card from './pages/Card'
 import Credits from './pages/Credits'
 import NotFound from './pages/NotFound'
 
+// Markdown drafting editor, dev server only — the false branch is dead code
+// in production builds, so the page and its route never ship.
+const Editor = import.meta.env.DEV ? lazy(() => import('./pages/Editor')) : null
+
 // AnimatedRoutes must live inside BrowserRouter so useLocation works
 function AnimatedRoutes() {
   const location = useLocation()
@@ -38,6 +43,9 @@ function AnimatedRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/card" element={<Card />} />
         <Route path="/credits" element={<Credits />} />
+        {Editor && (
+          <Route path="/editor" element={<Suspense fallback={null}><Editor /></Suspense>} />
+        )}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

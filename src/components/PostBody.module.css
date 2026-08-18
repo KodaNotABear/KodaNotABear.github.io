@@ -1,0 +1,77 @@
+/* Article body — shared between the devlog post page and the editor preview */
+.postBody {
+  max-width: 720px;
+  padding: var(--space-12) 0 var(--space-8);
+}
+
+/* prose that resumes after an interactive block should not restate the
+   full top padding */
+.postBodyCont {
+  padding-top: var(--space-8);
+}
+
+.bodyP {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.bodyP code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-border);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+}
+
+.bodyP a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.bodyP a:hover { opacity: 0.8; }
+
+.bodyP strong { color: var(--text-primary); font-weight: 600; }
+
+.bodyH2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-4);
+}
+
+.bodyH3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-3);
+}
+
+/* Images and looping clips */
+.media {
+  margin: var(--space-8) 0;
+}
+
+.media img,
+.media video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--bg-border);
+  border-radius: 6px;
+}
+
+.media figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin-top: var(--space-3);
+}

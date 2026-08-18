@@ -1,7 +1,13 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { getPrerenderRoutes, getRouteMeta, siteUrl } from '../src/data/siteMeta.js'
+import { createServer } from 'vite'
+
+// siteMeta.js pulls in posts.js, which loads markdown posts via
+// import.meta.glob — a Vite feature plain Node cannot resolve. Load the
+// module through a throwaway Vite dev server instead of importing it.
+const vite = await createServer({ server: { middlewareMode: true }, logLevel: 'error' })
+const { getPrerenderRoutes, getRouteMeta, siteUrl } = await vite.ssrLoadModule('/src/data/siteMeta.js')
 
 const root = dirname(fileURLToPath(new URL('../package.json', import.meta.url)))
 const distDir = join(root, 'dist')
@@ -46,4 +52,5 @@ for (const route of routes) {
   await writeFile(outputPath, htmlForRoute(indexHtml, cleanRoute))
 }
 
+await vite.close()
 console.log(`Generated ${routes.length} route entry pages.`)

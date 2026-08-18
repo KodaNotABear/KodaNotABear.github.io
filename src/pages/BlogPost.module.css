@@ -72,42 +72,8 @@
   margin-bottom: var(--space-12);
 }
 
-/* Article body */
-.postBody {
-  max-width: 720px;
-  padding: var(--space-12) 0 var(--space-8);
-}
-
-/* prose that resumes after an interactive block should not restate the
-   full top padding */
-.postBodyCont {
-  padding-top: var(--space-8);
-}
-
-.bodyP {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--text-secondary);
-  margin-bottom: var(--space-6);
-}
-
-.bodyH2 {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-top: var(--space-10);
-  margin-bottom: var(--space-4);
-}
-
-.bodyH3 {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-3);
-}
+/* Article body styles live in components/PostBody.module.css, shared with
+   the editor preview */
 
 .footer {
   padding: var(--space-8) 0 var(--space-16);
